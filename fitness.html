@@ -13,11 +13,8 @@
       display: flex;
       flex-direction: column;
       color: #14532d;
-      /* 粉綠童話漸層背景 */
       background: radial-gradient(circle at top, #fce7f3 0%, #ecfdf5 40%, #e0f2fe 100%);
     }
-
-    /* ✨ HEADER：粉綠健康 + 一點魔法 */
 
     header {
       padding: 26px 16px 18px;
@@ -56,23 +53,13 @@
       animation: sparkle 4.2s infinite ease-in-out;
     }
 
-    header::before {
-      top: 16px;
-      left: 14%;
-    }
-
-    header::after {
-      top: 36px;
-      right: 12%;
-      animation-delay: 1.3s;
-    }
+    header::before { top: 16px; left: 14%; }
+    header::after { top: 36px; right: 12%; animation-delay: 1.3s; }
 
     @keyframes sparkle {
       0%,100% { transform: scale(1) translateY(0); opacity: 0.5; }
       50% { transform: scale(1.4) translateY(-3px); opacity: 1; }
     }
-
-    /* ✨ NAV */
 
     .nav {
       margin-top: 12px;
@@ -105,8 +92,6 @@
       color: #064e3b;
       box-shadow: 0 4px 14px rgba(34,197,94,0.9);
     }
-
-    /* ✨ MAIN */
 
     main {
       max-width: 980px;
