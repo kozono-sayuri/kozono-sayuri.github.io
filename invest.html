@@ -2,116 +2,272 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kozono Sayuri · 投資筆記</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kozono Sayuri - Invest Notes</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "微軟正黑體", sans-serif;
-      background: radial-gradient(circle at top left, #fff9e6, #fff3b0, #ffe17a);
-      color: #444;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #fff7da 0%, #fff3c4 40%, #fffaf0 100%);
+      color: #433020;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
     }
+
+    /* ✨ HEADER：和其他頁同風格，只換成金黃色系 */
 
     header {
-      width: 100%;
+      padding: 26px 16px 18px;
       text-align: center;
-      padding: 60px 20px 30px;
-      background: linear-gradient(180deg, #fff6b8 0%, #ffe78f 60%, #fff4c2 100%);
-      color: #704c00;
-      box-shadow: 0 4px 20px rgba(255, 217, 102, 0.4);
+      background: linear-gradient(135deg, #3f2e0a, #fbbf24, #fde68a);
+      color: #fff7dc;
+      box-shadow: 0 4px 18px rgba(148, 93, 0, 0.55);
       position: relative;
+      overflow: hidden;
     }
 
-    header h1 {
-      font-size: 2.2em;
-      letter-spacing: 1px;
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 6px 0 2px;
       font-weight: 700;
-      text-shadow: 0 0 6px rgba(255,255,255,0.9);
+      letter-spacing: 0.02em;
+      text-shadow: 0 0 10px rgba(255, 223, 138, 0.9);
     }
 
-    header .sub {
-      font-size: 1em;
-      margin-top: 8px;
-      opacity: 0.8;
+    .sub {
+      font-size: 11px;
+      opacity: 0.92;
     }
 
-    nav {
-      margin-top: 25px;
+    /* 小金光點，不擋字 */
+    header::before,
+    header::after {
+      content: "✦";
+      position: absolute;
+      font-size: 22px;
+      color: rgba(254, 249, 195, 0.9);
+      animation: sparkle 4.5s infinite ease-in-out;
+    }
+    header::before { top: 18px; left: 14%; }
+    header::after  { top: 40px; right: 12%; animation-delay: 1.6s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1); opacity: 0.4; }
+      50%     { transform: scale(1.5); opacity: 1; }
+    }
+
+    /* ✨ NAV：和其他頁一樣的 pill 風格 */
+
+    .nav {
+      margin-top: 12px;
       display: flex;
       justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(63, 46, 10, 0.25);
+      color: #fff7dc;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(253, 224, 171, 0.45);
+    }
+
+    .nav a:hover {
+      background: #facc15;
+      color: #3f2e0a;
+      box-shadow: 0 4px 12px rgba(250, 204, 21, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #facc15;
+      color: #3f2e0a;
+      box-shadow: 0 4px 14px rgba(250, 204, 21, 1);
+    }
+
+    /* ✨ MAIN：沿用其他頁卡片樣式，只調成金色 */
+
+    main {
+      max-width: 980px;
+      width: 100%;
+      margin: 26px auto 34px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    .intro-card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 22px;
+      padding: 18px 18px 14px;
+      margin-bottom: 16px;
+      box-shadow: 0 14px 40px rgba(148, 93, 0, 0.25);
+      border: 1px solid rgba(253, 224, 171, 0.96);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #433020;
+    }
+
+    .intro-card::before {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle, rgba(252, 211, 77, 0.32), transparent);
+      top: -40px;
+      right: -24px;
+    }
+
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background: radial-gradient(circle, rgba(254, 243, 199, 0.6), transparent);
+      bottom: -24px;
+      left: -16px;
+    }
+
+    .intro-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .intro-sub {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .tags {
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 10px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 10px 2px 4px;
+      color: #92400e;
+    }
+
+    .section-note {
+      font-size: 11px;
+      color: #6b7280;
+      margin: 0 2px 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 10px;
     }
 
-    nav a {
-      padding: 8px 16px;
-      background: #fff9d9;
-      border-radius: 20px;
-      text-decoration: none;
-      color: #704c00;
-      font-weight: 500;
-      transition: all 0.3s;
-      box-shadow: 0 2px 5px rgba(255, 223, 70, 0.4);
-    }
-
-    nav a:hover, nav a.active {
-      background: #ffec91;
-      box-shadow: 0 0 10px rgba(255, 224, 110, 0.8);
-      transform: translateY(-2px);
-    }
-
-    main {
-      max-width: 900px;
-      margin: 50px auto;
-      background: #fffef7;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(255, 220, 100, 0.3);
-      padding: 40px 30px;
-      text-align: center;
-    }
-
-    h2 {
-      color: #a87a00;
-      margin-bottom: 20px;
-      font-size: 1.6em;
-      text-shadow: 0 0 4px rgba(255,255,255,0.6);
-    }
-
-    p {
-      margin: 15px 0;
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 10px 11px 9px;
+      font-size: 12px;
       line-height: 1.8;
-      font-size: 1.05em;
+      box-shadow: 0 8px 22px rgba(148, 93, 0, 0.08);
+      border: 1px solid rgba(253, 230, 138, 0.96);
+      position: relative;
+      overflow: hidden;
+      color: #433020;
     }
 
-    .highlight {
-      background: linear-gradient(90deg, #fffbcc, #fff0a8);
-      padding: 6px 10px;
-      border-radius: 8px;
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, rgba(252, 211, 77, 0.22), transparent);
+      top: -18px;
+      right: -16px;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #fef3c7;
+      color: #92400e;
+      margin-bottom: 2px;
+    }
+
+    .title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .text {
+      color: #5b4330;
+    }
+
+    .hint {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    a.link {
+      font-size: 11px;
+      color: #ea580c;
+      text-decoration: none;
+    }
+
+    a.link:hover {
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
-      padding: 30px 0;
-      font-size: 0.9em;
-      color: #a78b3a;
-      opacity: 0.8;
+      font-size: 10px;
+      color: #a16207;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 20px; }
+      .intro-card { padding: 14px 12px 10px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>投資筆記 ✨</h1>
-    <div class="sub">Finance · Accounting · Mindset · Golden Routine</div>
-    <nav>
+    <div class="topline">INVEST ROOM ✦ GOLDEN NOTES & STRATEGY</div>
+    <h1>Invest Notes</h1>
+    <div class="sub">Finance・Accounting・Mindset・Golden Routine，以溫柔紀律面對市場。</div>
+
+    <nav class="nav">
       <a href="index.html">Home</a>
       <a href="music.html">Music</a>
       <a href="worklife.html">Work Life</a>
@@ -121,14 +277,56 @@
   </header>
 
   <main>
-    <h2>📒 Welcome to Sayuri's Investment Notes</h2>
-    <p>這裡是我的理財小天地。紀錄每一筆決策、每一段等待、每一次風險與機會。</p>
-    <p>投資不只是數字遊戲，更是<span class="highlight">思考與耐心的修煉</span>。</p>
-    <p>未來將陸續整理：ETF 策略、產業研究、財報閱讀筆記，以及心理調適小語。</p>
+    <section class="intro-card">
+      <div class="intro-title">📒 Welcome to Sayuri's Investment Notes</div>
+      <div class="intro-sub">
+        這裡不是「明牌分享站」，而是紀錄思考、風險感覺與紀律的地方。
+      </div>
+      <p>
+        我會把看過的產業、ETF、個股邏輯與錯誤，寫成黃金色的小卡。
+        <br>
+        <span class="tag">重視現金流</span>
+        <span class="tag">不追短線新聞</span>
+        <span class="tag">理解風險再進場</span>
+        <span class="tag">寫給未來的自己看</span>
+      </p>
+    </section>
+
+    <div class="section-title">🌞 策略快照（示意，之後可連到詳細文章）</div>
+    <div class="section-note">先用幾張卡片占位，等妳有實際內容，我們可以把它們改成連到 Notion / Blog / PDF。</div>
+
+    <section class="grid">
+      <article class="card">
+        <div class="label">ETF 策略</div>
+        <div class="title">核心＋衛星配置</div>
+        <div class="text">
+          核心用全球或大型市場 ETF 撐住底氣，衛星少量放成長、主題或高股息。
+          目標是「睡得著」而不是每天盯盤。
+        </div>
+        <div class="hint">之後可放實際標的與比例說明。</div>
+      </article>
+
+      <article class="card">
+        <div class="label">個股 / 產業</div>
+        <div class="title">買自己看得懂的生意</div>
+        <div class="text">
+          從財報、商業模式、護城河去理解公司，而不是只看社群聲量。
+          把分析寫成故事，幫助自己記住邏輯。
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="label">Mindset</div>
+        <div class="title">黃金心態備忘錄</div>
+        <div class="text">
+          不梭哈、不 FOMO、不因一兩天漲跌質疑整個策略。
+          把情緒寫進筆記裡，而不是寫在下單鍵上。
+        </div>
+        <div class="hint">這格可以放「投資心情日記」或「給自己的規則」。</div>
+      </article>
+    </section>
   </main>
 
-  <footer>
-    © 2025 Kozono Sayuri. All rights reserved.
-  </footer>
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
 </body>
 </html>
