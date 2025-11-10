@@ -215,4 +215,136 @@
       content: "";
       position: absolute;
       width: 70px;
-      heig
+      height: 70px;
+      background: radial-gradient(circle, rgba(167,243,208,0.26), transparent);
+      top: -18px;
+      right: -16px;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #15803d;
+      margin-bottom: 2px;
+    }
+
+    .title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .text {
+      color: #166534;
+    }
+
+    ul {
+      margin: 4px 0 0;
+      padding-left: 16px;
+    }
+
+    .hint {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #6b7280;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 20px; }
+      .intro-card { padding: 14px 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">FITNESS ✦ FOOD ✦ FAIRY-LIKE DISCIPLINE</div>
+    <h1>Fitness & Food Log</h1>
+    <div class="sub">
+      把身體照顧好，當成一個長期企劃：溫柔、穩定、有紀律，但一樣是閃亮童話風。
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="music.html">Music</a>
+      <a href="worklife.html">Work Life</a>
+      <a href="fitness.html" class="active">Fitness</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-card">
+      <div class="intro-title">🥗 Welcome to the Pink & Mint Gym</div>
+      <div class="intro-sub">
+        不賣焦慮、不賣速成。這裡記錄一個會吐槽世界、也願意認真愛自己身體的女生，怎麼慢慢變強。
+      </div>
+      <p>
+        會放：運動紀錄、飲食原則、心情備註，還有失敗日。
+        因為真實的人生本來就有加油站跟撞牆期，而不是只有「完美打卡」。
+      </p>
+      <div class="tags">
+        <div class="tag">重量訓練</div>
+        <div class="tag">有氧散步 / 跑步機</div>
+        <div class="tag">高蛋白甜點</div>
+        <div class="tag">身心都要被好好對待</div>
+      </div>
+    </section>
+
+    <div class="section-title">📅 Weekly Flow（示意，可照妳真實狀況改）</div>
+    <div class="section-note">
+      之後妳可以把這裡改成真實週計畫、體態變化、或連結到 Notion / Excel 紀錄。
+    </div>
+
+    <section class="grid">
+      <article class="card">
+        <div class="label">Workout Plan</div>
+        <div class="title">力量日 · 上半身 & 核心</div>
+        <div class="text">
+          推、拉、肩、核心各選 2～3 個動作，專心把動作做穩，不求重只是比昨天好一點點。
+          <ul>
+            <li>啞鈴推舉 / 划船</li>
+            <li>側平舉 / 下拉</li>
+            <li>腹部核心 2 組</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="label">Cardio & Steps</div>
+        <div class="title">溫柔有氧日</div>
+        <div class="text">
+          不虐待自己，只是讓心跳上來一點：
+          <ul>
+            <li>快走 30 分鐘 或 輕鬆跑步機</li>
+            <li>搭配喜歡的歌單或自己的作品 Demo</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="label">Food Notes</div>
+        <div class="title">粉綠食物原則</div>
+        <div class="text">
+          多一點蛋白質、多一點蔬菜、水要足夠。飲料偶爾可以甜，但知道自己在選。
+          <ul>
+            <li>每餐看得見蛋白質來源</li>
+            <li>含糖飲料改成「想喝時有意識喝」</li>
+            <li>不因為失誤一天就放棄整週</li>
+          </ul>
+        </div>
+        <div class="hint">之後可放實拍照片或食譜連結。</div>
+      </article>
+    </section>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
