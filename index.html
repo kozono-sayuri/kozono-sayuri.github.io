@@ -3,45 +3,302 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kozono Sayuri</title>
+  <title>Kozono Sayuri / YaoJing</title>
   <style>
-    body {
-      font-family: "Noto Sans TC", system-ui, sans-serif;
-      background: linear-gradient(135deg, #f9f5ff 0%, #e0e7ff 100%);
-      color: #333;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #ffe6ff 0%, #fdf5ff 35%, #f6f7ff 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ✨ 上方粉色 header 區 */
+
+    header {
+      width: 100%;
+      padding: 40px 20px 48px;
+      background: linear-gradient(135deg, #111827 0%, #2b233d 40%, #ff8fd1 100%);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before,
+    header::after {
+      content: "✦";
+      position: absolute;
+      font-size: 26px;
+      color: rgba(255, 255, 255, 0.45);
+      animation: sparkle 4s infinite ease-in-out;
+    }
+
+    header::before {
+      top: 18px;
+      left: 16%;
+    }
+
+    header::after {
+      top: 40px;
+      right: 14%;
+      animation-delay: 1.2s;
+    }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1) translateY(0); opacity: 0.4; }
+      50% { transform: scale(1.4) translateY(-4px); opacity: 1; }
+    }
+
+    .tagline {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 6px;
+    }
+
+    .sub {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    /* ✨ 中央卡片區 */
+
+    main {
+      width: 100%;
+      max-width: 980px;
+      padding: 0 16px 40px;
+      margin-top: -34px;
+      /* 往上疊在 header 下緣，製造卡片浮起來的感覺 */
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 26px;
+      padding: 26px 22px 22px;
+      box-shadow:
+        0 18px 50px rgba(255, 182, 222, 0.35),
+        0 4px 14px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 203, 238, 0.7);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(255,192,203,0.35), transparent);
+      top: -40px;
+      right: -30px;
+      opacity: 0.9;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background: radial-gradient(circle, rgba(164, 216, 255, 0.32), transparent);
+      bottom: -24px;
+      left: -10px;
+      opacity: 0.9;
+    }
+
+    .hello {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .title span {
+      font-size: 18px;
+    }
+
+    .desc {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 14px;
+      line-height: 1.8;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .chip {
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: linear-gradient(135deg, #ffe7f7, #ffd9ff);
+      color: #c02c74;
+      box-shadow: 0 2px 6px rgba(255, 158, 206, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .chip span {
+      font-size: 12px;
+    }
+
+    /* ✨ 按鈕 & 連結 */
+
+    .links {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      color: #ffffff;
+      background: linear-gradient(135deg, #ff9ad5, #ff70b8);
+      box-shadow: 0 5px 14px rgba(255, 120, 190, 0.65);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    a.btn span.icon {
+      font-size: 15px;
+    }
+
+    a.btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 9px 24px rgba(255, 120, 190, 0.8);
+      background: linear-gradient(135deg, #ffb4e4, #ff78c2);
+    }
+
+    .hint {
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    /* ✨ 底部 */
+
+    footer {
+      margin-top: auto;
+      padding: 14px 0 18px;
+      font-size: 10px;
+      color: #9ca3af;
       text-align: center;
     }
-    header {
-      background: #111827;
-      color: #fff;
-      padding: 60px 20px;
+
+    /* RWD */
+    @media (max-width: 600px) {
+      header {
+        padding: 30px 16px 40px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      .sub {
+        font-size: 11px;
+      }
+      .card {
+        padding: 22px 16px 18px;
+        border-radius: 22px;
+      }
+      .desc {
+        font-size: 13px;
+      }
+      a.btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
-    header h1 { font-size: 2.2rem; margin-bottom: 10px; }
-    main {
-      margin: 40px auto;
-      max-width: 800px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      padding: 32px;
-    }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer { margin: 40px 0 20px; font-size: 12px; color: #6b7280; }
   </style>
 </head>
 <body>
   <header>
+    <div class="tagline">OFFICIAL LITTLE UNIVERSE ✦ FAN-LIKE CUTE VIBES</div>
     <h1>Kozono Sayuri / YaoJing</h1>
-    <p>Finance · Creative · AI Music · Storytelling</p>
+    <div class="sub">Finance · Creative · AI Music · Storytelling · For My Lovely Listeners & Friends</div>
   </header>
+
   <main>
-    <h2>👋 Welcome</h2>
-    <p>這是我的主網站首頁，點下方連結可前往各個專案頁。</p>
-    <p><a href="https://kozono-sayuri.github.io/KozonoSayuri/">→ 作品頁 (KozonoSayuri Project)</a></p>
+    <section class="card">
+      <div class="hello">🌸 Hi, welcome to my pink shiny corner.</div>
+      <div class="title">
+        <span>🩷</span> <strong>Sayuri 的小宇宙</strong> <span>✨</span>
+      </div>
+      <p class="desc">
+        這裡像給粉絲看的個人首頁：一點日系、一點夢幻、一點真實生活。
+        會慢慢放上：AI 音樂實驗、MV、插畫世界觀、投資與會計筆記，還有專屬故事。
+      </p>
+
+      <div class="chips">
+        <div class="chip"><span>🎵</span> AI Music & MV</div>
+        <div class="chip"><span>📖</span> Storytelling World</div>
+        <div class="chip"><span>💹</span> Finance / Accounting Life</div>
+        <div class="chip"><span>✨</span> Pink & Soft & Shiny</div>
+      </div>
+
+      <div class="links">
+        <a class="btn" href="https://kozono-sayuri.github.io/KozonoSayuri/">
+          <span class="icon">🌈</span>
+          <span>進入作品專區 (KozonoSayuri Project)</span>
+        </a>
+        <!-- 未來要加 IG / YouTube / Blog，只要解除註解改連結即可 -->
+        <!--
+        <a class="btn" href="https://your-link-here">
+          <span class="icon">📺</span>
+          <span>YouTube / MV</span>
+        </a>
+        <a class="btn" href="https://your-link-here">
+          <span class="icon">📷</span>
+          <span>Instagram</span>
+        </a>
+        -->
+      </div>
+
+      <div class="hint">（之後可以把這裡當作粉絲入口，往各個世界觀和平台延伸 💫）</div>
+    </section>
   </main>
-  <footer>© 2025 Kozono Sayuri All rights reserved.</footer>
+
+  <footer>
+    © 2025 Kozono Sayuri. All rights reserved.
+  </footer>
 </body>
 </html>
+
