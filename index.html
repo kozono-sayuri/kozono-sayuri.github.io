@@ -247,13 +247,47 @@
         justify-content: center;
       }
     }
+    .nav {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  color: #ffe6ff;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.nav a:hover {
+  background: #ff9ad5;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+  transform: translateY(-1px);
+}
+
   </style>
 </head>
 <body>
   <header>
     <div class="tagline">OFFICIAL LITTLE UNIVERSE ✦ FAN-LIKE CUTE VIBES</div>
     <h1>Kozono Sayuri</h1>
-    <div class="sub">Finance · Creative · AI Music · Storytelling · For My Lovely Listeners & Friends</div>
+    <div class="sub">Finance・Creative・AI Music・Storytelling・For My Lovely Listeners & Friends</div>
+
+<!-- 🔽 在這裡插入導覽列 🔽 -->
+<nav class="nav">
+  <a href="index.html">Home</a>
+  <a href="music.html">Music</a>
+  <a href="worklife.html">Work Life</a>
+  <a href="fitness.html">Fitness</a>
+</nav>
+<!-- 🔼 導覽列結束 🔼 -->
   </header>
 
   <main>
