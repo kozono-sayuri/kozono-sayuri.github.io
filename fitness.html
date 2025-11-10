@@ -53,8 +53,26 @@
       animation: sparkle 4.2s infinite ease-in-out;
     }
 
-    header::before { top: 16px; left: 14%; }
-    header::after { top: 36px; right: 12%; animation-delay: 1.3s; }
+     /* ✨ header 星星群 */
+     header span.star {
+       position: absolute;
+       font-size: 22px;
+       color: rgba(209, 250, 229, 0.8);
+       animation: sparkle 4.5s infinite ease-in-out;
+       text-shadow: 0 0 6px rgba(255,255,255,0.9);
+     }
+     header span.star:nth-child(1) { top: 12px; left: 8%; animation-delay: 0s; }
+     header span.star:nth-child(2) { top: 24px; left: 22%; animation-delay: 0.8s; }
+     header span.star:nth-child(3) { top: 8px; right: 20%; animation-delay: 1.2s; }
+     header span.star:nth-child(4) { top: 36px; right: 10%; animation-delay: 2.0s; }
+     header span.star:nth-child(5) { top: 50px; left: 40%; animation-delay: 1.6s; }
+     header span.star:nth-child(6) { top: 70px; right: 35%; animation-delay: 2.4s; }
+     header span.star:nth-child(7) { top: 18px; left: 65%; animation-delay: 0.4s; }
+
+     @keyframes sparkle {
+       0%,100% { transform: scale(1); opacity: 0.5; }
+       50% { transform: scale(1.4); opacity: 1; }
+     }
 
     @keyframes sparkle {
       0%,100% { transform: scale(1) translateY(0); opacity: 0.5; }
@@ -256,6 +274,15 @@
     <div class="sub">
       把身體照顧好，當成一個長期企劃：溫柔、穩定、有紀律，但一樣是閃亮童話風。
     </div>
+    
+    <!-- 🌟 星星群的設定-->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
 
     <nav class="nav">
       <a href="index.html">Home</a>
@@ -264,7 +291,7 @@
       <a href="fitness.html" class="active">Fitness</a>
     </nav>
   </header>
-
+  
   <main>
     <section class="intro-card">
       <div class="intro-title">🥗 Welcome to the Pink & Mint Gym</div>
