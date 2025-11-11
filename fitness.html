@@ -44,39 +44,38 @@
       opacity: 0.95;
     }
 
-    header::before,
-    header::after {
-      content: "✧";
-      position: absolute;
-      font-size: 24px;
-      color: rgba(209, 250, 229, 0.8);
-      animation: sparkle 4.2s infinite ease-in-out;
+    /* 讓文字和導覽列永遠在星星之上 */
+    header .topline,
+    header h1,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
     }
 
-     /* ✨ header 星星群 */
-     header span.star {
-       position: absolute;
-       font-size: 22px;
-       color: rgba(209, 250, 229, 0.8);
-       animation: sparkle 4.5s infinite ease-in-out;
-       text-shadow: 0 0 6px rgba(255,255,255,0.9);
-     }
-     header span.star:nth-child(1) { top: 15px; left: 10%; animation-delay: 0s; }
-     header span.star:nth-child(2) { top: 25px; left: 80%; animation-delay: 0.8s; }
-     header span.star:nth-child(3) { top: 10px; right: 50%; animation-delay: 1.2s; }
-     header span.star:nth-child(4) { top: 45px; right: 20%; animation-delay: 5.0s; }
-     header span.star:nth-child(5) { top: 60px; left: 70%; animation-delay: 1.6s; }
-     header span.star:nth-child(6) { top: 75px; right: 40%; animation-delay: 2.4s; }
-     header span.star:nth-child(7) { top: 20px; left: 90%; animation-delay: 0.4s; }
-    
-    @keyframes sparkle {
-       0%,100% { transform: scale(1); opacity: 0.5; }
-       50% { transform: scale(1.4); opacity: 1; }
-     }
+    /* ✨ 七顆星星（背景層） */
+    header .star {
+      position: absolute;
+      font-size: 22px;
+      color: rgba(209, 250, 229, 0.9);
+      text-shadow: 0 0 6px rgba(255,255,255,0.9);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* 分散位置：盡量在邊緣、不壓中間標題 */
+    .star:nth-of-type(1) { top: 8px;  left: 6%;  animation-delay: 0s;   }
+    .star:nth-of-type(2) { top: 18px; left: 20%; animation-delay: 0.6s; }
+    .star:nth-of-type(3) { top: 6px;  right: 20%; animation-delay: 1.2s; }
+    .star:nth-of-type(4) { top: 22px; right: 6%; animation-delay: 1.8s; }
+    .star:nth-of-type(5) { top: 40px; left: 10%; animation-delay: 2.4s; }
+    .star:nth-of-type(6) { top: 52px; right: 26%; animation-delay: 3s;  }
+    .star:nth-of-type(7) { top: 58px; left: 55%; animation-delay: 3.6s; }
 
     @keyframes sparkle {
-      0%,100% { transform: scale(1) translateY(0); opacity: 0.5; }
-      50% { transform: scale(1.4) translateY(-3px); opacity: 1; }
+      0%,100% { transform: scale(1);   opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1;   }
     }
 
     .nav {
@@ -274,8 +273,8 @@
     <div class="sub">
       把身體照顧好，當成一個長期企劃：溫柔、穩定、有紀律，但一樣是閃亮童話風。
     </div>
-    
-    <!-- 🌟 星星群的設定-->
+
+    <!-- 🌟 七顆星：分散在邊緣、不擋字 -->
     <span class="star">✦</span>
     <span class="star">✧</span>
     <span class="star">✦</span>
@@ -292,7 +291,7 @@
       <a href="invest.html">Invest</a>
     </nav>
   </header>
-  
+
   <main>
     <section class="intro-card">
       <div class="intro-title">🥗 Welcome to the Pink & Mint Gym</div>
