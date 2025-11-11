@@ -13,15 +13,16 @@
       display: flex;
       flex-direction: column;
       color: #4b0f22;
-      background: radial-gradient(circle at top, #ffe4f2 0%, #fff5fb 40%, #fdf2ff 100%);
+      background: radial-gradient(circle at top, #ffe4f5 0%, #fff5fb 40%, #fff7fb 100%);
     }
 
+    /* header 顏色：沿用 music.html 的粉紫梯度宇宙感 */
     header {
       padding: 26px 16px 18px;
       text-align: center;
-      background: linear-gradient(135deg, #3b0d23, #ec4899, #f97316);
+      background: linear-gradient(135deg, #4c1d95, #ec4899, #f97316);
       color: #fff7fb;
-      box-shadow: 0 4px 18px rgba(131, 24, 67, 0.6);
+      box-shadow: 0 4px 18px rgba(148, 27, 109, 0.55);
       position: relative;
       overflow: hidden;
     }
@@ -36,13 +37,13 @@
       font-size: 24px;
       margin: 6px 0 2px;
       font-weight: 700;
-      letter-spacing: 0.02em;
-      text-shadow: 0 0 10px rgba(248, 187, 208, 0.9);
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 12px rgba(252, 231, 243, 0.95);
     }
 
     .sub {
       font-size: 11px;
-      opacity: 0.95;
+      opacity: 0.96;
     }
 
     header .topline,
@@ -53,6 +54,7 @@
       z-index: 2;
     }
 
+    /* 背景小星星：同系列感，不擋字 */
     .star {
       position: absolute;
       font-size: 20px;
@@ -62,19 +64,21 @@
       pointer-events: none;
       z-index: 0;
     }
-    .star:nth-of-type(1){ top: 10px; left: 8%;  animation-delay: 0s; }
-    .star:nth-of-type(2){ top: 24px; left: 22%; animation-delay: .6s; }
-    .star:nth-of-type(3){ top: 8px;  right: 20%;animation-delay: 1.2s;}
-    .star:nth-of-type(4){ top: 32px; right: 6%; animation-delay: 1.8s;}
-    .star:nth-of-type(5){ top: 52px; left: 12%;animation-delay: 2.4s;}
-    .star:nth-of-type(6){ top: 56px; right: 30%;animation-delay: 3s; }
-    .star:nth-of-type(7){ top: 60px; left: 55%;animation-delay: 3.6s;}
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
 
     @keyframes sparkle {
       0%,100% { transform: scale(1);   opacity: 0.5; }
       50%     { transform: scale(1.4); opacity: 1;   }
     }
 
+    /* 導覽列：與其他頁一致，Music 為 active */
     .nav {
       margin-top: 12px;
       display: flex;
@@ -87,23 +91,23 @@
       font-size: 11px;
       padding: 6px 14px;
       border-radius: 999px;
-      background: rgba(67,20,44,0.35);
-      color: #ffe4f2;
+      background: rgba(79, 70, 229, 0.26);
+      color: #ffe4f5;
       text-decoration: none;
       transition: all 0.15s ease;
-      border: 1px solid rgba(251,207,232,0.5);
+      border: 1px solid rgba(254, 202, 232, 0.6);
     }
 
     .nav a:hover {
       background: #ec4899;
-      color: #3b0d23;
+      color: #4c1d95;
       box-shadow: 0 4px 12px rgba(236,72,153,0.9);
       transform: translateY(-1px);
     }
 
     .nav a.active {
       background: #ec4899;
-      color: #3b0d23;
+      color: #4c1d95;
       box-shadow: 0 4px 14px rgba(236,72,153,1);
     }
 
@@ -115,56 +119,73 @@
       flex: 1;
     }
 
+    /* 上方大卡：故事概念，跟 music 頁 intro card 同家族 */
     .intro-card {
       background: rgba(255,255,255,0.98);
-      border-radius: 22px;
-      padding: 18px;
-      margin-bottom: 16px;
-      box-shadow: 0 14px 40px rgba(236,72,153,0.18);
+      border-radius: 24px;
+      padding: 22px 22px 16px;
+      margin-bottom: 22px;
+      box-shadow: 0 16px 46px rgba(236,72,153,0.16);
       border: 1px solid rgba(252,231,243,0.98);
       position: relative;
       overflow: hidden;
       text-align: center;
       font-size: 13px;
       line-height: 1.9;
-      color: #4b0f22;
+      color: #5b1026;
     }
 
     .intro-card::before {
       content: "";
       position: absolute;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, rgba(236,72,153,0.28), transparent);
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(236,72,153,0.18), transparent);
       top: -40px;
-      right: -24px;
+      right: -40px;
     }
 
     .intro-card::after {
       content: "";
       position: absolute;
-      width: 90px;
-      height: 90px;
+      width: 110px;
+      height: 110px;
       background: radial-gradient(circle, rgba(248,187,208,0.4), transparent);
-      bottom: -24px;
-      left: -16px;
+      bottom: -34px;
+      left: -24px;
     }
 
     .intro-title {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      color: #e11d48;
     }
 
     .intro-sub {
       font-size: 11px;
       color: #6b7280;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+    }
+
+    /* 12 格卡片區塊 */
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 6px 2px 4px;
+      color: #b91c1c;
+    }
+
+    .section-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin: 0 2px 10px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 10px;
     }
 
@@ -178,7 +199,7 @@
       border: 1px solid rgba(252,231,243,0.98);
       position: relative;
       overflow: hidden;
-      color: #4b0f22;
+      color: #5b1026;
     }
 
     .card::before {
@@ -186,7 +207,7 @@
       position: absolute;
       width: 70px;
       height: 70px;
-      background: radial-gradient(circle, rgba(236,72,153,0.18), transparent);
+      background: radial-gradient(circle, rgba(236,72,153,0.15), transparent);
       top: -18px;
       right: -16px;
     }
@@ -196,13 +217,19 @@
       font-size: 9px;
       padding: 2px 7px;
       border-radius: 999px;
-      background: #ffe4f2;
+      background: #ffe4f5;
       color: #9d174d;
       margin-bottom: 2px;
     }
 
-    .title { font-weight: 600; margin-bottom: 2px; }
-    .text  { color: #6b1330; }
+    .title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .text {
+      color: #7f1d35;
+    }
 
     .link {
       margin-top: 4px;
@@ -219,6 +246,19 @@
       text-decoration: underline;
     }
 
+    /* 整張卡可點擊 */
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .card-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(236,72,153,0.18);
+    }
+
     footer {
       text-align: center;
       font-size: 10px;
@@ -228,7 +268,7 @@
 
     @media (max-width: 600px) {
       h1 { font-size: 20px; }
-      .intro-card { padding: 14px 12px 10px; }
+      .intro-card { padding: 16px 12px 12px; }
     }
   </style>
 </head>
@@ -238,7 +278,7 @@
     <h1>Afra & Wolves · 小紅帽的反叛童話</h1>
     <div class="sub">暗色系童話宇宙：不再等待被拯救，而是自己選擇命運。</div>
 
-    <!-- 七顆星 -->
+    <!-- 七顆粉白星：分散在邊緣 -->
     <span class="star">✦</span>
     <span class="star">✧</span>
     <span class="star">✦</span>
@@ -258,44 +298,146 @@
 
   <main>
     <section class="intro-card">
-      <div class="intro-title">🩸 Story Concept</div>
+      <div class="intro-title">💧 Story Concept</div>
       <div class="intro-sub">
         Afra 是長大的小紅帽，不再只是被保護的角色，而是在荒野裡和狼談條件的人。
       </div>
       <p>
-        這一系列會是 Dark Fantasy Rock / Symphonic / 電子元素混合。
+        這一系列是 Dark Fantasy Rock / Symphonic / 電子元素混合。
         每首歌是一個場景：與狼的契約、獵人的真相、選擇留下或反殺童話劇本。
+        十首歌＋兩篇製作筆記，拼成完整的 Afra & Wolves 宇宙。
       </p>
     </section>
 
+    <div class="section-title">🎵 Tracks & Notes（10 首歌 + 2 篇製作心得）</div>
+    <div class="section-note">每一格先預留入口。之後妳可以為每首歌做獨立頁：歌詞、概念、製作碎念、MV 連結等。</div>
+
     <section class="grid">
-      <article class="card">
+      <!-- Track 01 -->
+      <a href="afra-track01.html" class="card card-link">
         <div class="label">Track 01</div>
         <div class="title">契約之夜 · Blood Moon Pact</div>
         <div class="text">
-          第一個場景：滿月之夜，Afra 在森林裡與狼簽下「不當獵物」的契約。
-          旋律以暗黑弦樂＋女聲高線堆出壓迫感。
+          滿月之夜，在森林裡與狼簽下「不當獵物」的契約。
+          主打曲宇宙入口，暗黑弦樂＋女聲高線。
         </div>
-        <div class="link">▶ 之後放 YouTube / MV 連結</div>
-      </article>
+        <div class="link">▶ 進入 Track 01</div>
+      </a>
 
-      <article class="card">
+      <!-- Track 02 -->
+      <a href="afra-track02.html" class="card card-link">
         <div class="label">Track 02</div>
         <div class="title">玻璃櫥窗裡的獵人</div>
         <div class="text">
-          發現真正的獵人其實是城市與制度，狼反而變成同盟者。
-          可以寫成偏搖滾節奏＋說唱段落，吐槽職場或社會。
+          發現真正的獵人是城市與制度，狼反而像同盟。
+          適合寫成偏搖滾節奏＋說唱吐槽職場。
         </div>
-      </article>
+        <div class="link">▶ 進入 Track 02</div>
+      </a>
 
-      <article class="card">
-        <div class="label">Track 03+</div>
-        <div class="title">後續歌單預留位</div>
+      <!-- Track 03 -->
+      <a href="afra-track03.html" class="card card-link">
+        <div class="label">Track 03</div>
+        <div class="title">紅斗篷不再發光給你看</div>
         <div class="text">
-          這格只是占位：之後妳有新歌，就一首一首補進來，
-          每張卡寫一句故事＋放真實連結。
+          她開始把光收回自己身上，不再當別人劇本裡的裝飾。
         </div>
-      </article>
+        <div class="link">▶ 進入 Track 03</div>
+      </a>
+
+      <!-- Track 04 -->
+      <a href="afra-track04.html" class="card card-link">
+        <div class="label">Track 04</div>
+        <div class="title">狼群的誓約</div>
+        <div class="text">
+          狼提出牠們的規則：忠誠、代價、共同進退。
+          可以玩合唱與低音合聲。
+        </div>
+        <div class="link">▶ 進入 Track 04</div>
+      </a>
+
+      <!-- Track 05 -->
+      <a href="afra-track05.html" class="card card-link">
+        <div class="label">Track 05</div>
+        <div class="title">獵人的真相</div>
+        <div class="text">
+          童話中的「好人」其實也有血腥條件。
+          用節奏感很重的段落拆穿假正義。
+        </div>
+        <div class="link">▶ 進入 Track 05</div>
+      </a>
+
+      <!-- Track 06 -->
+      <a href="afra-track06.html" class="card card-link">
+        <div class="label">Track 06</div>
+        <div class="title">森之審判 · The Woods Decide</div>
+        <div class="text">
+          Afra 把選擇交給自己與森林，而不是任何單一角色。
+        </div>
+        <div class="link">▶ 進入 Track 06</div>
+      </a>
+
+      <!-- Track 07 -->
+      <a href="afra-track07.html" class="card card-link">
+        <div class="label">Track 07</div>
+        <div class="title">給從前那個小紅帽的信</div>
+        <div class="text">
+          一首偏抒情的自我和解歌，寫給過去的自己。
+        </div>
+        <div class="link">▶ 進入 Track 07</div>
+      </a>
+
+      <!-- Track 08 -->
+      <a href="afra-track08.html" class="card card-link">
+        <div class="label">Track 08</div>
+        <div class="title">Wrong Story, Right Girl</div>
+        <div class="text">
+          節奏快一點，像在甩掉錯的故事。
+        </div>
+        <div class="link">▶ 進入 Track 08</div>
+      </a>
+
+      <!-- Track 09 -->
+      <a href="afra-track09.html" class="card card-link">
+        <div class="label">Track 09</div>
+        <div class="title">Wolves at the Gate</div>
+        <div class="text">
+          狼群站在城市邊界，決定是否一腳踹翻制度。
+        </div>
+        <div class="link">▶ 進入 Track 09</div>
+      </a>
+
+      <!-- Track 10 -->
+      <a href="afra-track10.html" class="card card-link">
+        <div class="label">Track 10</div>
+        <div class="title">Rewrite the Tale</div>
+        <div class="text">
+          結局曲：她自己寫下新的童話，紅斗篷成為王袍。
+        </div>
+        <div class="link">▶ 進入 Track 10</div>
+      </a>
+
+      <!-- Extra 01：製作心得 -->
+      <a href="afra-notes01.html" class="card card-link">
+        <div class="label">Extra 01</div>
+        <div class="title">製作筆記 · Sound & Mood</div>
+        <div class="text">
+          紀錄整張 Afra & Wolves 的聲音設計：音色選擇、和聲堆疊、動態控制。
+          之後可以放圖、DEMO、技術筆記。
+        </div>
+        <div class="link">▶ 看製作心得 01</div>
+      </a>
+
+      <!-- Extra 02：製作心得 -->
+      <a href="afra-notes02.html" class="card card-link">
+        <div class="label">Extra 02</div>
+        <div class="title">製作筆記 · Lyrics & Storyboard</div>
+        <div class="text">
+          專門寫故事線、角色設定、歌詞碎念與 MV 腦洞。
+          作為未來實體專輯或影片企劃的底稿。
+        </div>
+        <div class="link">▶ 看製作心得 02</div>
+      </a>
     </section>
   </main>
 
