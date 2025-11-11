@@ -175,6 +175,19 @@
       position: relative;
     }
 
+     /* 讓整張卡片可點擊，外觀一致 */
+     .card-link {
+       display: block;
+       text-decoration: none;
+       color: inherit;
+       transition: transform 0.15s ease, box-shadow 0.15s ease;
+     }
+
+     .card-link:hover {
+       transform: translateY(-3px);
+       box-shadow: 0 14px 40px rgba(236,72,153,0.15);
+     }
+    
     .label {
       font-size: 9px;
       display: inline-block;
@@ -263,14 +276,16 @@
         <a class="link" href="#" target="_blank">▶ 之後放 YouTube / Suno 連結</a>
       </article>
 
-      <article class="card">
+      <a class="card card-link" href="afra-wolves.html">
         <div class="label">Afra & Wolves</div>
-        <div class="song-title">小紅帽的反叛童話</div>
-        <div class="desc">
+        <div class="title">小紅帽的反叛童話</div>
+        <div class="text">
           Dark Fantasy Rock。Afra 不再是被拯救的人，而是自己選擇命運的人。
+          點進來看這個宇宙的完整設定與歌單。
         </div>
-        <a class="link" href="#" target="_blank">▶ Song / MV Link</a>
-      </article>
+        <div class="link">▶ 進入 Afra & Wolves 世界</div>
+      </a>
+
 
       <article class="card">
         <div class="label">Original</div>
