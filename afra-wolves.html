@@ -175,11 +175,13 @@
 
     /* 2025/11/14新增: Story Concept 內文排版 */
     .series-text {
-      max-width: 820px;
-      margin: 18px auto 0;
-      text-align: left;
-      font-size: 14px;
+      max-width: 750px;   /* ← 控制文字最大寬度（你最在意的就是這個）*/
+      margin: 0 auto;     /* ← 讓整塊置中 */
+      padding: 0 20px;    /* ← 左右留邊距，避免貼邊 */
+      font-size: 16px;
       line-height: 2;
+      color: #5a3d3d;
+      text-align: left;   /* ← 讓文字靠左更像文章（你想保持置中也可以） */
     }
 
     .series-text p {
