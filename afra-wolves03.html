@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afra & Wolves 03 - 紅斗蓬不再發光給你看 | Kozono Sayuri</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #4b0f22;
+      background: radial-gradient(circle at top, #ffe4f5 0%, #fff5fb 40%, #fff7fb 100%);
+    }
+
+    /* 頂部沿用 music 粉紫色系 */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #4c1d95, #ec4899, #f97316);
+      color: #fff7fb;
+      box-shadow: 0 4px 18px rgba(148, 27, 109, 0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 12px rgba(252, 231, 243, 0.95);
+    }
+
+    .subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #fee2ff;
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+    }
+
+    header .topline,
+    header h1,
+    header .subtitle,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(255, 241, 249, 0.9);
+      text-shadow: 0 0 6px rgba(255,255,255,0.9);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1);   opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1;   }
+    }
+
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(79, 70, 229, 0.26);
+      color: #ffe4f5;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(254, 202, 232, 0.6);
+    }
+
+    .nav a:hover {
+      background: #ec4899;
+      color: #4c1d95;
+      box-shadow: 0 4px 12px rgba(236,72,153,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #ec4899;
+      color: #4c1d95;
+      box-shadow: 0 4px 14px rgba(236,72,153,1);
+    }
+
+    main {
+      max-width: 840px;
+      width: 100%;
+      margin: 24px auto 32px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* 頁內小導覽 (像 blog 目錄) */
+    .inner-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+      font-size: 11px;
+    }
+
+    .inner-nav a {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(252,231,243,0.98);
+      color: #be185d;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid rgba(236,72,153,0.22);
+    }
+
+    .inner-nav a:hover {
+      background: #ec4899;
+      color: #fff7fb;
+      box-shadow: 0 4px 10px rgba(236,72,153,0.35);
+      transform: translateY(-1px);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0 14px;
+      font-size: 10px;
+      color: #9f1239;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #ffe4f5;
+    }
+
+    section {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px 14px 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      border: 1px solid rgba(252,231,243,0.98);
+      position: relative;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #5b1026;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(236,72,153,0.10), transparent);
+      top: -14px;
+      right: -14px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #db2777;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    h3 {
+      font-size: 13px;
+      margin: 8px 0 2px;
+      color: #9d174d;
+    }
+
+    p {
+      margin-bottom: 4px;
+    }
+
+    ul {
+      margin: 2px 0 4px 18px;
+      padding: 0;
+    }
+
+    .note {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .back-link {
+      font-size: 11px;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .back-link a {
+      color: #ec4899;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 19px; }
+      .subtitle { font-size: 12px; }
+      section { padding: 12px 10px 9px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ AFRA & WOLVES SERIES</div>
+    <h1>Afra & Wolves 03｜紅斗蓬不再發光給你看</h1>
+    <div class="subtitle">Track 01 · 主打曲宇宙入口</div>
+    <div class="sub">
+      滿月之夜，在森林裡與狼簽下「不當獵物」的契約。這頁是創作筆記 & 製作過程的完整版網誌。
+    </div>
+
+    <!-- 星星 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="music.html" class="active">Music</a>
+      <a href="worklife.html">Work Life</a>
+      <a href="fitness.html">Fitness</a>
+      <a href="invest.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 頁內目錄 -->
+    <div class="inner-nav">
+      <a href="#overview">Overview 概念速記</a>
+      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
+      <a href="#production">Production 製作過程</a>
+      <a href="#suno">Suno Elements AI 音樂元素</a>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge">Afra & Wolves 系列</div>
+      <div class="badge">Dark Fantasy Rock / Symphonic</div>
+      <div class="badge">主視覺：血月、森林、契約</div>
+      <div class="badge">Blog Style 創作筆記</div>
+    </div>
+
+    <!-- Overview -->
+    <section id="overview">
+      <h2>💧 Overview｜這首歌想說什麼？</h2>
+      <p>
+        「契約之夜」是整個 Afra & Wolves 宇宙的入口。故事從滿月森林開始：
+        長大的小紅帽 Afra 拿著籃子走進樹林，卻不是無辜迷路，而是主動赴約。
+      </p>
+      <p>
+        她與狼簽下契約：不再當被追捕的獵物，而是以自己的條件換來力量與情報。
+        歌的氣氛要有儀式感、危險、但同時有一點漂亮的自信。
+      </p>
+    </section>
+
+    <!-- Lyrics & Meaning -->
+    <section id="lyrics">
+      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
+
+      <h3>關鍵畫面</h3>
+      <ul>
+        <li>血月掛在樹梢，披風被風扯起，像是簽名的紅墨水。</li>
+        <li>狼從陰影裡走出來，不再是單純的怪物，而是談判桌上的對手。</li>
+        <li>Afra 把籃子放在地上，裡面不是餅乾，而是她願意拿來交換的東西。</li>
+      </ul>
+
+      <h3>核心訊息</h3>
+      <p>
+        這首歌不是鼓勵「跟壞東西結盟」，而是象徵：
+        <strong>面對真實世界的危險時，你可以選擇帶著清醒去談判，而不是一味相信童話。</strong>
+      </p>
+      <p>
+        歌詞可以多用「條款、代價、見證人、血印」這類字眼，
+        把整首歌寫成一份詩意的契約書。
+      </p>
+
+      <div class="note">
+        ※ 之後可以在這裡貼正式歌詞段落，或連到 lyrics 專頁。
+      </div>
+    </section>
+
+    <!-- Production -->
+    <section id="production">
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+
+      <h3>情緒設計</h3>
+      <ul>
+        <li>前奏：低音弦樂＋鐘聲＋森林環境音，做出儀式空氣。</li>
+        <li>主歌：保持空間感，讓人聽得見「腳步踩在落葉上」的距離。</li>
+        <li>副歌：鼓組與電吉他進來，加入高線合唱，像是血月爆開。</li>
+      </ul>
+
+      <h3>聲響顏色</h3>
+      <ul>
+        <li>使用偏暗紅、紫色感的 pad（可以註記實際使用的 VST 或 Suno 風格）。</li>
+        <li>女聲主唱線條要有「禮貌但強硬」的態度，不是哭腔，而是談條件。</li>
+        <li>橋段可以留一個只剩心跳與耳語的 break，讓契約文字在耳邊出現。</li>
+      </ul>
+
+      <div class="note">
+        ※ 這裡可以放實際 Session 截圖、混音設定、sidechain、reverb 筆記等等。
+      </div>
+    </section>
+
+    <!-- Suno Elements -->
+    <section id="suno">
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+
+      <h3>模型與風格（示意，可替換成妳實際用的）</h3>
+      <ul>
+        <li>Model：Suno v3 / v3.5 暗黑搖滾 + 管弦混合風格。</li>
+        <li>Prompt 關鍵字：
+          <em>dark fantasy rock, female vocal, symphonic, cinematic, blood moon,
+          forest, contract, dramatic build, heavy drums</em>。
+        </li>
+        <li>Tempo：中偏慢，讓契約感有空間。</li>
+      </ul>
+
+      <h3>實作小記</h3>
+      <ul>
+        <li>可以生成多個版本，挑出喜歡的弦樂與鼓組，再剪輯重組。</li>
+        <li>若有自己錄人聲，可在這裡註記：哪段是 Suno 主體、哪段是後期加錄。</li>
+      </ul>
+
+      <div class="note">
+        ※ 這一區就是給妳記錄「AI + 自己」如何合作完成這首歌，未來粉絲也會很想看。
+      </div>
+    </section>
+
+    <div class="back-link">
+      ← 回到 <a href="afra-wolves.html">Afra & Wolves 系列總覽</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
