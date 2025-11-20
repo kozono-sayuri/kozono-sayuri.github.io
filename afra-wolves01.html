@@ -125,6 +125,23 @@
       flex: 1;
     }
 
+    /* MV 區塊 */
+    .mv-block {
+      margin: 0 0 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.16);
+      border: 1px solid rgba(252,231,243,0.98);
+      background: #000;
+    }
+
+    .mv-block iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+
     /* 頁內小導覽 (像 blog 目錄) */
     .inner-nav {
       display: flex;
@@ -277,6 +294,16 @@
   </header>
 
   <main>
+    <!-- MV 播放區 -->
+    <div class="mv-block">
+      <iframe
+        src="https://www.youtube.com/embed/moYZagj7CEc"
+        title="Afra & Wolves 01 - Crimson Prelude MV"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
     <!-- 頁內目錄 -->
     <div class="inner-nav">
       <a href="#overview">Overview 概念速記</a>
