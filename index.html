@@ -200,10 +200,11 @@
       font-size: 12px;
     }
 
-    /* 訪客 chip：讓字稍微醒目一點 */
-
+    /* 訪客 chip 專用微調 */
     .visitor-chip {
-      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
     /* ✨ 按鈕 & 連結 */
@@ -316,9 +317,9 @@
         <div class="chip"><span>💹</span> Finance / Accounting Life</div>
         <div class="chip"><span>✨</span> Pink & Soft & Shiny</div>
 
-        <!-- 🧮 訪客人數 chip（文字版） -->
-        <div class="chip visitor-chip" id="visitorCount">
-          Visitors：--
+        <!-- 🧮 訪客人數 chip -->
+        <div class="chip visitor-chip">
+          Visitors：<span id="visitor-count">N/A</span>
         </div>
       </div>
 
@@ -337,22 +338,29 @@
     © 2025 Kozono Sayuri. All rights reserved.
   </footer>
 
-  <!-- 🔢 訪客計數：使用 CountAPI，每次載入頁面 +1 -->
+  <!-- 🔢 訪客計數 JS：使用 CountAPI -->
   <script>
-    fetch("https://api.countapi.xyz/hit/kozono-sayuri.github.io/homepage")
-      .then(response => response.json())
-      .then(data => {
-        const el = document.getElementById("visitorCount");
-        if (el) {
-          el.textContent = "Visitors：" + data.value;
-        }
-      })
-      .catch(() => {
-        const el = document.getElementById("visitorCount");
-        if (el) {
-          el.textContent = "Visitors：N/A";
-        }
-      });
+    (function () {
+      const el = document.getElementById('visitor-count');
+      if (!el) return;
+
+      // namespace: kozono-sayuri.github.io
+      // key: home
+      const url = 'https://api.countapi.xyz/hit/kozono-sayuri.github.io/home';
+
+      fetch(url)
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data && typeof data.value === 'number') {
+            el.textContent = data.value;
+          } else {
+            el.textContent = 'N/A';
+          }
+        })
+        .catch(function () {
+          el.textContent = 'N/A';
+        });
+    })();
   </script>
 </body>
 </html>
