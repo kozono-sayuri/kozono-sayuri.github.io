@@ -200,26 +200,18 @@
       font-size: 12px;
     }
 
-    /* 訪客 chip 專用微調：讓數字像右邊小膠囊 */
+    /* 訪客 chip：使用 hits.sh 的 SVG badge，外框做一點小調整 */
+
     .visitor-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
-    .visitor-label {
-      opacity: 0.9;
-    }
-
-    .visitor-count-pill {
-      min-width: 32px;
-      padding: 2px 10px;
-      border-radius: 999px;
-      background: #ffb4e4;
-      color: #a1125f;
-      text-align: center;
-      font-weight: 600;
-      box-shadow: 0 2px 6px rgba(255, 120, 190, 0.65);
+    .visitor-badge-img {
+      display: block;
+      height: 26px;          /* 可依喜好再調整大小 */
+      border-radius: 999px;  /* 讓邊角看起來更圓一點 */
     }
 
     /* ✨ 按鈕 & 連結 */
@@ -330,10 +322,13 @@
         <div class="chip"><span>💹</span> Finance / Accounting Life</div>
         <div class="chip"><span>✨</span> Pink & Soft & Shiny</div>
 
-        <!-- 🧮 訪客人數 chip（Hits.sh） -->
+        <!-- 🧮 訪客人數 chip：直接嵌入 hits.sh badge -->
         <div class="chip visitor-chip">
-          <span class="visitor-label">Visitors</span>
-          <span class="visitor-count-pill" id="visitor-count">N/A</span>
+          <img
+            class="visitor-badge-img"
+            src="https://hits.sh/kozono-sayuri.github.io/index.html.json.svg?label=Visitors&color=ff8fd1&labelColor=ffffff&style=flat-square"
+            alt="Visitors counter"
+          >
         </div>
       </div>
 
@@ -351,33 +346,5 @@
   <footer>
     © 2025 Kozono Sayuri. All rights reserved.
   </footer>
-
-  <!-- 🔢 訪客計數 JS：使用 hits.sh -->
-  <script>
-    (function () {
-      const el = document.getElementById('visitor-count');
-      if (!el) return;
-
-      // ✅ 用 hits.sh 上顯示的同一個網址：
-      // https://hits.sh/kozono-sayuri.github.io/index.html.json
-      const url = 'https://hits.sh/kozono-sayuri.github.io/index.html.json';
-
-      fetch(url)
-        .then(function (res) {
-          if (!res.ok) { throw new Error('Network error'); }
-          return res.json();
-        })
-        .then(function (data) {
-          if (data && typeof data.hits === 'number') {
-            el.textContent = data.hits.toLocaleString('en-US');
-          } else {
-            el.textContent = 'N/A';
-          }
-        })
-        .catch(function () {
-          el.textContent = 'N/A';
-        });
-    })();
-  </script>
 </body>
 </html>
