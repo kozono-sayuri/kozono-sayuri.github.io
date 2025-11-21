@@ -78,6 +78,33 @@
       opacity: 0.9;
     }
 
+    /* ✨ 導覽列 */
+
+    .nav {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      color: #ffe6ff;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .nav a:hover {
+      background: #ff9ad5;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      transform: translateY(-1px);
+    }
+
     /* ✨ 中央卡片區 */
 
     main {
@@ -173,6 +200,13 @@
       font-size: 12px;
     }
 
+    /* 訪客 chip 專用微調 */
+
+    .visitor-chip img {
+      height: 16px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
+    }
+
     /* ✨ 按鈕 & 連結 */
 
     .links {
@@ -247,45 +281,6 @@
         justify-content: center;
       }
     }
-  .nav {
-    margin-top: 18px;
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  .nav a {
-    font-size: 11px;
-    padding: 6px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.1);
-    color: #ffe6ff;
-    text-decoration: none;
-    transition: all 0.15s ease;
-  }
-
-  .nav a:hover {
-    background: #ff9ad5;
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
-    transform: translateY(-1px);
-  }
-
-  .visitor-badge {
-    position: absolute;
-    /* 往下放一點，差不多在 h1 高度附近 */
-    top: 150px;         /* 你可以改 60 / 80 慢慢調 */
-    right: 420px;       /* 往左一點，不要太靠邊，可改 40 / 80 */
-    opacity: 0.95;
-    z-index: 20;
-  }
-
-  .visitor-badge img {
-    height: 40px;      /* 稍微大一點比較看得清楚 */
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
-  }
-
   </style>
 </head>
 <body>
@@ -303,11 +298,6 @@
       <a href="invest.html">Invest</a>
     </nav>
     <!-- 🔼 導覽列結束 🔼 -->
-    <!-- ⭐ 在這裡加入訪客人次 ⭐ -->
-    <div class="visitor-badge">
-      <img src="count.svg" alt="visitors">
-    </div>
-   
   </header>
 
   <main>
@@ -326,6 +316,12 @@
         <div class="chip"><span>📖</span> Storytelling World</div>
         <div class="chip"><span>💹</span> Finance / Accounting Life</div>
         <div class="chip"><span>✨</span> Pink & Soft & Shiny</div>
+
+        <!-- 🧮 訪客人數 chip -->
+        <div class="chip visitor-chip">
+          <span>👀</span> Visitors
+          <img src="count.svg" alt="visitors">
+        </div>
       </div>
 
       <div class="links">
@@ -333,17 +329,6 @@
           <span class="icon">🌈</span>
           <span>進入作品專區 (KozonoSayuri Project)</span>
         </a>
-        <!-- 未來要加 IG / YouTube / Blog，只要解除註解改連結即可 -->
-        <!--
-        <a class="btn" href="https://your-link-here">
-          <span class="icon">📺</span>
-          <span>YouTube / MV</span>
-        </a>
-        <a class="btn" href="https://your-link-here">
-          <span class="icon">📷</span>
-          <span>Instagram</span>
-        </a>
-        -->
       </div>
 
       <div class="hint">（之後可以把這裡當作粉絲入口，往各個世界觀和平台延伸 💫）</div>
@@ -355,4 +340,3 @@
   </footer>
 </body>
 </html>
-
