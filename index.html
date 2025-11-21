@@ -201,10 +201,9 @@
     }
 
     /* 訪客 chip 專用微調 */
-    .visitor-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
+    .visitor-chip img {
+      height: 20px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
     }
 
     /* ✨ 按鈕 & 連結 */
@@ -317,9 +316,11 @@
         <div class="chip"><span>💹</span> Finance / Accounting Life</div>
         <div class="chip"><span>✨</span> Pink & Soft & Shiny</div>
 
-        <!-- 🧮 訪客人數 chip（Hits.sh） -->
+        <!-- 🧮 訪客人數 chip（Hits.sh SVG 徽章） -->
         <div class="chip visitor-chip">
-          Visitors：<span id="visitor-count">…</span>
+          <img
+            src="https://hits.sh/kozono-sayuri.github.io.svg?view=total&style=flat-square&label=Visitors&color=ff8ad4&labelColor=fde7ff"
+            alt="Visitors counter">
         </div>
       </div>
 
@@ -337,33 +338,5 @@
   <footer>
     © 2025 Kozono Sayuri. All rights reserved.
   </footer>
-
-  <!-- 🔢 訪客計數 JS：使用 hits.sh -->
-  <script>
-    (function () {
-      const el = document.getElementById('visitor-count');
-      if (!el) return;
-
-      // 這裡用妳的首頁網址當作 key：kozono-sayuri.github.io
-      const url = 'https://hits.sh/kozono-sayuri.github.io.json';
-
-      fetch(url)
-        .then(function (res) {
-          if (!res.ok) { throw new Error('Network error'); }
-          return res.json();
-        })
-        .then(function (data) {
-          if (data && typeof data.hits === 'number') {
-            // 加上千分位，看起來比較像正式網站
-            el.textContent = data.hits.toLocaleString('en-US');
-          } else {
-            el.textContent = 'N/A';
-          }
-        })
-        .catch(function () {
-          el.textContent = 'N/A';
-        });
-    })();
-  </script>
 </body>
 </html>
