@@ -55,7 +55,7 @@
 
     @keyframes sparkle {
       0%,100% { transform: scale(1) translateY(0); opacity: 0.4; }
-      50%     { transform: scale(1.4) translateY(-4px); opacity: 1; }
+      50% { transform: scale(1.4) translateY(-4px); opacity: 1; }
     }
 
     .tagline {
@@ -193,33 +193,33 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      font-weight: 500;
     }
 
     .chip span {
       font-size: 12px;
     }
 
-    /* 🧮 訪客 chip 專用微調 */
+    /* 訪客 chip 專用微調：讓數字像右邊小膠囊 */
     .visitor-chip {
-      padding-right: 6px;
-      gap: 8px;
-      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .visitor-label {
-      letter-spacing: 0.02em;
+      opacity: 0.9;
     }
 
-    .visitor-count {
-      display: inline-block;
+    .visitor-count-pill {
       min-width: 32px;
       padding: 2px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.9);
-      color: #c02c74;
-      font-weight: 700;
+      background: #ffb4e4;
+      color: #a1125f;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(255, 158, 206, 0.6);
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(255, 120, 190, 0.65);
     }
 
     /* ✨ 按鈕 & 連結 */
@@ -304,7 +304,6 @@
     <h1>Kozono Sayuri</h1>
     <div class="sub">Finance・Creative・AI Music・Storytelling・For My Lovely Listeners & Friends</div>
 
-    <!-- 🔽 在這裡插入導覽列 🔽 -->
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="music.html">Music</a>
@@ -312,7 +311,6 @@
       <a href="fitness.html">Fitness</a>
       <a href="invest.html">Invest</a>
     </nav>
-    <!-- 🔼 導覽列結束 🔼 -->
   </header>
 
   <main>
@@ -335,7 +333,7 @@
         <!-- 🧮 訪客人數 chip（Hits.sh） -->
         <div class="chip visitor-chip">
           <span class="visitor-label">Visitors</span>
-          <span id="visitor-count" class="visitor-count">…</span>
+          <span class="visitor-count-pill" id="visitor-count">N/A</span>
         </div>
       </div>
 
@@ -354,31 +352,32 @@
     © 2025 Kozono Sayuri. All rights reserved.
   </footer>
 
-<!-- 🔢 訪客計數 JS：使用 hits.sh -->
-<script>
-  (function () {
-    const el = document.getElementById('visitor-count');
-    if (!el) return;
+  <!-- 🔢 訪客計數 JS：使用 hits.sh -->
+  <script>
+    (function () {
+      const el = document.getElementById('visitor-count');
+      if (!el) return;
 
-    // 使用 index.html 作為追蹤 key
-    const url = 'https://hits.sh/kozono-sayuri.github.io/index.html.json';
+      // ✅ 用 hits.sh 上顯示的同一個網址：
+      // https://hits.sh/kozono-sayuri.github.io/index.html.json
+      const url = 'https://hits.sh/kozono-sayuri.github.io/index.html.json';
 
-    fetch(url)
-      .then(res => {
-        if (!res.ok) throw new Error('Network error');
-        return res.json();
-      })
-      .then(data => {
-        if (data && typeof data.hits === 'number') {
-          el.textContent = data.hits.toLocaleString('en-US');
-        } else {
+      fetch(url)
+        .then(function (res) {
+          if (!res.ok) { throw new Error('Network error'); }
+          return res.json();
+        })
+        .then(function (data) {
+          if (data && typeof data.hits === 'number') {
+            el.textContent = data.hits.toLocaleString('en-US');
+          } else {
+            el.textContent = 'N/A';
+          }
+        })
+        .catch(function () {
           el.textContent = 'N/A';
-        }
-      })
-      .catch(() => {
-        el.textContent = 'N/A';
-      });
-  })();
-</script>
+        });
+    })();
+  </script>
 </body>
 </html>
