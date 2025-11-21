@@ -354,31 +354,31 @@
     © 2025 Kozono Sayuri. All rights reserved.
   </footer>
 
-  <!-- 🔢 訪客計數 JS：使用 hits.sh -->
-  <script>
-    (function () {
-      const el = document.getElementById('visitor-count');
-      if (!el) return;
+<!-- 🔢 訪客計數 JS：使用 hits.sh -->
+<script>
+  (function () {
+    const el = document.getElementById('visitor-count');
+    if (!el) return;
 
-      // 用妳的首頁網址當作 key：kozono-sayuri.github.io
-      const url = 'https://hits.sh/kozono-sayuri.github.io.json';
+    // 使用 index.html 作為追蹤 key
+    const url = 'https://hits.sh/kozono-sayuri.github.io/index.html.json';
 
-      fetch(url)
-        .then(function (res) {
-          if (!res.ok) { throw new Error('Network error'); }
-          return res.json();
-        })
-        .then(function (data) {
-          if (data && typeof data.hits === 'number') {
-            el.textContent = data.hits.toLocaleString('en-US');
-          } else {
-            el.textContent = 'N/A';
-          }
-        })
-        .catch(function () {
+    fetch(url)
+      .then(res => {
+        if (!res.ok) throw new Error('Network error');
+        return res.json();
+      })
+      .then(data => {
+        if (data && typeof data.hits === 'number') {
+          el.textContent = data.hits.toLocaleString('en-US');
+        } else {
           el.textContent = 'N/A';
-        });
-    })();
-  </script>
+        }
+      })
+      .catch(() => {
+        el.textContent = 'N/A';
+      });
+  })();
+</script>
 </body>
 </html>
