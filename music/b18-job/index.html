@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Series - 約伯記：撕裂與恩典｜Kozono Sayuri</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: radial-gradient(circle at top, #fdf2ff 0%, #fff7ff 40%, #f6f7ff 100%);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px 16px 14px;
+      text-align: center;
+      background: linear-gradient(135deg, #111827, #8b5cf6);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: .16em;
+      opacity: .9;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: .9;
+    }
+
+    .nav {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      color: #e5e7ff;
+      text-decoration: none;
+      transition: all .15s ease;
+    }
+
+    .nav a:hover {
+      background: #a855f7;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #a855f7;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(167,139,250,0.8);
+    }
+
+    main {
+      max-width: 960px;
+      width: 100%;
+      margin: 22px auto 30px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    .intro-card {
+      background: rgba(255,255,255,0.98);
+      border-radius: 20px;
+      padding: 18px 18px 14px;
+      box-shadow: 0 14px 40px rgba(167,139,250,0.35);
+      border: 1px solid rgba(221,214,254,0.9);
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .intro-card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(129,140,248,0.35), transparent);
+      top: -40px;
+      right: -30px;
+    }
+
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background: radial-gradient(circle, rgba(30,64,175,0.22), transparent);
+      bottom: -24px;
+      left: -10px;
+    }
+
+    .intro-title {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .intro-sub {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .intro-card .intro-sub,
+    .intro-card p {
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-card p {
+      margin-top: 4px;
+    }
+
+    .breadcrumb {
+      font-size: 11px;
+      margin-bottom: 6px;
+      color: #6b7280;
+    }
+
+    .breadcrumb a {
+      color: #6366f1;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .grid-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 10px 2px 6px;
+    }
+
+    .grid-note {
+      font-size: 11px;
+      color: #777;
+      margin: 0 2px 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 10px 11px 9px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      border: 1px solid rgba(221,214,254,0.9);
+      font-size: 12px;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(129,140,248,0.25);
+    }
+
+    .label {
+      font-size: 9px;
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #e0e7ff;
+      color: #312e81;
+      margin-bottom: 3px;
+    }
+
+    .song-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .desc {
+      color: #555;
+      margin-bottom: 4px;
+    }
+
+    .meta {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #999;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 19px; }
+      .intro-card { padding: 14px 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC ROOM ✦ JOB SERIES</div>
+    <h1>約伯記：撕裂與恩典</h1>
+    <div class="sub">在灰燼裡發問，在沉默裡堅持的信仰史詩。</div>
+
+    <nav class="nav">
+      <a href="../index.html">Music Home</a>
+      <a href="../index.html" class="active">Job Series</a>
+      <a href="../../worklife/">Work Life</a>
+      <a href="../../fitness/">Fitness</a>
+      <a href="../../invest/">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="breadcrumb">
+      <a href="../index.html">← 回到 Music 主頁</a> · Job Series · Book of Job
+    </div>
+
+    <section class="intro-card">
+      <div class="intro-title">🕯 灰燼中的禱告與質問</div>
+      <div class="intro-sub">
+        這個系列從「約伯」的視角出發，把一連串失去、沈默與仍然不放手的信仰，
+        做成一首一首可以聽見的對話。
+      </div>
+      <p>
+        一開始是家財、兒女、健康全部被奪走，約伯撕裂外袍、坐在爐灰中，用最破碎的
+        自己開口說話。這些歌會記錄他從「我做錯了什麼？」到「我仍然要稱頌祢」的路程。<br>
+        現在先放幾個範例卡片，等歌、歌詞和 MV 準備好，就會一首一首開啟給你聽。
+      </p>
+    </section>
+
+    <div class="grid-title">🎵 Songs & Scenes（先放 3 個範例）</div>
+    <div class="grid-note">
+      每一張卡片是一個片段：一場災禍、一段對話或一個在灰燼裡的禱告，暫時都先連到施工頁。
+    </div>
+
+    <section class="grid">
+      <!-- 範例 1 -->
+      <a class="card card-link" href="../under-construction/">
+        <div class="label">Job 01</div>
+        <div class="song-title">第一個消息：牛羊被奪走的那天</div>
+        <div class="desc">
+          信使連環報，財產一夕成空。這首歌會是節奏感比較強的「壞消息堆疊」場景。
+        </div>
+        <div class="meta">類型：Dark Orchestral + Hybrid · 之後放 Demo / 完整版連結</div>
+      </a>
+
+      <!-- 範例 2 -->
+      <a class="card card-link" href="../under-construction/">
+        <div class="label">Job 02</div>
+        <div class="song-title">爐灰中的人：我從母胎赤身而來</div>
+        <div class="desc">
+          約伯坐在灰中，用沙啞卻很平靜的聲音說：「賞賜的是耶和華，收取的也是耶和華。」
+        </div>
+        <div class="meta">類型：Slow Piano + Strings · 會做成主題抒情曲</div>
+      </a>
+
+      <!-- 範例 3 -->
+      <a class="card card-link" href="../under-construction/">
+        <div class="label">Job 03</div>
+        <div class="song-title">風暴中的回答</div>
+        <div class="desc">
+          從人提問，轉成上帝反問：「我立大地根基的時候，你在哪裡？」會是一首偏史詩的終章歌。
+        </div>
+        <div class="meta">類型：Cinematic Choir + Drum · 最後一首做大爆發結局</div>
+      </a>
+    </section>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
