@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- TODO：改成這一首的標題 -->
+  <title>[SERIES] [TRACK NO] - [中文歌名] | Kozono Sayuri</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #0f172a;
+      /* Bible 系列：深藍紫＋柔光背景 */
+      background: radial-gradient(circle at top, #e0f2fe 0%, #eef2ff 40%, #f9fafb 100%);
+    }
+
+    /* 頂部：藍紫夜空 + 聖光感，沿用 Job 系列 style */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #020617, #1d4ed8, #7c3aed);
+      color: #e5f2ff;
+      box-shadow: 0 4px 18px rgba(15,23,42,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 14px rgba(191,219,254,0.95);
+    }
+
+    .subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #bfdbfe;
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+    }
+
+    header .topline,
+    header h1,
+    header .subtitle,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 冷色系星光點綴 */
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(219,234,254,0.95);
+      text-shadow: 0 0 6px rgba(255,255,255,0.95);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1);   opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1;   }
+    }
+
+    /* 全站導覽列：Music 為 active */
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.26);
+      color: #e0f2fe;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(191,219,254,0.7);
+    }
+
+    .nav a:hover {
+      background: #38bdf8;
+      color: #020617;
+      box-shadow: 0 4px 12px rgba(56,189,248,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #38bdf8;
+      color: #020617;
+      box-shadow: 0 4px 14px rgba(56,189,248,1);
+    }
+
+    main {
+      max-width: 840px;
+      width: 100%;
+      margin: 24px auto 32px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* 頁內小導覽（像章節目錄） */
+    .inner-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+      font-size: 11px;
+    }
+
+    .inner-nav a {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(239,246,255,0.98);
+      color: #1d4ed8;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid rgba(129,140,248,0.3);
+    }
+
+    .inner-nav a:hover {
+      background: #1d4ed8;
+      color: #e0f2fe;
+      box-shadow: 0 4px 10px rgba(37,99,235,0.35);
+      transform: translateY(-1px);
+    }
+
+    /* 上方小 badge 列 */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0 14px;
+      font-size: 10px;
+      color: #1d4ed8;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e0f2fe;
+    }
+
+    /* 內容區塊共用風格 */
+    section {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px 14px 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      border: 1px solid rgba(219,234,254,0.98);
+      position: relative;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #0f172a;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12), transparent);
+      top: -14px;
+      right: -14px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #1d4ed8;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    h3 {
+      font-size: 13px;
+      margin: 8px 0 2px;
+      color: #1e3a8a;
+    }
+
+    p {
+      margin-bottom: 4px;
+    }
+
+    ul {
+      margin: 2px 0 4px 18px;
+      padding: 0;
+    }
+
+    .note {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .back-link {
+      font-size: 11px;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .back-link a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 19px; }
+      .subtitle { font-size: 12px; }
+      section { padding: 12px 10px 9px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- TODO：這行可以依系列改，例如 BIBLE / JOB SERIES 或 BIBLE / REVELATION SERIES -->
+    <div class="topline">MUSIC UNIVERSE ✦ BIBLE / [SERIES NAME] SERIES</div>
+
+    <!-- TODO：改成實際系列＋曲名 -->
+    <h1>[Series Name] [Track No] ｜ [中文歌名] · [英文歌名]</h1>
+
+    <!-- TODO：一句這首歌的定位，例如 Track 01 · Opening Theme -->
+    <div class="subtitle">Track 001 · Opening Theme / Main Motif</div>
+
+    <!-- TODO：簡短一句這首歌在整個系列中的意義 -->
+    <div class="sub">
+      這裡寫：在某一段經文中的場景、這首歌扮演的角色，例如「信使連環報的起點」。
+    </div>
+
+    <!-- 星空 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <!-- 路徑假設：這個檔案在 music/bxx-xxxx/001.html -->
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 頁內目錄 -->
+    <div class="inner-nav">
+      <a href="#overview">Overview 概念速記</a>
+      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
+      <a href="#production">Production 製作過程</a>
+      <a href="#suno">Suno Elements AI 音樂元素</a>
+    </div>
+
+    <!-- Badge 列：可自由增減 -->
+    <div class="badge-row">
+      <div class="badge">Bible Series · [Series Name]</div>
+      <div class="badge">Cinematic / Orchestral / Hybrid</div>
+      <div class="badge">主畫面：可填「灰燼」「旋風」「寶座」等</div>
+      <div class="badge">Blog Style 創作筆記</div>
+    </div>
+
+    <!-- Overview -->
+    <section id="overview">
+      <h2>📖 Overview｜這首歌想說什麼？</h2>
+      <p>
+        這一段可以快速說明：<strong>這首歌對應哪一段經文、故事場景是什麼</strong>。  
+        例如：信使來報、約伯坐在爐灰中、約翰被帶到天上觀看異象…。
+      </p>
+      <p>
+        也可以寫：這首歌是整個系列中的第幾個轉折點、情緒在哪裡（崩潰、質問、安靜、翻轉）。  
+        給第一次來的聽眾一眼就懂的 summary。
+      </p>
+    </section>
+
+    <!-- Lyrics & Meaning -->
+    <section id="lyrics">
+      <h2>📝 Lyrics & Meaning｜歌詞與意涵</h2>
+
+      <h3>關鍵畫面（Key Scenes）</h3>
+      <ul>
+        <li>列出 3～5 個畫面：例如「灰燼」「風暴」「群星」「寶座」「海中的獸」等。</li>
+        <li>可以對應歌詞中的重要比喻，讓人聽歌時有畫面感。</li>
+      </ul>
+
+      <h3>核心訊息（Core Message）</h3>
+      <p>
+        這裡放：<strong>這首歌想講的信仰或情緒主題</strong>  
+        例如：「當一切被奪走時，我還能對誰說話？」或「看見自己的渺小之後，仍然被溫柔接住」。
+      </p>
+      <p>
+        如果有「你想對聽眾說的話」，也可以寫在這裡，比較像創作者旁白。
+      </p>
+
+      <div class="note">
+        ※ 之後可以在這裡貼正式歌詞段落，或連到 lyrics 專頁。
+      </div>
+    </section>
+
+    <!-- Production -->
+    <section id="production">
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+
+      <h3>情緒設計（Emotion Flow）</h3>
+      <ul>
+        <li>Intro：這首歌前奏要讓人看到什麼畫面？（例如「灰燼中呼吸聲」「遠處雷聲」）</li>
+        <li>Verse：主歌情緒是壓抑、講故事、還是傾訴？</li>
+        <li>Chorus：副歌是爆發、讚嘆，還是安靜中小小的確信？</li>
+        <li>Bridge / Outro：最後是走向平靜、開放結局，還是留下問號？</li>
+      </ul>
+
+      <h3>聲響顏色（Sound & Color）</h3>
+      <ul>
+        <li>樂器設定：管弦、合唱、鋼琴、電子低頻、鼓組…</li>
+        <li>人聲設定：主唱情緒線、是否加合聲、是否有對唱。</li>
+        <li>特別設計：例如「耳語經文」「反向 reverb」「心跳聲」「風聲」等。</li>
+      </ul>
+
+      <div class="note">
+        ※ 之後可以放實際 Session 截圖、混音設定、Automation 筆記等等。
+      </div>
+    </section>
+
+    <!-- Suno / AI Elements -->
+    <section id="suno">
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+
+      <h3>模型與風格（Model & Style）</h3>
+      <ul>
+        <li>Model：例如 Suno v3 / v3.5 / v4（之後實際使用時再填）。</li>
+        <li>Prompt 關鍵字：可以列出你用的英文 tags，例如：<br>
+          <em>dark cinematic orchestral, hybrid electronic, bible-inspired, male vocal, deep choir, storm, ashes, hopeful ending</em>
+        </li>
+        <li>Tempo / Key：如果有固定 BPM 或調性，也可以寫在這裡。</li>
+      </ul>
+
+      <h3>實作小記（Implementation Notes）</h3>
+      <ul>
+        <li>這首歌有沒有多次生成再剪接？有沒有把不同版本的段落拼在一起？</li>
+        <li>哪些部分是 AI 直接產出，哪些是你自己後製 / 加錄？</li>
+      </ul>
+
+      <div class="note">
+        ※ 這區就是你未來的「製作備忘錄」，也給之後的自己或粉絲看幕後花絮。
+      </div>
+    </section>
+
+    <div class="back-link">
+      <!-- TODO：這裡的連結指向本系列的 index.html -->
+      ← 回到 <a href="index.html">本系列總覽</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
