@@ -175,19 +175,19 @@
       position: relative;
     }
 
-     /* 讓整張卡片可點擊，外觀一致 */
-     .card-link {
-       display: block;
-       text-decoration: none;
-       color: inherit;
-       transition: transform 0.15s ease, box-shadow 0.15s ease;
-     }
+    /* 讓整張卡片可點擊，外觀一致 */
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
 
-     .card-link:hover {
-       transform: translateY(-3px);
-       box-shadow: 0 14px 40px rgba(236,72,153,0.15);
-     }
-    
+    .card-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(236,72,153,0.15);
+    }
+
     .label {
       font-size: 9px;
       display: inline-block;
@@ -239,11 +239,14 @@
     <div class="sub">精選 AI 音樂作品與概念宇宙，給認真聽歌的你。</div>
 
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="music.html" class="active">Music</a>
-      <a href="worklife.html">Work Life</a>
-      <a href="fitness.html">Fitness</a>
-      <a href="invest.html">Invest</a>
+      <!-- 從 music/index.html 回到網站首頁，要往上一層 -->
+      <a href="../index.html">Home</a>
+      <!-- 目前就在 music/ 底下，所以用 index.html 自己這一頁 -->
+      <a href="index.html" class="active">Music</a>
+      <!-- 其它分類都在同層資料夾，往上一層再進去 -->
+      <a href="../worklife/">Work Life</a>
+      <a href="../fitness/">Fitness</a>
+      <a href="../invest/">Invest</a>
     </nav>
   </header>
 
@@ -276,7 +279,8 @@
         <a class="link" href="#" target="_blank">▶ 之後放 YouTube / Suno 連結</a>
       </article>
 
-      <a class="card card-link" href="kozono-sayuri.github.io/music/afra-wolves/index.html">
+      <!-- ⭐ 改這裡：連到 music/afra-wolves/index.html -->
+      <a class="card card-link" href="afra-wolves/">
         <div class="label">Afra & Wolves</div>
         <div class="title">小紅帽的反叛童話</div>
         <div class="text">
@@ -285,7 +289,6 @@
         </div>
         <div class="link">▶ 進入 Afra & Wolves 世界</div>
       </a>
-
 
       <article class="card">
         <div class="label">Original</div>
