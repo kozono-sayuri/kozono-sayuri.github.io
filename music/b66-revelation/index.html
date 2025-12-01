@@ -1,1 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kozono Sayuri - Job Series</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #0f172a;
+      /* Bible 系列：深藍紫＋柔光 */
+      background: radial-gradient(circle at top, #e0f2fe 0%, #eef2ff 40%, #f9fafb 100%);
+    }
+
+    /* header：夜空＋藍紫聖光感 */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #020617, #1d4ed8, #7c3aed);
+      color: #e5f2ff;
+      box-shadow: 0 4px 18px rgba(15,23,42,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 14px rgba(191,219,254,0.95);
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+    }
+
+    header .topline,
+    header h1,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 背景小星星：改成冷色系星光 */
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(219,234,254,0.95);
+      text-shadow: 0 0 6px rgba(255,255,255,0.95);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 30%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1);   opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1;   }
+    }
+
+    /* 導覽列：與其他頁一致，Music 為 active */
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.26);
+      color: #e0f2fe;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(191,219,254,0.7);
+    }
+
+    .nav a:hover {
+      background: #38bdf8;
+      color: #020617;
+      box-shadow: 0 4px 12px rgba(56,189,248,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #38bdf8;
+      color: #020617;
+      box-shadow: 0 4px 14px rgba(56,189,248,1);
+    }
+
+    main {
+      max-width: 980px;
+      width: 100%;
+      margin: 26px auto 34px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* 上方大卡：故事概念，改成 Bible 風的藍紫光 */
+    .intro-card {
+      background: rgba(255,255,255,0.98);
+      border-radius: 24px;
+      padding: 22px 22px 16px;
+      margin-bottom: 22px;
+      box-shadow: 0 16px 46px rgba(59,130,246,0.18);
+      border: 1px solid rgba(219,234,254,0.98);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #0f172a;
+    }
+
+    .intro-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(37,99,235,0.2), transparent);
+      top: -40px;
+      right: -40px;
+    }
+
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      background: radial-gradient(circle, rgba(129,140,248,0.35), transparent);
+      bottom: -34px;
+      left: -24px;
+    }
+
+    .intro-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #1d4ed8;
+    }
+
+    .intro-sub {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .series-text p {
+      margin: 8px 0;
+      line-height: 1.9;
+    }
+
+    /* Tracks 區塊標題 */
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 6px 2px 4px;
+      color: #1d4ed8;
+    }
+
+    .section-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin: 0 2px 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 10px 11px 9px;
+      font-size: 12px;
+      line-height: 1.8;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      border: 1px solid rgba(219,234,254,0.98);
+      position: relative;
+      overflow: hidden;
+      color: #0f172a;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, rgba(59,130,246,0.16), transparent);
+      top: -18px;
+      right: -16px;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #1d4ed8;
+      margin-bottom: 2px;
+    }
+
+    .title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .text {
+      color: #1e293b;
+    }
+
+    .link {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #2563eb;
+    }
+
+    .link a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+
+    /* 整張卡可點擊 */
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .card-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(37,99,235,0.2);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 20px; }
+      .intro-card { padding: 16px 12px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ BIBLE / JOB SERIES</div>
+    <h1>Book of Revelation · 啟示錄：末日與新天新地</h1>
+    <div class="sub">在灰燼裡發問，在沉默裡仍然拉住信仰的長篇對話。</div>
+
+    <!-- 星空：七顆冷色星 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-card">
+      <div class="intro-title">📖 Story Concept · Job Series</div>
+      <div class="intro-sub">
+        約伯失去一切、坐在爐灰中的故事，被做成一首一首可以重聽的祈禱與質問。
+      </div>
+
+      <div class="series-text">
+        <p>
+          這是 Bible Universe 的第一個長篇企劃，也是我想用音樂慢慢拆開的經文：<br>
+          「如果一個人做對了大部分的事，卻還是遭遇毀滅性的失去，那他還能相信什麼？」
+        </p>
+
+        <p>
+          曲風會在 Dark Orchestral、Hybrid Electronic、Cinematic Choir 之間游走，  
+          有很安靜的祈禱，也有像暴風一樣的段落。
+        </p>
+
+        <p>
+          每一首歌對應一段場景：信使連環報、約伯撕裂衣服、朋友來訪、長篇辯論、  
+          以及最後那場「從旋風中」的回答。
+        </p>
+
+        <p>
+          這裡先預留 50 首格子，方便之後慢慢擺上 Demo、正式版、配樂或製作筆記。
+        </p>
+      </div>
+    </section>
+
+    <div class="section-title">🎵 Tracks & Notes（Job Series · 預留 50 首）</div>
+    <div class="section-note">
+      目前標題與連結都只是暫定佔位，你之後可以自由改歌名、路徑或把部分改成「製作筆記／配樂版」等。
+    </div>
+
+    <section class="grid">
+      <!-- Track 01 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 01</div>
+        <div class="title">失去的序曲 · First Messenger</div>
+        <div class="text">
+          第一個信使跑來，財產被奪走的瞬間。節奏感較強、像連環報的開場曲。
+        </div>
+        <div class="link">▶ 進入 Job 01</div>
+      </a>
+
+      <!-- Track 02 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 02</div>
+        <div class="title">火從天降 · Sheep in Flames</div>
+        <div class="text">
+          天火燒盡羊群與僕人，把「為什麼」唱成不安的和弦與低頻鼓點。
+        </div>
+        <div class="link">▶ 進入 Job 02</div>
+      </a>
+
+      <!-- Track 03 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 03</div>
+        <div class="title">狂風吹來的那一夜</div>
+        <div class="text">
+          房屋倒塌、兒女喪命，弦樂與合唱堆疊到近乎失真，然後只剩下靜默。
+        </div>
+        <div class="link">▶ 進入 Job 03</div>
+      </a>
+
+      <!-- Track 04 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 04</div>
+        <div class="title">撕裂衣服的人 · Torn Garments</div>
+        <div class="text">
+          約伯撕裂衣服、剃頭伏地敬拜，把「賞賜與收取」寫成第一首主題抒情曲。
+        </div>
+        <div class="link">▶ 進入 Job 04</div>
+      </a>
+
+      <!-- Track 05 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 05</div>
+        <div class="title">爐灰中的呼吸</div>
+        <div class="text">
+          他坐在灰中，用瓦片刮身。呼吸聲、細碎打擊與低音弦樂交織的極簡段落。
+        </div>
+        <div class="link">▶ 進入 Job 05</div>
+      </a>
+
+      <!-- Track 06 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 06</div>
+        <div class="title">你仍然持守純正嗎？</div>
+        <div class="text">
+          妻子的質問與約伯的回答對唱，兩種聲音在同一個和聲裡拉扯。
+        </div>
+        <div class="link">▶ 進入 Job 06</div>
+      </a>
+
+      <!-- Track 07 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 07</div>
+        <div class="title">朋友來的那七天</div>
+        <div class="text">
+          他們一言不發，只跟他一同坐在地上七天七夜。幾乎無節奏的氛圍配樂。
+        </div>
+        <div class="link">▶ 進入 Job 07</div>
+      </a>
+
+      <!-- Track 08 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 08</div>
+        <div class="title">願我沒出生 · Cursed Birthday</div>
+        <div class="text">
+          約伯開口咒詛自己的生日。旋律線很長、像喘不過氣的長句。
+        </div>
+        <div class="link">▶ 進入 Job 08</div>
+      </a>
+
+      <!-- Track 09 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 09</div>
+        <div class="title">輪流發言 · Three Friends</div>
+        <div class="text">
+          朋友輪番上陣，用「因果論」攻擊他。節奏說唱＋管弦，像辯論賽現場。
+        </div>
+        <div class="link">▶ 進入 Job 09</div>
+      </a>
+
+      <!-- Track 10 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 10</div>
+        <div class="title">我只想問一個為什麼</div>
+        <div class="text">
+          約伯對神的大段質問。旋律往上推卻一直無法真正落在主音上。
+        </div>
+        <div class="link">▶ 進入 Job 10</div>
+      </a>
+
+      <!-- Track 11 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 11</div>
+        <div class="title">神蹟與苦難的清單</div>
+        <div class="text">
+          他回顧過去的恩典與現在的荒涼，用對比做成歌詞上的清單。
+        </div>
+        <div class="link">▶ 進入 Job 11</div>
+      </a>
+
+      <!-- Track 12 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 12</div>
+        <div class="title">塵土裡的尊嚴</div>
+        <div class="text">
+          雖然一無所有，仍然堅持自己是有尊嚴的人。偏抒情、帶一點搖滾推進。
+        </div>
+        <div class="link">▶ 進入 Job 12</div>
+      </a>
+
+      <!-- Track 13 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 13</div>
+        <div class="title">若有一位中保</div>
+        <div class="text">
+          他渴望有人在神與人中間替他說話。可以走合唱＋管風琴路線。
+        </div>
+        <div class="link">▶ 進入 Job 13</div>
+      </a>
+
+      <!-- Track 14 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 14</div>
+        <div class="title">關於公義的辯論</div>
+        <div class="text">
+          「義人受苦，惡人亨通」的矛盾，用重複主題動機堆積不安。
+        </div>
+        <div class="link">▶ 進入 Job 14</div>
+      </a>
+
+      <!-- Track 15 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 15</div>
+        <div class="title">夜裡的獨白</div>
+        <div class="text">
+          別人睡了，他還醒著。只剩鋼琴、細小環境聲與耳語式人聲。
+        </div>
+        <div class="link">▶ 進入 Job 15</div>
+      </a>
+
+      <!-- Track 16 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 16</div>
+        <div class="title">朋友口中的神</div>
+        <div class="text">
+          他發現朋友說的神，跟自己認識的不太一樣。歌裡有兩種對立旋律線。
+        </div>
+        <div class="link">▶ 進入 Job 16</div>
+      </a>
+
+      <!-- Track 17 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 17</div>
+        <div class="title">我知道我的救贖主活著</div>
+        <div class="text">
+          經典名句。可以做成偏讚美詩歌路線，但帶一點破碎沙啞的聲線。
+        </div>
+        <div class="link">▶ 進入 Job 17</div>
+      </a>
+
+      <!-- Track 18 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 18</div>
+        <div class="title">被誤解的信仰</div>
+        <div class="text">
+          「你一定做錯什麼」這種話，讓他更孤單。適合寫成情緒爆發曲。
+        </div>
+        <div class="link">▶ 進入 Job 18</div>
+      </a>
+
+      <!-- Track 19 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 19</div>
+        <div class="title">以利戶登場 · The Young Voice</div>
+        <div class="text">
+          年輕的以利戶突然開口，帶來另一種角度。音色可以更亮、更年輕。
+        </div>
+        <div class="link">▶ 進入 Job 19</div>
+      </a>
+
+      <!-- Track 20 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 20</div>
+        <div class="title">等候回答的那一刻</div>
+        <div class="text">
+          一切聲音停止，只剩下風聲與心跳。極簡氛圍、幾乎沒有鼓。
+        </div>
+        <div class="link">▶ 進入 Job 20</div>
+      </a>
+
+      <!-- Track 21 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 21</div>
+        <div class="title">旋風中的聲音 · Out of the Storm</div>
+        <div class="text">
+          神終於開口。大鼓、低銅管與合唱一次全部進來。
+        </div>
+        <div class="link">▶ 進入 Job 21</div>
+      </a>
+
+      <!-- Track 22 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 22</div>
+        <div class="title">你曾命定晨光嗎？</div>
+        <div class="text">
+          「你曾吩咐晨光嗎？」把這段經文做成帶光感的主題動機。
+        </div>
+        <div class="link">▶ 進入 Job 22</div>
+      </a>
+
+      <!-- Track 23 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 23</div>
+        <div class="title">群星歌唱的地方</div>
+        <div class="text">
+          談到創造時群星一同歌唱。可以放很多高音弦樂與女聲合唱。
+        </div>
+        <div class="link">▶ 進入 Job 23</div>
+      </a>
+
+      <!-- Track 24 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 24</div>
+        <div class="title">你若能，回答我</div>
+        <div class="text">
+          神反過來問約伯。主旋律轉成低音男聲，節奏穩定而堅定。
+        </div>
+        <div class="link">▶ 進入 Job 24</div>
+      </a>
+
+      <!-- Track 25 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 25</div>
+        <div class="title">看見自己的渺小</div>
+        <div class="text">
+          約伯在這裡第一次真正沉默。旋律幾乎只有細小動機在迴圈。
+        </div>
+        <div class="link">▶ 進入 Job 25</div>
+      </a>
+
+      <!-- Track 26 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 26</div>
+        <div class="title">再說一次：你是誰？</div>
+        <div class="text">
+          第二輪問題來到，「你是誰，竟敢以無知的言語使我的旨意暗昧？」
+        </div>
+        <div class="link">▶ 進入 Job 26</div>
+      </a>
+
+      <!-- Track 27 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 27</div>
+        <div class="title">河馬與鱷魚的頌歌</div>
+        <div class="text">
+          描述河馬與鱷魚，把自然界的力量寫成偏史詩配樂。
+        </div>
+        <div class="link">▶ 進入 Job 27</div>
+      </a>
+
+      <!-- Track 28 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 28</div>
+        <div class="title">智慧在哪裡？</div>
+        <div class="text">
+          「智慧在哪裡可以尋見？」這首可以做成哲學感很重的慢歌。
+        </div>
+        <div class="link">▶ 進入 Job 28</div>
+      </a>
+
+      <!-- Track 29 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 29</div>
+        <div class="title">曾經的榮耀日子</div>
+        <div class="text">
+          約伯回憶從前被尊重的日子。旋律較暖、帶一點懷舊感。
+        </div>
+        <div class="link">▶ 進入 Job 29</div>
+      </a>
+
+      <!-- Track 30 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 30</div>
+        <div class="title">如今 · Now</div>
+        <div class="text">
+          「現在」和「從前」的強烈對比，是整張專輯情緒最低谷的段落之一。
+        </div>
+        <div class="link">▶ 進入 Job 30</div>
+      </a>
+
+      <!-- Track 31 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 31</div>
+        <div class="title">若我有做這些事</div>
+        <div class="text">
+          約伯詳細列出自己沒有做的罪行。可以做成說唱＋列舉式歌詞。
+        </div>
+        <div class="link">▶ 進入 Job 31</div>
+      </a>
+
+      <!-- Track 32 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 32</div>
+        <div class="title">站在縫隙的人</div>
+        <div class="text">
+          將「中保」的意象發展成一整首歌，為以後別的聖經系列鋪梗。
+        </div>
+        <div class="link">▶ 進入 Job 32</div>
+      </a>
+
+      <!-- Track 33 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 33</div>
+        <div class="title">聽完之後的沉默</div>
+        <div class="text">
+          神說完話之後，一切慢慢回到安靜。適合做成 Ambient / Drone 類配樂。
+        </div>
+        <div class="link">▶ 進入 Job 33</div>
+      </a>
+
+      <!-- Track 34 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 34</div>
+        <div class="title">我從前風聞有你</div>
+        <div class="text">
+          約伯說出那句：「我從前風聞有你，如今親眼看見你。」是整張的轉折點。
+        </div>
+        <div class="link">▶ 進入 Job 34</div>
+      </a>
+
+      <!-- Track 35 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 35</div>
+        <div class="title">塵土中的收尾</div>
+        <div class="text">
+          「因此我在塵土和爐灰中懊悔。」低音樂器慢慢淡出，只留一點餘韻。
+        </div>
+        <div class="link">▶ 進入 Job 35</div>
+      </a>
+
+      <!-- Track 36 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 36</div>
+        <div class="title">為朋友代求</div>
+        <div class="text">
+          神要約伯為朋友禱告。旋律從個人悲歌轉向代禱與和解。
+        </div>
+        <div class="link">▶ 進入 Job 36</div>
+      </a>
+
+      <!-- Track 37 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 37</div>
+        <div class="title">被翻轉的結局</div>
+        <div class="text">
+          結局不只是得回一切，而是內在視角被翻轉。可以寫成大團 Finale。
+        </div>
+        <div class="link">▶ 進入 Job 37</div>
+      </a>
+
+      <!-- Track 38 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 38</div>
+        <div class="title">雙倍的祝福</div>
+        <div class="text">
+          財物與兒女比以前更多。旋律華麗，但帶一點安靜的後座力。
+        </div>
+        <div class="link">▶ 進入 Job 38</div>
+      </a>
+
+      <!-- Track 39 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 39</div>
+        <div class="title">回望那堆灰</div>
+        <div class="text">
+          即使生活恢復，灰燼仍在記憶裡。偏內省的小品。
+        </div>
+        <div class="link">▶ 進入 Job 39</div>
+      </a>
+
+      <!-- Track 40 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 40</div>
+        <div class="title">如果故事重來一次</div>
+        <div class="text">
+          想像如果一切再發生，他還會不會做同樣選擇。給聽眾自己思考的空間。
+        </div>
+        <div class="link">▶ 進入 Job 40</div>
+      </a>
+
+      <!-- Track 41 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 41</div>
+        <div class="title">信仰與風暴的備忘錄</div>
+        <div class="text">
+          可以當成整個系列的筆記歌，回顧所有重要主題。
+        </div>
+        <div class="link">▶ 進入 Job 41</div>
+      </a>
+
+      <!-- Track 42 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 42</div>
+        <div class="title">製作筆記 · Sound & Mood</div>
+        <div class="text">
+          專門放聲音設計／配器選擇／混音備忘錄，用來記錄 Job Series 的技術細節。
+        </div>
+        <div class="link">▶ 進入 Job 42（製作筆記）</div>
+      </a>
+
+      <!-- Track 43 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 43</div>
+        <div class="title">製作筆記 · Lyrics & Scripture</div>
+        <div class="text">
+          記錄每首歌對應的經文、翻譯取捨與歌詞改寫想法。
+        </div>
+        <div class="link">▶ 進入 Job 43（製作筆記）</div>
+      </a>
+
+      <!-- Track 44 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 44</div>
+        <div class="title">製作筆記 · Visual & MV</div>
+        <div class="text">
+          可以放封面草圖、MV 構想、顏色設計與角色服裝設定。
+        </div>
+        <div class="link">▶ 進入 Job 44（製作筆記）</div>
+      </a>
+
+      <!-- Track 45 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 45</div>
+        <div class="title">Instrumental Cut · 灰燼配樂集</div>
+        <div class="text">
+          將幾首主題拆成純配樂版本，適合當讀經或寫作 BGM。
+        </div>
+        <div class="link">▶ 進入 Job 45（配樂）</div>
+      </a>
+
+      <!-- Track 46 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 46</div>
+        <div class="title">Instrumental Cut · 旋風與星空</div>
+        <div class="text">
+          把「旋風」「群星歌唱」這兩個畫面做成長篇配樂。
+        </div>
+        <div class="link">▶ 進入 Job 46（配樂）</div>
+      </a>
+
+      <!-- Track 47 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 47</div>
+        <div class="title">Live / Worship Version 01</div>
+        <div class="text">
+          未來若有現場敬拜版，可以集中放在這裡。現在先預留。
+        </div>
+        <div class="link">▶ 進入 Job 47（預留）</div>
+      </a>
+
+      <!-- Track 48 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 48</div>
+        <div class="title">Live / Worship Version 02</div>
+        <div class="text">
+          第二個現場／合唱版本預留位。歌名與內容都可以之後再決定。
+        </div>
+        <div class="link">▶ 進入 Job 48（預留）</div>
+      </a>
+
+      <!-- Track 49 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 49</div>
+        <div class="title">Bonus Track · 未命名曲 A</div>
+        <div class="text">
+          預留給未來靈感爆發時突然多出來的一首歌。
+        </div>
+        <div class="link">▶ 進入 Job 49（預留）</div>
+      </a>
+
+      <!-- Track 50 -->
+      <a href="../../under-construction/index.html" class="card card-link">
+        <div class="label">Job Series 50</div>
+        <div class="title">Bonus Track · 未命名曲 B</div>
+        <div class="text">
+          再多一個空位，以防你之後覺得 50 首還不夠用 XDD。
+        </div>
+        <div class="link">▶ 進入 Job 50（預留）</div>
+      </a>
+    </section>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
