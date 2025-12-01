@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon · 施工中｜Kozono Sayuri</title>
+  <title>Coming Soon · 施工中 | Kozono Sayuri</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -13,71 +13,61 @@
       display: flex;
       flex-direction: column;
       color: #0f172a;
-      background: radial-gradient(circle at top, #f5f3ff 0%, #eef2ff 40%, #f9fafb 100%);
+      background:
+        radial-gradient(circle at top, #e0f2fe 0%, #eff6ff 28%, #fdf2ff 60%, #f9fafb 100%);
     }
 
+    /* === Header：宇宙漸層 + 小星星 === */
     header {
-      padding: 26px 16px 18px;
+      padding: 26px 16px 22px;
       text-align: center;
-      background: linear-gradient(135deg, #4c1d95, #2563eb, #22c55e);
-      color: #fefce8;
-      box-shadow: 0 4px 18px rgba(15,23,42,0.7);
+      color: #e0f2fe;
+      background: linear-gradient(135deg, #1e293b, #2563eb, #22c1c3);
       position: relative;
       overflow: hidden;
+      box-shadow: 0 6px 20px rgba(15,23,42,0.56);
     }
 
-    .topline {
-      font-size: 10px;
-      letter-spacing: 0.16em;
+    header::after {
+      content: "";
+      position: absolute;
+      inset: -60px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(248,250,252,0.16), transparent 55%),
+        radial-gradient(circle at 85% 20%, rgba(248,250,252,0.16), transparent 55%);
       opacity: 0.9;
+      pointer-events: none;
     }
 
-    h1 {
-      font-size: 24px;
-      margin: 6px 0 2px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-shadow: 0 0 14px rgba(254,249,195,0.95);
-    }
-
-    .sub {
-      font-size: 11px;
-      opacity: 0.96;
-    }
-
-    header .topline,
-    header h1,
-    header .sub,
-    header nav {
+    header .inner {
       position: relative;
       z-index: 2;
     }
 
-    .star {
-      position: absolute;
-      font-size: 20px;
-      color: rgba(254,249,195,0.95);
-      text-shadow: 0 0 6px rgba(255,255,255,0.95);
-      animation: sparkle 4.5s infinite ease-in-out;
-      pointer-events: none;
-      z-index: 0;
+    .topline {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.82;
     }
 
-    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
-    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
-    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
-    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
-    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
-    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
-    .star:nth-of-type(7){ top: 62px; left: 30%;animation-delay: 3.2s; }
+    h1 {
+      font-size: 24px;
+      margin: 8px 0 4px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #f9fafb;
+      text-shadow: 0 0 18px rgba(15,23,42,0.9);
+    }
 
-    @keyframes sparkle {
-      0%,100% { transform: scale(1);   opacity: 0.5; }
-      50%     { transform: scale(1.4); opacity: 1;   }
+    .sub {
+      font-size: 12px;
+      opacity: 0.92;
+      color: #e5f0ff;
     }
 
     .nav {
-      margin-top: 12px;
+      margin-top: 16px;
       display: flex;
       justify-content: center;
       gap: 12px;
@@ -86,258 +76,378 @@
 
     .nav a {
       font-size: 11px;
-      padding: 6px 14px;
+      padding: 7px 16px;
       border-radius: 999px;
-      background: rgba(37,99,235,0.26);
-      color: #fefce8;
       text-decoration: none;
-      transition: all 0.15s ease;
-      border: 1px solid rgba(254,240,138,0.7);
+      border: 1px solid rgba(191,219,254,0.7);
+      background: rgba(15,23,42,0.26);
+      color: #e0f2fe;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.16s ease;
     }
 
     .nav a:hover {
-      background: #22c55e;
-      color: #022c22;
-      box-shadow: 0 4px 12px rgba(34,197,94,0.9);
+      background: #e0f2fe;
+      color: #0f172a;
+      box-shadow: 0 6px 16px rgba(15,23,42,0.55);
       transform: translateY(-1px);
     }
 
     .nav a.active {
-      background: #22c55e;
-      color: #022c22;
-      box-shadow: 0 4px 14px rgba(34,197,94,1);
+      background: #f97316;
+      border-color: rgba(251,191,36,0.9);
+      color: #0b1120;
+      box-shadow: 0 6px 18px rgba(248,181,0,0.9);
     }
 
+    /* 星星 */
+    .star {
+      position: absolute;
+      font-size: 18px;
+      color: rgba(248,250,252,0.9);
+      text-shadow: 0 0 6px rgba(248,250,252,1);
+      pointer-events: none;
+      animation: twinkle 5s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    .star:nth-of-type(1){ top: 18px; left: 8%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 46px; left: 18%; animation-delay: .9s; }
+    .star:nth-of-type(3){ top: 26px; right: 16%;animation-delay: 1.6s; }
+    .star:nth-of-type(4){ top: 64px; right: 6%; animation-delay: 2.3s; }
+    .star:nth-of-type(5){ top: 10px; right: 40%;animation-delay: 3.1s; }
+
+    @keyframes twinkle {
+      0%,100% { transform: scale(1);   opacity: 0.4; }
+      50%     { transform: scale(1.35); opacity: 1;   }
+    }
+
+    /* === Main / Card === */
     main {
-      max-width: 980px;
+      max-width: 1000px;
       width: 100%;
-      margin: 26px auto 34px;
-      padding: 0 16px;
+      margin: 28px auto 36px;
+      padding: 0 16px 10px;
       flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    .card {
-      background: rgba(255,255,255,0.98);
-      border-radius: 26px;
-      padding: 26px 22px 20px;
-      box-shadow: 0 18px 50px rgba(148,163,184,0.35);
-      border: 1px solid rgba(226,232,240,0.98);
-      max-width: 720px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-      gap: 18px;
-      align-items: center;
+    .intro-card {
+      background: radial-gradient(circle at top left, rgba(191,219,254,0.40), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(240,249,255,0.85), transparent 60%),
+                  rgba(255,255,255,0.96);
+      border-radius: 28px;
+      padding: 26px 26px 22px;
+      box-shadow: 0 22px 60px rgba(148,163,184,0.45);
+      border: 1px solid rgba(226,232,240,0.95);
       position: relative;
       overflow: hidden;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      background: radial-gradient(circle, rgba(129,140,248,0.24), transparent);
-      top: -40px;
-      right: -40px;
-    }
-
-    .card::after {
+    .intro-card::after {
       content: "";
       position: absolute;
       width: 120px;
       height: 120px;
-      background: radial-gradient(circle, rgba(52,211,153,0.28), transparent);
-      bottom: -34px;
-      left: -24px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(129,140,248,0.18), transparent 65%);
+      bottom: -40px;
+      right: -30px;
     }
 
-    .illust {
-      position: relative;
+    .intro-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .title-block {
+      flex: 1 1 260px;
       z-index: 1;
-      border-radius: 22px;
-      padding: 18px 12px;
-      background: linear-gradient(145deg, #fef3c7, #e0f2fe);
+    }
+
+    .page-title {
+      font-size: 20px;
+      font-weight: 650;
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 12px;
-      color: #374151;
-      box-shadow: inset 0 0 0 1px rgba(248,250,252,0.9);
+      gap: 8px;
+      color: #020617;
     }
 
-    .illust-title {
+    .page-title span.icon {
+      font-size: 22px;
+    }
+
+    .page-sub {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.8;
+    }
+
+    /* Chibi 卡片區 */
+    .chibi-wrap {
+      flex: 0 0 260px;
+      max-width: 260px;
+      z-index: 1;
+    }
+
+    .chibi-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 12px 10px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fff7e5, #fffaf0);
+      border: 1px solid rgba(248,196,113,0.65);
+      box-shadow: 0 14px 30px rgba(248,181,0,0.25);
+    }
+
+    .chibi-card img {
+      width: 140px;
+      max-width: 100%;
+      display: block;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fff, #ffe9c2);
+      padding: 10px;
+      box-shadow: 0 8px 22px rgba(248,181,0,0.4);
+      animation: float 3.4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-8px); }
+    }
+
+    .chibi-title {
       font-size: 13px;
       font-weight: 600;
-      margin-bottom: 4px;
+      color: #92400e;
     }
 
-    .illust-note {
+    .chibi-text {
       font-size: 11px;
-      color: #6b7280;
+      color: #78350f;
+      text-align: center;
+      line-height: 1.7;
     }
 
-    .content {
-      position: relative;
-      z-index: 1;
+    /* 文字區塊 */
+    .intro-body {
+      margin-top: 6px;
       font-size: 13px;
       line-height: 1.9;
-      color: #111827;
+      color: #4b5563;
+      position: relative;
+      z-index: 1;
     }
 
-    .content-title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .intro-body p + p { margin-top: 6px; }
 
-    .content-sub {
-      font-size: 11px;
-      color: #6b7280;
-      margin-bottom: 8px;
-    }
-
-    .content p {
-      margin: 6px 0;
-    }
-
-    .tag-row {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tag {
-      padding: 3px 9px;
+    .highlight {
+      background: linear-gradient(120deg, #dbeafe, #fef3c7);
+      padding: 4px 8px;
       border-radius: 999px;
-      font-size: 10px;
-      background: #e0f2fe;
-      color: #1d4ed8;
-      box-shadow: 0 2px 6px rgba(148,163,184,0.6);
-    }
-
-    .buttons {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .btn {
       font-size: 11px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: #22c55e;
-      color: #022c22;
-      box-shadow: 0 4px 10px rgba(34,197,94,0.7);
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      margin-top: 10px;
     }
 
-    .btn.secondary {
-      background: #e0f2fe;
-      color: #1d4ed8;
-      box-shadow: 0 2px 6px rgba(148,163,184,0.6);
+    .highlight span {
+      font-size: 13px;
     }
 
-    .btn a {
+    /* 快速導覽按鈕 */
+    .quick-links {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill-link {
+      font-size: 11px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(255,255,255,0.9);
+      color: #0f172a;
       text-decoration: none;
-      color: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 6px 16px rgba(148,163,184,0.35);
+      transition: all 0.16s ease;
+    }
+
+    .pill-link:hover {
+      background: #0f172a;
+      color: #e5e7eb;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(15,23,42,0.7);
+    }
+
+    .pill-link.main {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ecfdf5;
+      border-color: rgba(22,163,74,0.9);
+      box-shadow: 0 10px 26px rgba(22,163,74,0.7);
+    }
+
+    .pill-link.back {
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #eff6ff;
+      border-color: rgba(96,165,250,0.9);
+      box-shadow: 0 10px 26px rgba(59,130,246,0.7);
+    }
+
+    /* Loading dots */
+    .loading {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .dots {
+      display: inline-flex;
+      gap: 4px;
+    }
+
+    .dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #38bdf8;
+      animation: bounce 1.4s infinite ease-in-out both;
+    }
+
+    .dots span:nth-child(2) { animation-delay: .18s; background:#6366f1; }
+    .dots span:nth-child(3) { animation-delay: .36s; background:#f97316; }
+
+    @keyframes bounce {
+      0%,80%,100% { transform: scale(0); }
+      40%        { transform: scale(1); }
     }
 
     footer {
       text-align: center;
       font-size: 10px;
       color: #9ca3af;
-      padding: 10px 0 16px;
+      padding: 12px 0 18px;
     }
 
     @media (max-width: 720px) {
       h1 { font-size: 20px; }
-      .card {
-        grid-template-columns: 1fr;
-        padding: 18px 14px 16px;
-      }
+      .intro-card { padding: 20px 16px 18px; border-radius: 22px; }
+      .intro-header { flex-direction: column-reverse; align-items: stretch; }
+      .chibi-wrap { max-width: 100%; }
+      .chibi-card { flex-direction: row; align-items: center; }
+      .chibi-card img { width: 90px; }
+      .chibi-text { text-align: left; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="topline">SITE INFO ✦ UNDER CONSTRUCTION</div>
-    <h1>這一頁正在施工中</h1>
-    <div class="sub">Chibi 女團正在排練，等她們準備好再正式登場 💿✨</div>
-
-    <span class="star">✦</span>
-    <span class="star">✧</span>
+    <!-- 星星 -->
     <span class="star">✦</span>
     <span class="star">✧</span>
     <span class="star">✦</span>
     <span class="star">✧</span>
     <span class="star">✦</span>
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="music/">Music</a>
-      <a href="worklife/">Work Life</a>
-      <a href="fitness/">Fitness</a>
-      <a href="invest/">Invest</a>
-    </nav>
+    <div class="inner">
+      <div class="topline">SITE INFO ✦ UNDER CONSTRUCTION</div>
+      <h1>這一頁正在施工中</h1>
+      <div class="sub">
+        Chibi 女團正在排練，等她們準備好再正式登場 ✨
+      </div>
+
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="../music/" class="active">Music</a>
+        <a href="../worklife/">Work Life</a>
+        <a href="../fitness/">Fitness</a>
+        <a href="../invest/">Invest</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="card">
-      <div class="illust">
-        <!-- 這裡之後可以換成真正插圖 <img> -->
-        <div>
-          <div class="illust-title">🎀 Chibi 女團施工中</div>
-          <div class="illust-note">
-            這裡預留給插畫：可愛的 chibi 女團站在舞台上，  
-            手上舉著牌子寫著「施工中，敬請期待」。
+    <section class="intro-card">
+      <div class="intro-header">
+        <div class="title-block">
+          <div class="page-title">
+            <span class="icon">🛠</span>
+            <span>Page Under Construction</span>
+          </div>
+          <div class="page-sub">
+            你已經走到未來版型會出現的位置，但這一頁還在排版與配歌中。<br>
+            這裡可能會放：完整的歌曲列表、故事宇宙介紹，或是 Work Life / Fitness / Invest 的新功能。
+          </div>
+        </div>
+
+        <div class="chibi-wrap">
+          <div class="chibi-card">
+            <img src="/img/under-construction.png" alt="Chibi 女團施工中">
+            <div>
+              <div class="chibi-title">🎀 Chibi 女團施工中</div>
+              <div class="chibi-text">
+                可愛的 chibi 女團站在舞台上，手上舉著牌子寫著：<br>
+                「施工中，敬請期待。」<br>
+                等宇宙設定與歌都排版好，她們會正式出道 ✨
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="content">
-        <div class="content-title">🛠 Page Under Construction</div>
-        <div class="content-sub">
-          你已經走到未來版型會出現的位置，但這一頁還在排版與配歌中。
-        </div>
-
+      <div class="intro-body">
         <p>
-          這裡可能會放：完整的歌曲列表、故事宇宙介紹、  
-          或是 Work Life / Fitness / Invest 的新功能。
+          在那之前，歡迎妳到其它頁面逛逛，或把這一頁加入書籤，等更新完成再回來看。  
+          有任何靈感，也都可以記在妳自己的 Notion / 日記裡，之後再慢慢補完這個宇宙。
         </p>
 
-        <p>
-          在那之前，歡迎先到其它頁面逛逛，  
-          或把這一頁加入書籤，等更新完成再回來看看 🌟
-        </p>
-
-        <div class="tag-row">
-          <div class="tag">🎧 AI Music / Story Worlds</div>
-          <div class="tag">📚 Work Life Notes</div>
-          <div class="tag">💪 Fitness & Routine</div>
-          <div class="tag">📈 Invest & Dashboard</div>
+        <div class="highlight">
+          <span>🌟</span>
+          <span>這一頁目前只是暫停鍵，不是結束鍵。真正的劇情，還在醞釀中。</span>
         </div>
 
-        <div class="buttons">
-          <button class="btn" onclick="history.back();">
-            ← 回上一頁
-          </button>
-          <button class="btn secondary">
-            <a href="music/">🎵 回 Music 首頁</a>
-          </button>
+        <div class="quick-links">
+          <a class="pill-link" href="../music/">
+            🎧 AI Music / Story Worlds
+          </a>
+          <a class="pill-link" href="../worklife/">
+            🗂 Work Life Notes
+          </a>
+          <a class="pill-link" href="../fitness/">
+            💪 Fitness & Routine
+          </a>
+          <a class="pill-link" href="../invest/">
+            📊 Invest & Dashboard
+          </a>
+          <a class="pill-link back" href="javascript:history.back();">
+            ⬅️ 回上一頁
+          </a>
+          <a class="pill-link main" href="../index.html">
+            🏠 回到首頁
+          </a>
+        </div>
+
+        <div class="loading">
+          <div class="dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span>後台正在為這一頁排版／混音中…</span>
         </div>
       </div>
     </section>
