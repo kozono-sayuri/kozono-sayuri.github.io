@@ -126,6 +126,18 @@
       margin-bottom: 4px;
     }
 
+    /* 讓上面的文字不要太寬，視覺跟 Work Life 一樣舒服 */
+    .intro-card .intro-sub,
+    .intro-card p {
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .intro-card p {
+      margin-top: 4px;
+    }
+
     .tags {
       margin-top: 8px;
       display: flex;
@@ -248,157 +260,164 @@
   </header>
 
   <main>
+    <!-- 上方介紹卡 -->
+    <section class="intro-card">
+      <div class="intro-title">🎧 Welcome to Sayuri's Music</div>
+      <div class="intro-sub">
+        在這裡，每一首歌都是一個小宇宙，也是一些真心加上一點中二靈魂。
+      </div>
+      <p>
+        會慢慢放上：<strong>Bible Universe</strong>、<strong>Afra &amp; Wolves</strong>、
+        小行星戀愛歌、暗黑童話、溫柔治癒歌、純配樂與讀書音樂等系列。<br>
+        現在先用幾張卡片幫它們占好位置，等作品和連結準備好，我們再一個一個開門迎客。
+      </p>
+      <div class="tags">
+        <div class="tag">🎵 AI Vocal &amp; Original</div>
+        <div class="tag">📖 Storytelling World</div>
+        <div class="tag">🌌 Bible / Myth Themes</div>
+        <div class="tag">🩷 Pink but Powerful</div>
+      </div>
+    </section>
 
-　　<section class="intro-card">
-　　  <div class="intro-title">🎧 Welcome to Sayuri's Music</div>
-　　  <div class="intro-sub">
-　　    在這裡，每一首歌都是一個小宇宙，也是一點真心加上一點中二靈魂。
-　　  </div>
-　　  <p>
-　　    會慢慢放上：<strong>Bible Universe</strong>、<strong>Afra &amp; Wolves</strong>、
-　　    小行星戀愛歌、暗黑童話、溫柔治癒歌、純配樂與讀書音樂等系列。<br>
-  　　  現在先用幾張卡片幫它們占好位置，等作品和連結準備好，我們再一個一個開門迎客。
-　　  </p>
- 　　 <div class="tags">
-　　    <div class="tag">🎵 AI Vocal &amp; Original</div>
- 　　   <div class="tag">📖 Storytelling World</div>
- 　　   <div class="tag">🌌 Bible / Myth Themes</div>
- 　　   <div class="tag">🩷 Pink but Powerful</div>
- 　　 </div>
-　　</section>
-    
-<section class="grid">
-  <!-- 1. 約伯記 -->
-  <article class="card">
-    <div class="label">Bible Universe</div>
-    <div class="song-title">約伯記：撕裂與恩典</div>
-    <div class="desc">
-      濃黑宇宙感＋管弦與電子。講痛苦、質問和仍然選擇相信的那一刻。
+    <!-- 卡片區標題 -->
+    <div class="grid-title">🌙 Concept Series（概念系列）</div>
+    <div class="grid-note">
+      每張卡片代表一個音樂宇宙，裡面會放歌單、故事背景與作品連結。
     </div>
-    <a class="link" href="#" target="_blank">▶ 之後放 Job 系列 / 歌曲連結</a>
-  </article>
 
-  <!-- 2. 啟示錄 -->
-  <article class="card">
-    <div class="label">Bible Universe</div>
-    <div class="song-title">啟示錄：末日與新天新地</div>
-    <div class="desc">
-      七印、七號、七碗、羔羊與新耶路撒冷，把末日異象做成史詩歌單。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【啟示錄】系列連結</a>
-  </article>
+    <!-- 卡片列表：13 格 -->
+    <section class="grid">
+      <!-- 1. 約伯記 -->
+      <article class="card">
+        <div class="label">Bible Universe</div>
+        <div class="song-title">約伯記：撕裂與恩典</div>
+        <div class="desc">
+          濃黑宇宙感＋管弦與電子。講痛苦、質問和仍然選擇相信的那一刻。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放 Job 系列 / 歌曲連結</a>
+      </article>
 
-  <!-- 3. 伊斯塔希帕爾的音樂宇宙 -->
-  <article class="card">
-    <div class="label">Storytelling</div>
-    <div class="song-title">伊斯塔希帕爾的音樂宇宙</div>
-    <div class="desc">
-      星海、神話與多重宇宙交錯的原創世界觀，會是一整套角色＋歌曲宇宙。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【伊斯塔希帕爾】系列連結</a>
-  </article>
+      <!-- 2. 啟示錄 -->
+      <article class="card">
+        <div class="label">Bible Universe</div>
+        <div class="song-title">啟示錄：末日與新天新地</div>
+        <div class="desc">
+          七印、七號、七碗、羔羊與新耶路撒冷，把末日異象做成史詩歌單。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【啟示錄】系列連結</a>
+      </article>
 
-  <!-- 4. 小紅帽（Afra & Wolves） -->
-  <a class="card card-link" href="afra-wolves/">
-    <div class="label">Afra & Wolves</div>
-    <div class="song-title">小紅帽的反叛童話</div>
-    <div class="desc">
-      Dark Fantasy Rock。Afra 不再是被拯救的人，而是自己選擇命運的人。
-      點進來看這個宇宙的完整設定與歌單。
-    </div>
-    <div class="link">▶ 進入 Afra & Wolves 世界</div>
-  </a>
+      <!-- 3. 伊斯塔希帕爾的音樂宇宙 -->
+      <article class="card">
+        <div class="label">Storytelling</div>
+        <div class="song-title">伊斯塔希帕爾的音樂宇宙</div>
+        <div class="desc">
+          星海、神話與多重宇宙交錯的原創世界觀，會是一整套角色＋歌曲宇宙。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【伊斯塔希帕爾】系列連結</a>
+      </article>
 
-  <!-- 5. 賣火柴的小女孩 -->
-  <article class="card">
-    <div class="label">Storytelling</div>
-    <div class="song-title">賣火柴的小女孩</div>
-    <div class="desc">
-      在冷風裡一根一根點燃的，不只是火柴，而是最後的願望與想像。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【賣火柴的小女孩】系列連結</a>
-  </article>
+      <!-- 4. 小紅帽（Afra & Wolves） -->
+      <a class="card card-link" href="afra-wolves/">
+        <div class="label">Afra &amp; Wolves</div>
+        <div class="song-title">小紅帽的反叛童話</div>
+        <div class="desc">
+          Dark Fantasy Rock。Afra 不再是被拯救的人，而是自己選擇命運的人。
+          點進來看這個宇宙的完整設定與歌單。
+        </div>
+        <div class="link">▶ 進入 Afra &amp; Wolves 世界</div>
+      </a>
 
-  <!-- 6. 小美人魚的故事 -->
-  <article class="card">
-    <div class="label">Storytelling</div>
-    <div class="song-title">小美人魚的故事</div>
-    <div class="desc">
-      用聲音交換雙腳、在泡沫裡消失的愛與選擇，會做成整套海洋系歌單。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【小美人魚】系列連結</a>
-  </article>
+      <!-- 5. 賣火柴的小女孩 -->
+      <article class="card">
+        <div class="label">Storytelling</div>
+        <div class="song-title">賣火柴的小女孩</div>
+        <div class="desc">
+          在冷風裡一根一根點燃的，不只是火柴，而是最後的願望與想像。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【賣火柴的小女孩】系列連結</a>
+      </article>
 
-  <!-- 7. 我批故我在 -->
-  <article class="card">
-    <div class="label">Others</div>
-    <div class="song-title">我批故我在</div>
-    <div class="desc">
-      用歌聲吐槽世界／評論時事，嚴肅議題配上有點壞笑的旋律。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【我批故我在】系列連結</a>
-  </article>
+      <!-- 6. 小美人魚的故事 -->
+      <article class="card">
+        <div class="label">Storytelling</div>
+        <div class="song-title">小美人魚的故事</div>
+        <div class="desc">
+          用聲音交換雙腳、在泡沫裡消失的愛與選擇，會做成整套海洋系歌單。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【小美人魚】系列連結</a>
+      </article>
 
-  <!-- 8. 社畜的療傷之地 -->
-  <article class="card">
-    <div class="label">Others</div>
-    <div class="song-title">社畜的療傷之地</div>
-    <div class="desc">
-      給加班人、通勤人、準備離職中的人，半夜偷偷聽的療傷歌單。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【社畜的療傷之地】系列連結</a>
-  </article>
+      <!-- 7. 我批故我在 -->
+      <article class="card">
+        <div class="label">Others</div>
+        <div class="song-title">我批故我在</div>
+        <div class="desc">
+          用歌聲吐槽世界／評論時事，嚴肅議題配上有點壞笑的旋律。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【我批故我在】系列連結</a>
+      </article>
 
-  <!-- 9. 情感．感情 -->
-  <article class="card">
-    <div class="label">Others</div>
-    <div class="song-title">情感．感情</div>
-    <div class="desc">
-      那些說不出口的話、分不清是友情還是愛情的瞬間，都寫進歌裡。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【情感．感情】系列連結</a>
-  </article>
+      <!-- 8. 社畜的療傷之地 -->
+      <article class="card">
+        <div class="label">Others</div>
+        <div class="song-title">社畜的療傷之地</div>
+        <div class="desc">
+          給加班人、通勤人、準備離職中的人，半夜偷偷聽的療傷歌單。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【社畜的療傷之地】系列連結</a>
+      </article>
 
-  <!-- 10. 每天都有一首代表歌 -->
-  <article class="card">
-    <div class="label">Daily Song</div>
-    <div class="song-title">每天都有一首代表歌</div>
-    <div class="desc">
-      365 天，每天選一首「今天就決定是你了！」的主題曲，當作生活日記。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【每日代表歌】系列連結</a>
-  </article>
+      <!-- 9. 情感．感情 -->
+      <article class="card">
+        <div class="label">Others</div>
+        <div class="song-title">情感．感情</div>
+        <div class="desc">
+          那些說不出口的話、分不清是友情還是愛情的瞬間，都寫進歌裡。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【情感．感情】系列連結</a>
+      </article>
 
-  <!-- 11. 讀書音樂特輯 -->
-  <article class="card">
-    <div class="label">Instrumental</div>
-    <div class="song-title">讀書音樂特輯</div>
-    <div class="desc">
-      柔和、不打擾的 BGM，適合讀書、寫作、coding、備考時使用。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【讀書音樂】系列連結</a>
-  </article>
+      <!-- 10. 每天都有一首代表歌 -->
+      <article class="card">
+        <div class="label">Daily Song</div>
+        <div class="song-title">每天都有一首代表歌</div>
+        <div class="desc">
+          365 天，每天選一首「今天就決定是你了！」的主題曲，當作生活日記。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【每日代表歌】系列連結</a>
+      </article>
 
-  <!-- 12. 配樂系列 -->
-  <article class="card">
-    <div class="label">Instrumental</div>
-    <div class="song-title">配樂系列</div>
-    <div class="desc">
-      像電影一樣推動情緒和畫面的配樂，用來搭配故事、影片或舞台。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【配樂系列】作品連結</a>
-  </article>
+      <!-- 11. 讀書音樂特輯 -->
+      <article class="card">
+        <div class="label">Instrumental</div>
+        <div class="song-title">讀書音樂特輯</div>
+        <div class="desc">
+          柔和、不打擾的 BGM，適合讀書、寫作、coding、備考時使用。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【讀書音樂】系列連結</a>
+      </article>
 
-  <!-- 13. 阿摩司書 -->
-  <article class="card">
-    <div class="label">Psalm Series</div>
-    <div class="song-title">阿摩司書：公平如大水</div>
-    <div class="desc">
-      把「公平如大水、公義如江河滾滾」寫成會在腦中迴盪的旋律與詩歌。
-    </div>
-    <a class="link" href="#" target="_blank">▶ 之後放【阿摩司書】詩歌連結</a>
-  </article>
-</section>
+      <!-- 12. 配樂系列 -->
+      <article class="card">
+        <div class="label">Instrumental</div>
+        <div class="song-title">配樂系列</div>
+        <div class="desc">
+          像電影一樣推動情緒和畫面的配樂，用來搭配故事、影片或舞台。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【配樂系列】作品連結</a>
+      </article>
+
+      <!-- 13. 阿摩司書 -->
+      <article class="card">
+        <div class="label">Psalm Series</div>
+        <div class="song-title">阿摩司書：公平如大水</div>
+        <div class="desc">
+          把「公平如大水、公義如江河滾滾」寫成會在腦中迴盪的旋律與詩歌。
+        </div>
+        <a class="link" href="#" target="_blank">▶ 之後放【阿摩司書】詩歌連結</a>
+      </article>
+    </section>
   </main>
 
   <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
