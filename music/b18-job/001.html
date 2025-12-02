@@ -251,6 +251,24 @@
       .subtitle { font-size: 12px; }
       section { padding: 12px 10px 9px; }
     }
+    
+    /* MV 區塊 */
+    .mv-block {
+      margin: 0 0 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.16);
+      border: 1px solid rgba(252,231,243,0.98);
+      background: #000;
+    }
+
+    .mv-block iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+    
   </style>
 </head>
 <body>
@@ -313,6 +331,15 @@
       </p>
     </section>
 
+    <!-- MV 播放區 -->
+    <div class="mv-block">
+      <iframesrc="https://www.youtube.com/embed/WjL5N4CO3r4"
+        title="Job Series 01 MV"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    
     <!-- Lyrics & Meaning -->
     <section id="lyrics">
       <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
