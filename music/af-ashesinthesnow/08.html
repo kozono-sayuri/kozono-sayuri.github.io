@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《雪中灰燼．Ashes in the Snow》01 - 待編輯 | Kozono Sayuri</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #4b0f22;
+      background: radial-gradient(circle at top, #ffe4f5 0%, #fff5fb 40%, #fff7fb 100%);
+    }
+
+    /* 頂部沿用 music 粉紫色系 */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #4c1d95, #ec4899, #f97316);
+      color: #fff7fb;
+      box-shadow: 0 4px 18px rgba(148, 27, 109, 0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 12px rgba(252, 231, 243, 0.95);
+    }
+
+    .subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #fee2ff;
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+    }
+
+    header .topline,
+    header h1,
+    header .subtitle,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(255, 241, 249, 0.9);
+      text-shadow: 0 0 6px rgba(255,255,255,0.9);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1);   opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1;   }
+    }
+
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(79, 70, 229, 0.26);
+      color: #ffe4f5;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(254, 202, 232, 0.6);
+    }
+
+    .nav a:hover {
+      background: #ec4899;
+      color: #4c1d95;
+      box-shadow: 0 4px 12px rgba(236,72,153,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #ec4899;
+      color: #4c1d95;
+      box-shadow: 0 4px 14px rgba(236,72,153,1);
+    }
+
+    main {
+      max-width: 840px;
+      width: 100%;
+      margin: 24px auto 32px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* MV 區塊 */
+    .mv-block {
+      margin: 0 0 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.16);
+      border: 1px solid rgba(252,231,243,0.98);
+      background: #000;
+    }
+
+    .mv-block iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+
+    /* 頁內小導覽 (像 blog 目錄) */
+    .inner-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+      font-size: 11px;
+    }
+
+    .inner-nav a {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(252,231,243,0.98);
+      color: #be185d;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid rgba(236,72,153,0.22);
+    }
+
+    .inner-nav a:hover {
+      background: #ec4899;
+      color: #fff7fb;
+      box-shadow: 0 4px 10px rgba(236,72,153,0.35);
+      transform: translateY(-1px);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0 14px;
+      font-size: 10px;
+      color: #9f1239;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #ffe4f5;
+    }
+
+    section {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px 14px 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      border: 1px solid rgba(252,231,243,0.98);
+      position: relative;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #5b1026;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(236,72,153,0.10), transparent);
+      top: -14px;
+      right: -14px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #db2777;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    h3 {
+      font-size: 13px;
+      margin: 8px 0 2px;
+      color: #9d174d;
+    }
+
+    p {
+      margin-bottom: 4px;
+    }
+
+    ul {
+      margin: 2px 0 4px 18px;
+      padding: 0;
+    }
+
+    .note {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .back-link {
+      font-size: 11px;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .back-link a {
+      color: #ec4899;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 19px; }
+      .subtitle { font-size: 12px; }
+      section { padding: 12px 10px 9px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ Ashes in the Snow</div>
+    <h1>《雪中灰燼．Ashes in the Snow》 01 ｜ 待修改 </h1>
+    <div class="subtitle">Track 01 · 待修改</div>
+    <div class="sub">
+      待修改
+    </div>
+
+    <!-- 星星 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 頁內目錄 -->
+    <div class="inner-nav">
+      <a href="#overview">Overview 概念速記</a>
+      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
+      <a href="#production">Production 製作過程</a>
+      <a href="#suno">Suno Elements AI 音樂元素</a>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge">《雪中灰燼．Ashes in the Snow》系列</div>
+      <div class="badge">Dark Fantasy Rock / Symphonic</div>
+      <div class="badge">主視覺：聖誕節、雪、火光</div>
+      <div class="badge">Blog Style 創作筆記</div>
+    </div>
+
+    <!-- Overview -->
+    <section id="overview">
+      <h2>💧 Overview｜這首歌想說什麼？</h2>
+      <p>
+        待修改
+      </p>
+      <p>
+        待修改。
+        待修改。
+      </p>
+    </section>
+
+    <!-- MV 播放區 -->
+    <div class="mv-block">
+      <iframe
+        src="https://www.youtube.com/embed/rpqxJPL2SJU"
+        title="Afra & Wolves 02 - Into the Woods MV"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    
+    <!-- Lyrics & Meaning -->
+    <section id="lyrics">
+      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
+
+      <h3>關鍵畫面</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <h3>核心訊息</h3>
+      <p>
+        待修改：
+        <strong>這是一句關鍵句</strong>
+      </p>
+      <p>
+        待修改：
+        待修改：
+      </p>
+
+      <div class="note">
+        ※ MV版：
+        <a href="https://youtu.be/rpqxJPL2SJU" target="_blank">
+          同步在Youtube播放
+        </a>
+      </div>
+      
+    </section>
+
+    <!-- Production -->
+    <section id="production">
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+
+      <h3>情緒設計</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <h3>聲響顏色</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <div class="note">
+        ※ Suno發佈：同款第二名歌曲
+      </div>
+    </section>
+
+    <!-- Suno Elements -->
+    <section id="suno">
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+
+      <h3>模型與風格</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <h3>實作小記</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <div class="note">
+        ※ Suno發佈：同款第三名歌曲
+      </div>
+    </section>
+
+    <div class="back-link">
+      ← 回到 <a href="afra-wolves.html">Afra & Wolves 系列總覽</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
