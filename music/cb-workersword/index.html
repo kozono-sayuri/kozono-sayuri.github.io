@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kozono Sayuri - Afra & Wolves</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #111827;
+      /* 其它系列：暖米黃 × 淡藍 × 柔光 */
+      background: radial-gradient(circle at top, #fef3c7 0%, #e0f2fe 40%, #f9fafb 100%);
+    }
+
+    /* header 顏色：深海軍藍 × 石板灰 × 琥珀橘 */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #0f172a, #334155, #f59e0b);
+      color: #fefce8;
+      box-shadow: 0 4px 18px rgba(15,23,42,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 12px rgba(254,249,195,0.95);
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+    }
+
+    header .topline,
+    header h1,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 背景小星星：冷色系星光 */
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(248,250,252,0.9);
+      text-shadow: 0 0 6px rgba(255,255,255,0.95);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 30%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1);   opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1;   }
+    }
+
+    /* 導覽列：與其他頁一致，Music 為 active */
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.35);
+      color: #e5e7eb;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(148,163,184,0.8);
+    }
+
+    /* ✨ 新增：Story Concept 文字分段排版 */
+    .series-text p {
+      margin: 8px 0;
+      line-height: 1.9;
+    }
+
+    /* 再宣告一次 nav a，讓樣式一致 */
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.35);
+      color: #e5e7eb;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(148,163,184,0.8);
+    }
+
+    .nav a:hover {
+      background: #fbbf24;
+      color: #111827;
+      box-shadow: 0 4px 12px rgba(251,191,36,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #f59e0b;
+      color: #111827;
+      box-shadow: 0 4px 14px rgba(245,158,11,1);
+    }
+
+    main {
+      max-width: 980px;
+      width: 100%;
+      margin: 26px auto 34px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* 上方大卡：故事概念，改成比較偏專欄感 */
+    .intro-card {
+      background: rgba(255,255,255,0.98);
+      border-radius: 24px;
+      padding: 22px 22px 16px;
+      margin-bottom: 22px;
+      box-shadow: 0 16px 46px rgba(15,23,42,0.16);
+      border: 1px solid rgba(254,243,199,0.98);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #111827;
+    }
+
+    .intro-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(245,158,11,0.25), transparent);
+      top: -40px;
+      right: -40px;
+    }
+
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      background: radial-gradient(circle, rgba(59,130,246,0.35), transparent);
+      bottom: -34px;
+      left: -24px;
+    }
+
+    .intro-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #f59e0b;
+    }
+
+    .intro-sub {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    /* 12 格卡片區塊 */
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 6px 2px 4px;
+      color: #b45309;
+    }
+
+    .section-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin: 0 2px 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 10px 11px 9px;
+      font-size: 12px;
+      line-height: 1.8;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      border: 1px solid rgba(226,232,240,0.98);
+      position: relative;
+      overflow: hidden;
+      color: #111827;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, rgba(248,250,252,0.9), transparent);
+      top: -18px;
+      right: -16px;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #fef3c7;
+      color: #92400e;
+      margin-bottom: 2px;
+    }
+
+    .title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .text {
+      color: #374151;
+    }
+
+    .link {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #f59e0b;
+    }
+
+    .link a {
+      color: #f59e0b;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+
+    /* 整張卡可點擊 */
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .card-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(15,23,42,0.16);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 20px; }
+      .intro-card { padding: 16px 12px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ AFRA & WOLVES SERIES</div>
+    <h1>Ashes in the Snow · 雪中灰燼</h1>
+    <div class="sub">暗色系童話宇宙：若寒冬再臨，你願意伸出雙手嗎？</div>
+
+    <!-- 七顆粉白星：分散在邊緣 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-card">
+      <div class="intro-title">💧 Story Concept</div>
+      <div class="intro-sub">
+        她是想盡自己一份力量協助家庭狀況步上正軌的孩子。
+      </div>
+      
+    <div class="series-text">
+      <p>
+        這是暗黑童話風格的第二部，也是我 2025/11月的目標專題。
+      </p>
+
+      <p>
+        這系列是在練習柴可夫斯基「悲愴」曲風時衍生而成的，每一樂章都有一個故事，這是其一。
+      </p>
+    
+      <p>
+        每首歌都是一個心境：對困境的不解、打起精神、羨慕他人、想像、哀求...... 
+      </p>
+    
+      <p>
+        每首歌都有刻意保留的空白想像空間──  
+      </p>
+    
+      <p>
+        聽眾在聽音樂的過程中，也能創造出屬於自己的版本。
+      </p>
+    
+      <p>
+        十首歌，加上兩篇製作筆記，  
+        帶你感受小女孩生命的最後那一日。
+      </p>
+    </div>
+
+    </section>
+
+    <div class="section-title">🎵 Tracks & Notes（10 首歌 + 2 篇製作心得）</div>
+    <div class="section-note">小女孩發生什麼事？最終她明白了什麼？？</div>
+
+    <section class="grid">
+      <!-- Track 01 -->
+      <a href="01.html" class="card card-link">
+        <div class="label">Afra & Wolves 01</div>
+        <div class="title">Crimson Prelude．深紅序曲</div>
+        <div class="text">
+          每個孩子都會聽到大人聽不到的聲音，Afra也是。那個聲音呼喚著她走入森林，從此，Afra的宇宙打開了.....
+          這是她的宇宙入口，暗黑弦樂＋童話搖滾。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 01</div>
+      </a>
+
+      <!-- Track 02 -->
+      <a href="02.html" class="card card-link">
+        <div class="label">Afra & Wolves 02</div>
+        <div class="title">進入森林．Into the Woods</div>
+        <div class="text">
+          Afra還是抵抗不了心中那句要她進入森林的聲音，
+          她以心跳為燈、以氣息為步，走進森林，不是迷路，而是尋找自己。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 02</div>
+      </a>
+
+      <!-- Track 03 -->
+      <a href="03.html" class="card card-link">
+        <div class="label">Afra & Wolves 03</div>
+        <div class="title">紅斗篷不再發光給你看</div>
+        <div class="text">
+          她開始把光收回自己身上，不再當別人劇本裡的裝飾。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 03</div>
+      </a>
+
+      <!-- Track 04 -->
+      <a href="04.html" class="card card-link">
+        <div class="label">Afra & Wolves 04</div>
+        <div class="title">狼群的誓約</div>
+        <div class="text">
+          狼提出牠們的規則：忠誠、代價、共同進退。
+          可以玩合唱與低音合聲。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 04</div>
+      </a>
+
+      <!-- Track 05 -->
+      <a href="05.html" class="card card-link">
+        <div class="label">Afra & Wolves 05</div>
+        <div class="title">獵人的真相</div>
+        <div class="text">
+          童話中的「好人」其實也有血腥條件。
+          用節奏感很重的段落拆穿假正義。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 05</div>
+      </a>
+
+      <!-- Track 06 -->
+      <a href="06.html" class="card card-link">
+        <div class="label">Afra & Wolves 06</div>
+        <div class="title">森之審判 · The Woods Decide</div>
+        <div class="text">
+          Afra 把選擇交給自己與森林，而不是任何單一角色。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 06</div>
+      </a>
+
+      <!-- Track 07 -->
+      <a href="07.html" class="card card-link">
+        <div class="label">Afra & Wolves 07</div>
+        <div class="title">給從前那個小紅帽的信</div>
+        <div class="text">
+          一首偏抒情的自我和解歌，寫給過去的自己。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 07</div>
+      </a>
+
+      <!-- Track 08 -->
+      <a href="08.html" class="card card-link">
+        <div class="label">Afra & Wolves 08</div>
+        <div class="title">Wrong Story, Right Girl</div>
+        <div class="text">
+          節奏快一點，像在甩掉錯的故事。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 08</div>
+      </a>
+
+      <!-- Track 09 -->
+      <a href="09.html" class="card card-link">
+        <div class="label">Afra & Wolves 09</div>
+        <div class="title">Wolves at the Gate</div>
+        <div class="text">
+          狼群站在城市邊界，決定是否一腳踹翻制度。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 09</div>
+      </a>
+
+      <!-- Track 10 -->
+      <a href="10.html" class="card card-link">
+        <div class="label">Afra & Wolves 10</div>
+        <div class="title">Rewrite the Tale</div>
+        <div class="text">
+          結局曲：她自己寫下新的童話，紅斗篷成為王袍。
+        </div>
+        <div class="link">▶ 進入 Afra & Wolves 10</div>
+      </a>
+
+      <!-- Extra 01：製作心得 -->
+      <a href="11.html" class="card card-link">
+        <div class="label">製作心得 01</div>
+        <div class="title">製作筆記 · Sound & Mood</div>
+        <div class="text">
+          紀錄整張 Afra & Wolves 的聲音設計：音色選擇、和聲堆疊、動態控制。
+          之後可以放圖、DEMO、技術筆記。
+        </div>
+        <div class="link">▶ 看製作心得 01</div>
+      </a>
+
+      <!-- Extra 02：製作心得 -->
+      <a href="12.html" class="card card-link">
+        <div class="label">製作心得 02</div>
+        <div class="title">製作筆記 · Lyrics & Storyboard</div>
+        <div class="text">
+          專門寫故事線、角色設定、歌詞碎念與 MV 腦洞。
+          作為未來實體專輯或影片企劃的底稿。
+        </div>
+        <div class="link">▶ 看製作心得 02</div>
+      </a>
+    </section>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
