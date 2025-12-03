@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kozono Sayuri - Emotions</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #4a1f33;
+      /* 柔和奶油粉背景：微暖、適合情感主題 */
+      background: radial-gradient(circle at top, #fff1f2 0%, #fdf2ff 40%, #fefce8 100%);
+    }
+
+    /* ✦ Header：朝霞粉橘＋淡紫感 */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #fb7185, #f97373, #fbbf24);
+      color: #fff8f2;
+      box-shadow: 0 4px 20px rgba(249, 115, 129, 0.55);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(254, 202, 202, 0.7);
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+      color: #ffe4e6;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #fff7f5;
+      text-shadow: 0 0 12px rgba(255, 241, 242, 0.95);
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+      color: #ffe4e6;
+    }
+
+    header .topline,
+    header h1,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ✦ 背景星星：柔和粉白 */
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(255, 244, 247, 0.9);
+      text-shadow: 0 0 7px rgba(255,255,255,0.95);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 30%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1); opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1; }
+    }
+
+    /* ✦ 導覽列：溫柔粉橘膠囊 */
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(254, 226, 226, 0.85);
+      color: #9f1239;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(254, 202, 202, 0.9);
+    }
+
+    .nav a:hover {
+      background: #fb7185;
+      color: #fff7fb;
+      box-shadow: 0 4px 12px rgba(248, 113, 113, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #f97373;
+      color: #fff7fb;
+      box-shadow: 0 4px 14px rgba(248, 113, 113, 1);
+    }
+
+    main {
+      max-width: 980px;
+      width: 100%;
+      margin: 28px auto 38px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* ✦ Intro Card：奶油粉玻璃卡片 */
+    .intro-card {
+      background: rgba(255,255,255,0.98);
+      border-radius: 24px;
+      padding: 22px 22px 16px;
+      margin-bottom: 22px;
+      box-shadow: 0 16px 40px rgba(248, 113, 113, 0.18);
+      border: 1px solid rgba(254, 226, 226, 0.98);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #4a1f33;
+    }
+
+    .intro-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(251, 113, 133, 0.16), transparent);
+      top: -40px;
+      right: -40px;
+    }
+
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      background: radial-gradient(circle, rgba(244, 114, 182, 0.25), transparent);
+      bottom: -34px;
+      left: -24px;
+    }
+
+    .intro-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #e11d48;
+    }
+
+    .intro-sub {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .series-text p {
+      margin: 8px 0;
+      line-height: 1.9;
+    }
+
+    /* ✦ Section title */
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 6px 2px 4px;
+      color: #be123c;
+    }
+
+    .section-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin: 0 2px 10px;
+    }
+
+    /* ✦ Grid 卡片 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 10px 11px 9px;
+      font-size: 12px;
+      line-height: 1.8;
+      box-shadow: 0 8px 22px rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(254, 226, 226, 0.98);
+      position: relative;
+      overflow: hidden;
+      color: #4a1f33;
+      transition: all 0.16s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, rgba(251, 113, 133, 0.16), transparent);
+      top: -18px;
+      right: -16px;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #ffe4e6;
+      color: #9f1239;
+      margin-bottom: 2px;
+    }
+
+    .title {
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: #be123c;
+    }
+
+    .text {
+      color: #7f1d3a;
+    }
+
+    .link {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #ec4899;
+    }
+
+    .link a {
+      color: #ec4899;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(248, 113, 113, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      padding: 10px 0 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="topline">EMOTION ✦ UNIVERSE SERIES</div>
+    <h1>Soft Constellations · 情感主題館</h1>
+    <div class="sub">愛情、親情、自我覺醒——每一種心跳都有一顆星。</div>
+
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="intro-card">
+      <div class="intro-title">💗 Emotions · Story Concept</div>
+      <div class="intro-sub">寫給關係、也寫給自己的一個宇宙分館。</div>
+
+      <div class="series-text">
+        <p>這裡放的是：愛情、親情、友情、自我覺醒，以及那些說不出口的情緒。</p>
+        <p>每一首歌，都是某種「心裡正在發生的事」。</p>
+        <p>你之後可以自由替換成實際專輯介紹、創作緣起、角色故事。</p>
+      </div>
+    </section>
+
+    <div class="section-title">🎵 Tracks & Notes（預設 6 首）</div>
+    <div class="section-note">之後要增加格子，只要再多複製幾個 .card 區塊即可。</div>
+
+    <section class="grid">
+
+      <!-- 01 -->
+      <a href="01.html" class="card card-link">
+        <div class="label">Emotion 01</div>
+        <div class="title">作品名稱待設定</div>
+        <div class="text">這裡是作品簡述，例如「關於分開很多年後，才學會說謝謝的一首歌」。</div>
+        <div class="link">▶ 查看內容</div>
+      </a>
+
+      <!-- 02 -->
+      <a href="02.html" class="card card-link">
+        <div class="label">Emotion 02</div>
+        <div class="title">作品名稱待設定</div>
+        <div class="text">這裡是作品簡述，例如「寫給總是把自己放最後的人」。</div>
+        <div class="link">▶ 查看內容</div>
+      </a>
+
+      <!-- 03 -->
+      <a href="03.html" class="card card-link">
+        <div class="label">Emotion 03</div>
+        <div class="title">作品名稱待設定</div>
+        <div class="text">這裡是作品簡述，例如「親情裡互相誤會、又慢慢靠近的過程」。</div>
+        <div class="link">▶ 查看內容</div>
+      </a>
+
+      <!-- 04 -->
+      <a href="04.html" class="card card-link">
+        <div class="label">Emotion 04</div>
+        <div class="title">作品名稱待設定</div>
+        <div class="text">這裡是作品簡述，例如「自我覺醒後，還是會怕、但還是往前走」。</div>
+        <div class="link">▶ 查看內容</div>
+      </a>
+
+      <!-- 05 -->
+      <a href="05.html" class="card card-link">
+        <div class="label">Emotion 05</div>
+        <div class="title">作品名稱待設定</div>
+        <div class="text">這裡是作品簡述，例如「寫給正在療傷的自己」。</div>
+        <div class="link">▶ 查看內容</div>
+      </a>
+
+      <!-- 06 -->
+      <a href="06.html" class="card card-link">
+        <div class="label">Emotion 06</div>
+        <div class="title">作品名稱待設定</div>
+        <div class="text">這裡是作品簡述，例如「兩個人都不完美，但彼此願意練習」。</div>
+        <div class="link">▶ 查看內容</div>
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+
+</body>
+</html>
