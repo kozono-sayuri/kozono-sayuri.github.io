@@ -1,1 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revelation Series 01 - 待修改主題| Kozono Sayuri</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #0f172a;
+      /* Bible 系列：深藍紫＋柔光（沿用 b18-job index） */
+      background: radial-gradient(circle at top, #e0f2fe 0%, #eef2ff 40%, #f9fafb 100%);
+    }
+
+    /* header：夜空＋藍紫聖光感（沿用 b18-job index） */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #020617, #1d4ed8, #7c3aed);
+      color: #e5f2ff;
+      box-shadow: 0 4px 18px rgba(15,23,42,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 14px rgba(191,219,254,0.95);
+    }
+
+    .subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #bfdbfe;
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+    }
+
+    header .topline,
+    header h1,
+    header .subtitle,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 冷色系星光（沿用 b18-job index） */
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(219,234,254,0.95);
+      text-shadow: 0 0 6px rgba(255,255,255,0.95);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1);   opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1;   }
+    }
+
+    /* 導覽列：跟 b18-job index 一樣 */
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.26);
+      color: #e0f2fe;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(191,219,254,0.7);
+    }
+
+    .nav a:hover {
+      background: #38bdf8;
+      color: #020617;
+      box-shadow: 0 4px 12px rgba(56,189,248,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #38bdf8;
+      color: #020617;
+      box-shadow: 0 4px 14px rgba(56,189,248,1);
+    }
+
+    main {
+      max-width: 840px;
+      width: 100%;
+      margin: 24px auto 32px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* 頁內小導覽 (像 blog 目錄) */
+    .inner-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+      font-size: 11px;
+    }
+
+    .inner-nav a {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(219,234,254,0.98);
+      color: #1d4ed8;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid rgba(129,140,248,0.3);
+    }
+
+    .inner-nav a:hover {
+      background: #38bdf8;
+      color: #020617;
+      box-shadow: 0 4px 10px rgba(56,189,248,0.35);
+      transform: translateY(-1px);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0 14px;
+      font-size: 10px;
+      color: #1e3a8a;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e0f2fe;
+    }
+
+    /* 區塊：白卡＋藍紫光（參考 b18-job card 風格） */
+    section {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px 14px 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      border: 1px solid rgba(219,234,254,0.98);
+      position: relative;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #0f172a;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(37,99,235,0.12), transparent);
+      top: -14px;
+      right: -14px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #1d4ed8;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    h3 {
+      font-size: 13px;
+      margin: 8px 0 2px;
+      color: #1e40af;
+    }
+
+    p {
+      margin-bottom: 4px;
+    }
+
+    ul {
+      margin: 2px 0 4px 18px;
+      padding: 0;
+    }
+
+    .note {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .back-link {
+      font-size: 11px;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .back-link a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 19px; }
+      .subtitle { font-size: 12px; }
+      section { padding: 12px 10px 9px; }
+    }
+    
+    /* MV 區塊 */
+    .mv-block {
+      margin: 0 0 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.16);
+      border: 1px solid rgba(252,231,243,0.98);
+      background: #000;
+    }
+
+    .mv-block iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ BIBLE / JOB SERIES</div>
+    <h1>Revelation Series 01 ｜ 待修改主題</h1>
+    <div class="subtitle">Track 01 · 待修改</div>
+    <div class="sub">
+      待修改說明區
+    </div>
+
+    <!-- 冷色星空 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 頁內目錄 -->
+    <div class="inner-nav">
+      <a href="#overview">Overview 概念速記</a>
+      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
+      <a href="#production">Production 製作過程</a>
+      <a href="#suno">Suno Elements AI 音樂元素</a>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge">Bible Universe · Job Series</div>
+      <div class="badge">Dark Orchestral / Hybrid Cinematic</div>
+      <div class="badge">主畫面：信使奔跑、遠方濃煙</div>
+      <div class="badge">創作筆記 · Blog Style</div>
+    </div>
+
+    <!-- Overview -->
+    <section id="overview">
+      <h2>🌌 Overview｜這首歌想說什麼？</h2>
+      <p>
+        待說明
+        待說明
+      </p>
+      <p>
+        待說明  
+        待說明
+      </p>
+      <p>
+        待說明  
+        待說明
+      </p>
+    </section>
+
+    <!-- MV 播放區 -->
+    <div class="mv-block">
+      <iframe
+        src="https://www.youtube.com/embed/WjL5N4CO3r4"
+        title="Revelation Series 01 MV"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    
+    <!-- Lyrics & Meaning -->
+    <section id="lyrics">
+      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
+
+      <h3>關鍵畫面</h3>
+      <ul>
+        <li>待說明</li>
+        <li>待說明</li>
+        <li>待說明</li>
+      </ul>
+
+      <h3>待說明</h3>
+      <ul>
+        <li>待說明</li>
+        <li>待說明</li>
+        <li>待說明</li>
+      </ul>
+
+      <h3>核心訊息</h3>
+      <p>
+        待說明<strong>強調區塊</strong>：  
+        待說明
+      </p>
+      <p>
+        待說明  
+        待說明
+      </p>
+
+      <div class="note">
+        ※ 之後你可以在這裡貼正式歌詞段落，或連到 lyrics 專頁。
+      </div>
+    </section>
+
+    <!-- Production -->
+    <section id="production">
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+
+      <h3>情緒設計</h3>
+      <ul>
+        <li>前奏：低音弦樂＋輕微打擊，像是遠處馬蹄／腳步的節奏。</li>
+        <li>主歌：樂器不要太滿，留出很多空白，讓人專心聽「訊息內容」。</li>
+        <li>前副歌：和聲逐漸堆疊，象徵壞消息在心裡慢慢沉下去。</li>
+        <li>副歌：不需要一開始就爆開，可以偏「壓抑的高張」，像還在忍住不崩潰。</li>
+      </ul>
+
+      <h3>聲響顏色</h3>
+      <ul>
+        <li>主色調是深藍＋灰金：用 pad、鋼琴和低音弦樂做出冷色系空氣感。</li>
+        <li>打擊可以用比較「乾」的聲音（木箱鼓、brush snare），避免太戰爭片。</li>
+        <li>人聲線條要有「還在保持體面」的感覺，不是嚎啕，而是努力穩住聲音。</li>
+      </ul>
+
+      <div class="note">
+        ※ 這裡可以放實際 Session 截圖、樂器清單、混音設定（reverb、delay、sidechain）等。
+      </div>
+    </section>
+
+    <!-- Suno Elements -->
+    <section id="suno">
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+
+      <h3>模型與風格（示意，可之後換成你實際的）</h3>
+      <ul>
+        <li>Model：Suno v3 / v3.5，偏 <em>dark orchestral, hybrid cinematic</em>。</li>
+        <li>
+          Prompt 關鍵字示意：  
+          <em>
+            dark orchestral, hybrid cinematic, deep blue atmosphere,  
+            emotional build, subtle drums, strings, piano, slow walking pace,  
+            male & female vocal, questioning, first bad news
+          </em>
+        </li>
+        <li>Tempo：中慢速（例如 70–90 BPM），像穩定但沉重的步伐。</li>
+        <li>Key：可以選一個偏陰鬱的小調（如 D minor / E minor），方便之後延伸其他 Track。</li>
+      </ul>
+
+      <h3>實作小記</h3>
+      <ul>
+        <li>可以多丟幾次 Prompt，挑一個步伐感強、空間感大的版本當 base。</li>
+        <li>若有後期自己疊人聲，可以在這裡記：哪幾段是 AI，哪幾段是你自己錄的補強。</li>
+        <li>也可以在這一區記下：這首歌是否會做「Instrumental cut」放進 Job 45/46。</li>
+      </ul>
+
+      <div class="note">
+        ※ 這一區就是給你記錄「AI + 自己」如何合作完成這首歌，之後粉絲也會很想看。
+      </div>
+    </section>
+
+    <div class="back-link">
+      ← 回到 <a href="index.html">Job Series 總覽</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
