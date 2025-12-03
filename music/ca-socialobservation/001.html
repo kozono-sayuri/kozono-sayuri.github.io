@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afra & Wolves 01 - Crimson Prelude．深紅序曲 | Kozono Sayuri</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #f5e9c8;
+      background:
+        radial-gradient(circle at top, #2b210f 0%, #070709 55%, #020203 100%);
+    }
+
+    /* ✦ HEADER：改成黑 × 金宇宙風 */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background:
+        radial-gradient(circle at top, rgba(244, 215, 130, 0.25), transparent 60%),
+        linear-gradient(135deg, #111827, #3b2a12, #d4af37);
+      color: #fdf7e3;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.85);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(212,175,55,0.45);
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+      text-transform: uppercase;
+      color: #f2d675;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-shadow: 0 0 18px rgba(0,0,0,0.9);
+    }
+
+    .subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #f9e7aa;
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+      color: #f3e4bf;
+    }
+
+    header .topline,
+    header h1,
+    header .subtitle,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(244, 223, 150, 0.9);
+      text-shadow: 0 0 10px rgba(255, 249, 210, 1);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1);   opacity: 0.45; }
+      50%     { transform: scale(1.35); opacity: 1;   }
+    }
+
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(10,10,10,0.9);
+      color: #f8e7b0;
+      text-decoration: none;
+      transition: all 0.18s ease;
+      border: 1px solid rgba(212,175,55,0.55);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    }
+
+    .nav a:hover {
+      background: #d4af37;
+      color: #111827;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #f2d675;
+      color: #111827;
+      box-shadow: 0 6px 20px rgba(0,0,0,1);
+      border-color: #f2d675;
+    }
+
+    main {
+      max-width: 840px;
+      width: 100%;
+      margin: 24px auto 32px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* MV 區塊 */
+    .mv-block {
+      margin: 0 0 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.9);
+      border: 1px solid rgba(244,215,130,0.55);
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,0.22), transparent 60%),
+        #000000;
+    }
+
+    .mv-block iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+
+    /* 頁內小導覽 (像 blog 目錄) */
+    .inner-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+      font-size: 11px;
+    }
+
+    .inner-nav a {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(24,23,20,0.96);
+      color: #f7e4a9;
+      text-decoration: none;
+      transition: all 0.18s;
+      border: 1px solid rgba(212,175,55,0.5);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+    }
+
+    .inner-nav a:hover {
+      background: #d4af37;
+      color: #111111;
+      box-shadow: 0 6px 18px rgba(0,0,0,1);
+      transform: translateY(-1px);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0 14px;
+      font-size: 10px;
+      color: #f9eac0;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(36,29,18,0.95);
+      border: 1px solid rgba(212,175,55,0.5);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.9);
+    }
+
+    section {
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,0.12), transparent 60%),
+        #101010;
+      border-radius: 18px;
+      padding: 14px 14px 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.95);
+      border: 1px solid rgba(212,175,55,0.6);
+      position: relative;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #f5e9c8;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, rgba(242,214,117,0.26), transparent 70%);
+      top: -18px;
+      right: -18px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #f6d46a;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    h3 {
+      font-size: 13px;
+      margin: 8px 0 2px;
+      color: #f1c453;
+    }
+
+    p {
+      margin-bottom: 4px;
+    }
+
+    ul {
+      margin: 2px 0 4px 18px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 2px;
+    }
+
+    .note {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .note a {
+      color: #f2d675;
+      text-decoration: none;
+    }
+
+    .note a:hover {
+      text-decoration: underline;
+    }
+
+    .back-link {
+      font-size: 11px;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .back-link a {
+      color: #f2d675;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 19px; }
+      .subtitle { font-size: 12px; }
+      section { padding: 12px 10px 9px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ AFRA & WOLVES SERIES</div>
+    <h1>Afra & Wolves 02 ｜ 進入森林 · Into the Woods </h1>
+    <div class="subtitle">Track 01 · 主打曲宇宙入口</div>
+    <div class="sub">
+      滿月之夜，在森林裡與狼簽下「不當獵物」的契約。這頁是創作筆記 & 製作過程的完整版網誌。
+    </div>
+
+    <!-- 星星 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 頁內目錄 -->
+    <div class="inner-nav">
+      <a href="#overview">Overview 概念速記</a>
+      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
+      <a href="#production">Production 製作過程</a>
+      <a href="#suno">Suno Elements AI 音樂元素</a>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge">Afra & Wolves 系列</div>
+      <div class="badge">Dark Fantasy Rock / Symphonic</div>
+      <div class="badge">主視覺：血月、森林、童話</div>
+      <div class="badge">Blog Style 創作筆記</div>
+    </div>
+
+    <!-- Overview -->
+    <section id="overview">
+      <h2>💧 Overview｜這首歌想說什麼？</h2>
+      <p>
+        待修改
+      </p>
+      <p>
+        待修改。
+        待修改。
+      </p>
+    </section>
+
+    <!-- MV 播放區 -->
+    <div class="mv-block">
+      <iframe
+        src="https://www.youtube.com/embed/rpqxJPL2SJU"
+        title="Afra & Wolves 02 - Into the Woods MV"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Lyrics & Meaning -->
+    <section id="lyrics">
+      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
+
+      <h3>關鍵畫面</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <h3>核心訊息</h3>
+      <p>
+        待修改：
+        <strong>這是一句關鍵句</strong>
+      </p>
+      <p>
+        待修改：
+        待修改：
+      </p>
+
+      <div class="note">
+        ※ MV版：
+        <a href="https://youtu.be/rpqxJPL2SJU" target="_blank">
+          https://youtu.be/rpqxJPL2SJU
+        </a>
+      </div>
+
+    </section>
+
+    <!-- Production -->
+    <section id="production">
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+
+      <h3>情緒設計</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <h3>聲響顏色</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <div class="note">
+        ※ Suno發佈：https://suno.com/s/N3HTu7JIf0lZcu4p
+      </div>
+    </section>
+
+    <!-- Suno Elements -->
+    <section id="suno">
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+
+      <h3>模型與風格</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <h3>實作小記</h3>
+      <ul>
+        <li>待修改</li>
+        <li>待修改</li>
+      </ul>
+
+      <div class="note">
+        ※ Suno發佈：https://suno.com/s/qLZ3QuPyh2lQEX8w
+      </div>
+    </section>
+
+    <div class="back-link">
+      ← 回到 <a href="afra-wolves.html">Afra & Wolves 系列總覽</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
