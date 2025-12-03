@@ -1,1 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revelation Series 01 - 待修改主題 | Kozono Sayuri</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #1e3a8a;
+      /* 職場館背景：淡藍＋暖白 */
+      background: radial-gradient(circle at top, #e6f4ff 0%, #fefdf9 45%, #fafafa 100%);
+    }
+
+    /* HEADER：深藍→琥珀橘 漸層 + 星星光 */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background:
+        linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #fbbf24 95%);
+      color: #fdf7e3;
+      box-shadow: 0 6px 28px rgba(15,23,42,0.55);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 225, 150, 0.55);
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+      color: #fef3c7;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 12px rgba(255,255,255,0.75);
+    }
+
+    .subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #fde68a;
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.95;
+      color: #fff7cf;
+    }
+
+    header .topline,
+    header h1,
+    header .subtitle,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 星星：改成琥珀閃光 */
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(255, 248, 210, 0.9);
+      text-shadow: 0 0 8px rgba(255,255,255,0.9);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1); opacity: 0.45; }
+      50%     { transform: scale(1.4); opacity: 1; }
+    }
+
+    /* NAV：深藍＋淡藍邊＋琥珀 hover */
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(30,58,138,0.15);
+      color: #fefce8;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .nav a:hover {
+      background: #fbbf24;
+      color: #0f172a;
+      box-shadow: 0 4px 12px rgba(251,191,36,0.85);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #fbbf24;
+      color: #0f172a;
+      box-shadow: 0 4px 14px rgba(251,191,36,1);
+    }
+
+    main {
+      max-width: 840px;
+      width: 100%;
+      margin: 24px auto 32px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* 頁內小導航：白＋淡藍 */
+    .inner-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+      font-size: 11px;
+    }
+
+    .inner-nav a {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.85);
+      color: #1e40af;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid rgba(30, 58, 138, 0.2);
+    }
+
+    .inner-nav a:hover {
+      background: #fbbf24;
+      color: #0f172a;
+      box-shadow: 0 4px 10px rgba(251,191,36,0.35);
+      transform: translateY(-1px);
+    }
+
+    /* BADGE：淡藍＋深藍字 */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0 14px;
+      font-size: 10px;
+      color: #1e3a8a;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e6f4ff;
+      border: 1px solid rgba(30,58,138,0.25);
+    }
+
+    /* SECTION：白卡＋淡藍光暈 */
+    section {
+      background:
+        radial-gradient(circle at top left,
+        rgba(30,58,138,0.08), transparent 60%),
+        #ffffff;
+      border-radius: 18px;
+      padding: 14px 14px 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 14px 26px rgba(15,23,42,0.12);
+      border: 1px solid rgba(255,255,255,0.6);
+      position: relative;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #1e40af;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle,
+        rgba(251,191,36,0.22), transparent);
+      top: -14px;
+      right: -14px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    h3 {
+      font-size: 13px;
+      margin: 8px 0 2px;
+      color: #1e40af;
+    }
+
+    ul {
+      margin: 2px 0 4px 18px;
+      padding: 0;
+    }
+
+    .note {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    /* 返回連結 */
+    .back-link {
+      font-size: 11px;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .back-link a {
+      color: #1e40af;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #64748b;
+      padding: 10px 0 16px;
+    }
+
+    /* MV 區塊：深藍＋淡橘光 */
+    .mv-block {
+      margin: 0 0 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.15);
+      border: 1px solid rgba(255,255,255,0.6);
+      background:
+        radial-gradient(circle at top left,
+        rgba(251,191,36,0.18), transparent 60%),
+        #0f172a;
+    }
+
+    .mv-block iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 19px; }
+      .subtitle { font-size: 12px; }
+      section { padding: 12px 10px 9px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ WORKPLACE SERIES</div>
+    <h1>Poor Workers ｜ 職場療傷日記</h1>
+    <div class="subtitle">Track 001 · 待修改</div>
+    <div class="sub">
+      待修改說明區
+    </div>
+
+    <!-- 琥珀星空 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 頁內目錄 -->
+    <div class="inner-nav">
+      <a href="#overview">Overview 概念速記</a>
+      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
+      <a href="#production">Production 製作過程</a>
+      <a href="#suno">Suno Elements AI 音樂元素</a>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge">Workplace · Poor Workers</div>
+      <div class="badge">LoFi / Ambient / Emotional</div>
+      <div class="badge">主畫面：職場療癒</div>
+      <div class="badge">創作筆記 · Blog</div>
+    </div>
+
+    <!-- Overview -->
+    <section id="overview">
+      <h2>📘 Overview｜這首歌想說什麼？</h2>
+      <p>待說明……</p>
+      <p>待說明……</p>
+      <p>待說明……</p>
+    </section>
+
+    <!-- MV -->
+    <div class="mv-block">
+      <iframe
+        src="https://www.youtube.com/embed/dJdHREcgfXg"
+        title="Poor Workers 001 MV"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Lyrics -->
+    <section id="lyrics">
+      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
+
+      <h3>關鍵畫面</h3>
+      <ul>
+        <li>待說明</li>
+        <li>待說明</li>
+        <li>待說明</li>
+      </ul>
+
+      <h3>核心訊息</h3>
+      <p>待說明……</p>
+      <p>待說明……</p>
+
+      <div class="note">※ Suno 發佈版本連結區</div>
+    </section>
+
+    <!-- Production -->
+    <section id="production">
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+
+      <h3>情緒設計</h3>
+      <ul>
+        <li>待說明</li>
+        <li>待說明</li>
+        <li>待說明</li>
+      </ul>
+
+      <h3>聲響顏色</h3>
+      <ul>
+        <li>待說明</li>
+        <li>待說明</li>
+      </ul>
+    </section>
+
+    <!-- Suno -->
+    <section id="suno">
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+
+      <h3>模型與風格</h3>
+      <ul>
+        <li>待說明</li>
+        <li>待說明</li>
+      </ul>
+
+      <h3>實作小記</h3>
+      <ul>
+        <li>待說明</li>
+        <li>待說明</li>
+      </ul>
+    </section>
+
+    <div class="back-link">
+      ← 回到 <a href="index.html">Poor Workers 總覽</a>
+    </div>
+
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
