@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emotions 001 - 待定歌名 | Kozono Sayuri</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #4b2b4f;
+      /* 夢幻淡紫 × 奶霜粉 × 薄荷背景 */
+      background: radial-gradient(circle at top,
+        #f4e8ff 0%,
+        #ffe8f4 40%,
+        #e8fff7 100%
+      );
+    }
+
+    /* ✦ Header：沿用 Emotions 主頁淡紫→薄荷→玫瑰金 */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #c084fc, #f9a8d4, #6ee7b7);
+      color: #fdfcff;
+      box-shadow: 0 4px 20px rgba(192, 132, 252, 0.45);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(249, 168, 212, 0.45);
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+      color: #faf5ff;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 14px rgba(255,255,255,0.95);
+    }
+
+    .subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #fce7f3;
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+      color: #fff0fb;
+    }
+
+    header .topline,
+    header h1,
+    header .subtitle,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 星空：淡紫光點 */
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(255,255,255,0.8);
+      text-shadow: 0 0 8px rgba(255,255,255,1);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1);   opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1;   }
+    }
+
+    /* 導覽列：與 Emotions 主頁一致 */
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(236, 233, 254, 0.85);
+      color: #6b21a8;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(216, 180, 254, 0.9);
+    }
+
+    .nav a:hover {
+      background: #d8b4fe;
+      color: #4c1d95;
+      box-shadow: 0 4px 12px rgba(216,180,254,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #c084fc;
+      color: #fdfcff;
+      box-shadow: 0 4px 14px rgba(192,132,252,1);
+    }
+
+    main {
+      max-width: 840px;
+      width: 100%;
+      margin: 24px auto 32px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* MV 區塊：深底＋淡紫光暈 */
+    .mv-block {
+      margin: 0 0 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(148, 132, 202, 0.25);
+      border: 1px solid rgba(240,230,255,0.95);
+      background:
+        radial-gradient(circle at top left,
+          rgba(216,180,254,0.25), transparent 60%),
+        #111827;
+    }
+
+    .mv-block iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+
+    /* 頁內小導覽 (像 blog 目錄) */
+    .inner-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+      font-size: 11px;
+    }
+
+    .inner-nav a {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(252, 244, 255, 0.98);
+      color: #7e22ce;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid rgba(216, 180, 254, 0.5);
+    }
+
+    .inner-nav a:hover {
+      background: #c084fc;
+      color: #fdfcff;
+      box-shadow: 0 4px 10px rgba(192,132,252,0.35);
+      transform: translateY(-1px);
+    }
+
+    /* 標籤列 */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 4px 0 14px;
+      font-size: 10px;
+      color: #7e22ce;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #f4e8ff;
+      border: 1px solid rgba(216,180,254,0.6);
+    }
+
+    /* 內容區塊：白卡＋淡紫光 */
+    section {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px 14px 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 8px 22px rgba(148,132,202,0.14);
+      border: 1px solid rgba(240,230,255,0.95);
+      position: relative;
+      overflow: hidden;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #6b4f80;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, rgba(192,132,252,0.15), transparent);
+      top: -14px;
+      right: -14px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: #7c3aed;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    h3 {
+      font-size: 13px;
+      margin: 8px 0 2px;
+      color: #9333ea;
+    }
+
+    p {
+      margin-bottom: 4px;
+    }
+
+    ul {
+      margin: 2px 0 4px 18px;
+      padding: 0;
+    }
+
+    .note {
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .back-link {
+      font-size: 11px;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .back-link a {
+      color: #c084fc;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #7e7e7e;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 19px; }
+      .subtitle { font-size: 12px; }
+      section { padding: 12px 10px 9px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ EMOTIONS SERIES</div>
+    <h1>Emotions 001 ｜ 待定歌名 · Working Title</h1>
+    <div class="subtitle">Track 001 · 情感主題館首發曲</div>
+    <div class="sub">
+      這裡是創作筆記 & 製作過程的完整版網誌，記錄這首歌背後的每一個心情轉折。
+    </div>
+
+    <!-- 星星 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 頁內目錄 -->
+    <div class="inner-nav">
+      <a href="#overview">Overview 概念速記</a>
+      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
+      <a href="#production">Production 製作過程</a>
+      <a href="#suno">Suno Elements AI 音樂元素</a>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge">Emotions 系列</div>
+      <div class="badge">Dreamy Pop / Emotional Ballad</div>
+      <div class="badge">主視覺：淡紫、薄荷、柔霧光</div>
+      <div class="badge">Blog Style 創作筆記</div>
+    </div>
+
+    <!-- Overview -->
+    <section id="overview">
+      <h2>💜 Overview｜這首歌想說什麼？</h2>
+      <p>
+        （待修改）這一首歌，想記錄的是某一種「說不出口的情緒」——
+        介於告白與道別之間，那種既溫柔又有點刺痛的狀態。
+      </p>
+      <p>
+        （待修改）你可以把它想成一封沒有寄出的信：
+        每一句歌詞，都像是寫完又刪掉，只剩下心裡的迴音。
+      </p>
+    </section>
+
+    <!-- MV 播放區：影片網址之後可自行更換 -->
+    <div class="mv-block">
+      <iframe
+        src="https://www.youtube.com/embed/XXXXXXXXXXX"
+        title="Emotions 001 MV"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    
+    <!-- Lyrics & Meaning -->
+    <section id="lyrics">
+      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
+
+      <h3>關鍵畫面</h3>
+      <ul>
+        <li>（待修改）半夜失眠的房間，手機螢幕亮著卻不敢按下傳送鍵。</li>
+        <li>（待修改）城市的燈光從車窗外倒退，而你在心裡不斷往回走。</li>
+        <li>（待修改）一句「我沒事啦」背後，其實是無法說出口的那句「我很在意」。</li>
+      </ul>
+
+      <h3>核心訊息</h3>
+      <p>
+        （待修改）
+        <strong>有些情緒，不是要得到回應，而是需要被好好放下。</strong>
+      </p>
+      <p>
+        （待修改）這首歌想陪的是：正在學習「對自己誠實」，卻還不太會說再見的那個你。
+      </p>
+
+      <div class="note">
+        ※ MV 版連結：完成後可放上 YouTube 或 Suno Video 的網址。
+      </div>
+      
+    </section>
+
+    <!-- Production -->
+    <section id="production">
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+
+      <h3>情緒設計</h3>
+      <ul>
+        <li>（待修改）前奏：用鋼琴與 Pad 營造微霧感，好像剛醒來還分不清是夢還是現實。</li>
+        <li>（待修改）主歌：人聲貼得很近，像是對著日記、而不是麥克風說話。</li>
+        <li>（待修改）副歌：情緒抬高，但不爆炸，是一種「終於說開」卻仍然溫柔的宣告。</li>
+        <li>（待修改）Bridge：短暫抽離的內心獨白，讓整首歌有一個深呼吸的空間。</li>
+      </ul>
+
+      <h3>聲響顏色</h3>
+      <ul>
+        <li>（待修改）主色調：淡紫＋粉霧粉，象徵回憶與半醒不醒的心情。</li>
+        <li>（待修改）薄荷綠合成器點綴在高音域，像是偶爾閃過的希望與勇氣。</li>
+        <li>（待修改）人聲線條偏柔和，搭配一點顫音與氣音，刻意保留不完美的真實感。</li>
+      </ul>
+
+      <div class="note">
+        ※ Suno 發佈連結：之後可放上實際曲目網址。
+      </div>
+    </section>
+
+    <!-- Suno Elements -->
+    <section id="suno">
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+
+      <h3>模型與風格</h3>
+      <ul>
+        <li>（待修改）Model：如 chirp-v3 / v4（依實際版本調整）。</li>
+        <li>（待修改）Prompt 關鍵字示意：
+          <em>dreamy pastel pop, emotional ballad, soft female vocal, airy pad, gentle piano</em>
+        </li>
+        <li>（待修改）Tempo：中慢板，約 80–105 BPM；Key：偏大調中帶一點小調色彩。</li>
+      </ul>
+
+      <h3>實作小記</h3>
+      <ul>
+        <li>（待修改）第一版先用簡單結構試水溫，再依據歌詞情緒去微調段落長度。</li>
+        <li>（待修改）特別留意人聲不要太「idol 感」，而是帶一點 Indie/Bedroom 的隨性。</li>
+      </ul>
+
+      <div class="note">
+        ※ 這裡也可以放 Facebook／Blog 的延伸說明文連結。
+      </div>
+    </section>
+
+    <div class="back-link">
+      ← 回到 <a href="emotions.html">Emotions 系列總覽</a>
+    </div>
+  </main>
+
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
