@@ -1,313 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 👽TODO：改成這一首的標題👽【範本】Poor Workers 001 - 老闆，你是不是愛上了我 | Kozono Sayuri -->
-  <title>Poor Workers 001 - 💥待修正💥 | Kozono Sayuri</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      color: #1e3a8a;
-      /* 職場館背景：淡藍＋暖白 */
-      background: radial-gradient(circle at top, #e6f4ff 0%, #fefdf9 45%, #fafafa 100%);
-    }
-
-    /* HEADER：深藍→琥珀橘 漸層 + 星星光 */
-    header {
-      padding: 26px 16px 18px;
-      text-align: center;
-      background:
-        linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #fbbf24 95%);
-      color: #fdf7e3;
-      box-shadow: 0 6px 28px rgba(15,23,42,0.55);
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255, 225, 150, 0.55);
-    }
-
-    .topline {
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      opacity: 0.9;
-      color: #fef3c7;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin: 6px 0 2px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 12px rgba(255,255,255,0.75);
-    }
-
-    .subtitle {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 4px;
-      color: #fde68a;
-    }
-
-    .sub {
-      font-size: 11px;
-      opacity: 0.95;
-      color: #fff7cf;
-    }
-
-    header .topline,
-    header h1,
-    header .subtitle,
-    header .sub,
-    header nav {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* 星星：改成琥珀閃光 */
-    .star {
-      position: absolute;
-      font-size: 20px;
-      color: rgba(255, 248, 210, 0.9);
-      text-shadow: 0 0 8px rgba(255,255,255,0.9);
-      animation: sparkle 4.5s infinite ease-in-out;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
-    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
-    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
-    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
-    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
-    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
-    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
-
-    @keyframes sparkle {
-      0%,100% { transform: scale(1); opacity: 0.45; }
-      50%     { transform: scale(1.4); opacity: 1; }
-    }
-
-    /* NAV：深藍＋淡藍邊＋琥珀 hover */
-    .nav {
-      margin-top: 12px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      font-size: 11px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(30,58,138,0.15);
-      color: #fefce8;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    .nav a:hover {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 12px rgba(251,191,36,0.85);
-      transform: translateY(-1px);
-    }
-
-    .nav a.active {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 14px rgba(251,191,36,1);
-    }
-
-    main {
-      max-width: 840px;
-      width: 100%;
-      margin: 24px auto 32px;
-      padding: 0 16px;
-      flex: 1;
-    }
-
-    /* 頁內小導航：白＋淡藍 */
-    .inner-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 0 18px;
-      font-size: 11px;
-    }
-
-    .inner-nav a {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.85);
-      color: #1e40af;
-      text-decoration: none;
-      transition: all 0.15s;
-      border: 1px solid rgba(30, 58, 138, 0.2);
-    }
-
-    .inner-nav a:hover {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 10px rgba(251,191,36,0.35);
-      transform: translateY(-1px);
-    }
-
-    /* BADGE：淡藍＋深藍字 */
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 4px 0 14px;
-      font-size: 10px;
-      color: #1e3a8a;
-    }
-
-    .badge {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #e6f4ff;
-      border: 1px solid rgba(30,58,138,0.25);
-    }
-
-    /* SECTION：白卡＋淡藍光暈 */
-    section {
-      background:
-        radial-gradient(circle at top left,
-        rgba(30,58,138,0.08), transparent 60%),
-        #ffffff;
-      border-radius: 18px;
-      padding: 14px 14px 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 14px 26px rgba(15,23,42,0.12);
-      border: 1px solid rgba(255,255,255,0.6);
-      position: relative;
-      font-size: 13px;
-      line-height: 1.9;
-      color: #1e40af;
-    }
-
-    section::before {
-      content: "";
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(circle,
-        rgba(251,191,36,0.22), transparent);
-      top: -14px;
-      right: -14px;
-    }
-
-    h2 {
-      font-size: 15px;
-      margin-bottom: 4px;
-      color: #1e3a8a;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    h3 {
-      font-size: 13px;
-      margin: 8px 0 2px;
-      color: #1e40af;
-    }
-
-    ul {
-      margin: 2px 0 4px 18px;
-      padding: 0;
-    }
-
-    .note {
-      font-size: 10px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-
-    /* 返回連結 */
-    .back-link {
-      font-size: 11px;
-      margin-top: 6px;
-      text-align: right;
-    }
-
-    .back-link a {
-      color: #1e40af;
-      text-decoration: none;
-    }
-
-    .back-link a:hover {
-      text-decoration: underline;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      font-size: 10px;
-      color: #64748b;
-      padding: 10px 0 16px;
-    }
-
-    /* MV 區塊：深藍＋淡橘光 */
-    .mv-block {
-      margin: 0 0 20px;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(15,23,42,0.15);
-      border: 1px solid rgba(255,255,255,0.6);
-      background:
-        radial-gradient(circle at top left,
-        rgba(251,191,36,0.18), transparent 60%),
-        #0f172a;
-    }
-
-    .mv-block iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 0;
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 19px; }
-      .subtitle { font-size: 12px; }
-      section { padding: 12px 10px 9px; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poor Workers 006 - 我終於知道我愛妳 | Kozono Sayuri</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <header>
-    <!-- 👽TODO：這行可以依系列改👽【範本】WORKPLACE SERIES -->
     <div class="topline">MUSIC UNIVERSE ✦ WORKPLACE SERIES</div>
-    <!-- 👽TODO：改成實際系列＋中文或英文曲名👽【範本】 001 ｜ 老闆，你是不是愛上了我-->
-    <h1>Poor Workers 💥待修正💥 </h1>
-    <!-- 👽TODO：歌名翻譯👽【範本】Track 001 · Boss, have you fallen in love with me? -->
-    <div class="subtitle">Track 💥待修正💥</div>
-    
-    <!-- 👽TODO：簡短一句這首歌在整個系列中的意義👽 -->
-    <div class="sub">
-      💥待修正💥
-    </div>
+    <h1>Poor Workers 006・我終於知道我愛妳</h1>
+    <div class="subtitle">Track 006・I Finally Knew I Loved You</div>
+    <div class="sub">有些痛，不是失去，而是終於明白那是愛時，已經沒有資格確認。</div>
 
-    <!-- 琥珀星空 -->
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="主要導覽">
       <a href="../../index.html">Home</a>
-      <a href="../index.html" class="active">Music</a>
+      <a href="../index.html" class="active" aria-current="page">Music</a>
       <a href="../../worklife/index.html">Work Life</a>
       <a href="../../fitness/index.html">Fitness</a>
       <a href="../../invest/index.html">Invest</a>
@@ -315,142 +28,96 @@
   </header>
 
   <main>
-    <!-- 📌📌 頁內目錄 📌📌 -->
-    <div class="inner-nav">
-      <a href="#overview">Overview 概念速記</a>
-      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
-      <a href="#production">Production 製作過程</a>
-      <a href="#suno">Suno Elements AI 音樂元素</a>
-    </div>
+    <nav class="inner-nav" aria-label="本頁內容導覽">
+      <a href="#overview">Overview・歌曲概述</a>
+      <a href="#lyrics">Lyrics &amp; Meaning・歌詞與意義</a>
+      <a href="#production">Production・製作筆記</a>
+      <a href="#suno">Suno Elements・AI 創作元素</a>
+    </nav>
 
     <div class="badge-row">
-      <!-- 👽TODO：說明歌曲完成日 👽 -->
-      <div class="badge">歌曲完成日：💥待修正💥</div>
-      
-      <!-- 👽TODO：說明Youtube發佈日 👽 -->
-      <div class="badge">發佈日：💥待修正💥</div>
-
-      <!-- 👽TODO：「主畫面」的相像關鍵字 👽 -->
-      <div class="badge">主畫面：💥待修正💥</div>
-
-      <!-- 👽TODO：是指在「Music主頁」的大類 👽 -->
-      <div class="badge">Blog Style 創作筆記</div>
+      <div class="badge">歌曲完成：2026/3/28</div>
+      <div class="badge">MV 完成：2026/3/28</div>
+      <div class="badge">Cello-driven Cinematic Art Pop</div>
+      <div class="badge">Dark Chamber Pop</div>
     </div>
 
-    <!-- 📌📌 Overview 📌📌 -->
-    <section id="overview">
-      <h2>📘 Overview｜這首歌想說什麼？</h2>
-      <!-- 👽TODO：第一段是取材說明 👽 -->
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
+    <section class="song-section" id="overview">
+      <h2>💡 Overview・歌曲概述</h2>
+      <p>《我終於知道我愛妳》取材自一段微妙的職場關係：一位已婚男老闆，長久依賴一位剛柔並濟、專業而有原則的未婚女主管。他喜歡看她因工作出包而跳腳，也習慣她俐落地收拾局面；他把依賴稱作默契，把習慣誤認為永恆，直到她在第三次越過底線後，堅決選擇離開。</p>
+      <p class="en">“I Finally Knew I Loved You” grows from a delicate workplace relationship. A married executive has come to rely on a capable, principled female manager, mistaking dependence for chemistry and habit for permanence—until she draws the line and truly leaves.</p>
+      <p>這首歌要寫的是一場從未開始的感情，如何在結束時才忽然顯形。他終於知道自己愛她，卻不敢說「不要走」，更不敢問「妳有沒有愛過我」；因為挽留也許不是深情，而是冒犯。最深的痛，並非失去曾經擁有的人，而是連自己的心碎，都找不到合適的身分。</p>
+      <p class="en">The song is a feeling that only becomes visible when it ends: he finally recognizes love, yet even asking her to stay may become an intrusion. The pain is not losing what was his, but having no rightful name for his heartbreak.</p>
     </section>
 
-    <!-- 👽TODO：MV 播放區👽 只改embed/ 之後，另外titla=要修改。 -->
-    <!-- 📌📌 MV 播放區 📌📌 -->
     <div class="mv-block">
       <iframe
-        src="https://www.youtube.com/embed/dJdHREcgfXg"
-        title="Poor Workers 💥編號💥 MV"
+        src="https://www.youtube.com/embed/rUUUeN-sHf8"
+        title="Poor Workers 006 - 我終於知道我愛妳 MV"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
 
-    <!-- 📌📌 Lyrics & Meaning 📌📌 -->
-    <section id="lyrics">
-      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
-      
-      <!-- 👽TODO：列出 3～5 個畫面。或說明單曲封面、主色調。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <h3>💰關鍵畫面（Key Scenes）💰</h3>
+    <section class="song-section" id="lyrics">
+      <h2>📝 Lyrics &amp; Meaning・歌詞與意義</h2>
+      <h3>Key Scenes・關鍵畫面</h3>
       <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
+        <li><strong>夜色如夢：</strong>玻璃窗收住午夜城市的倒影，現實與記憶在同一片冷光裡重疊。<br><span class="en">Night as a dream: city reflections blur memory and reality across the office glass.</span></li>
+        <li><strong>她收起文件：</strong>最日常的職場動作，也像把尚未發生的所有可能一併收起。<br><span class="en">She closes the files: an ordinary gesture quietly closes every unrealized possibility.</span></li>
+        <li><strong>手停在空中：</strong>他想伸手挽留，卻在界線之前停下；因為靠近，也可能成為傷害。<br><span class="en">A halted reach: he stops before the boundary, knowing that closeness itself may cause harm.</span></li>
+        <li><strong>大提琴低語：</strong>人聲仍然體面，真正的崩潰交給琴弦替他說完。<br><span class="en">The cello speaks: the voice remains composed while the strings carry the collapse.</span></li>
+        <li><strong>倒影中的她：</strong>她從未站在愛情裡，只留在他無法確認的記憶裡。<br><span class="en">Her reflection: she never stood inside his romance, only within a memory he cannot verify.</span></li>
       </ul>
 
-      <h3>💰核心訊息（Core Message）💰</h3>
-      
-      <!-- 👽TODO：這首歌想講的情緒主題，用列舉的方式。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
+      <h3>Core Message・核心訊息</h3>
+      <p>我終於知道我愛妳，可我連問妳一句「妳有沒有愛過我」的資格都沒有。這不是愛情開始的歌，而是愛被命名時，一切已經太遲的歌。</p>
+      <p class="en">I finally knew I loved you, yet I did not even have the right to ask whether you had ever loved me. This is not a song about love beginning, but about naming it only after it is already too late.</p>
 
-      <!-- 👽TODO： 要放第二名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003F]👽 -->
-      <div class="note">
-        🌀 <a href="https://suno.com/s/adiEG7l7yPygQEWt" target="_blank">Suno發佈同款歌曲，第二名：
-          💥待修正💥</a>
-      </div>
-      
+      <div class="note">🥈 <a href="https://suno.com/song/77b096bf-8e9e-4398-925d-1ae8bcc1a291" target="_blank" rel="noopener noreferrer">Suno 第二名作品：我終於知道我愛妳 [T00028E]</a></div>
     </section>
 
-    <!-- 📌📌 Production 📌📌 -->
-    <section id="production">
-      <h2>🎧 Production Notes｜編曲與製作過程</h2>
-
-      <h3>💰情緒設計（Emotion Flow）💰</h3>
-      <!-- 👽TODO： 是每段結構的拆解，針對歌詞的拆解 👽 -->
+    <section class="song-section" id="production">
+      <h2>🎛 Production Notes・編曲與製作過程</h2>
+      <h3>Emotion Flow・情緒設計</h3>
       <ul>
-        <li><strong>Intro</strong>：💥待修正💥。</li>
-        <li><strong>Verse</strong>：💥待修正💥。</li>
-        <li><strong>Pre-Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Verse 2</strong>：💥待修正💥
-        <li><strong>Bridge</strong>：💥待修正💥。</li>
+        <li><strong>Intro：</strong>自由拍大提琴先讓夜色與回憶浮現，像尚未整理的心事。<br><span class="en">Rubato cello lets memory surface before language can organize it.</span></li>
+        <li><strong>Verse：</strong>鋼琴輕入，男聲接近低語，把欣賞、依賴與誤讀壓在理性之內。<br><span class="en">Soft piano and conversational vocals keep dependence and misreading under control.</span></li>
+        <li><strong>Pre-Chorus：</strong>弦樂與低頻逐步累積，承認她早已提醒，而自己一直沒有聽懂。<br><span class="en">Strings and low pulses build as he admits that her warnings were always there.</span></li>
+        <li><strong>Slow Chorus：</strong>旋律拉長，第一次說出「我愛妳」，卻立刻被「不能問」截斷。<br><span class="en">Long phrases reveal love, only to be cut short by the knowledge that he cannot ask.</span></li>
+        <li><strong>Tempo Shift：</strong>鼓與低音提琴收緊節奏，探戈般的進退表現欲留又不敢靠近。<br><span class="en">Drums and upright bass tighten into a tango-like push and pull.</span></li>
+        <li><strong>Bridge：</strong>音場突然抽空，讓他懷疑那些眼神是否從來只是她的專業。<br><span class="en">The arrangement drops away as he questions whether every meaningful glance was only professionalism.</span></li>
+        <li><strong>Final Chorus / Outro：</strong>情緒抵達頂點後撤去節奏，只留下大提琴與鋼琴承認無解。<br><span class="en">After the climax, rhythm falls away; cello and piano remain with no resolution.</span></li>
       </ul>
 
-      <h3>💰聲響顏色（Sound & Color）💰</h3>
-      <!-- 👽TODO： 主要是針對聲音或樂器選擇的考量，特別設計通常指混搭及音效 👽 -->
+      <h3>Sound &amp; Color・聲響顏色</h3>
       <ul>
-        <li><strong>樂器設定</strong>：💥待修正💥。</li>
-        <li><strong>人聲設定</strong>：💥待修正💥。</li>
-        <li><strong>特別設計</strong>：💥待修正💥。</li>
+        <li><strong>樂器設定：</strong>大提琴是情緒主體，搭配暖鋼琴、細緻弦樂、刷鼓、低音提琴，以及後段克制的類班多鈕質地。</li>
+        <li><strong>人聲設定：</strong>成熟男聲保持乾淨、疲憊與克制，不用舞台式爆發，像穿著整齊西裝的人在午夜辦公室安靜瓦解。</li>
+        <li><strong>特別設計：</strong>大提琴由慢板長弓、滑音轉為快板短弓與節奏性運弓，讓同一件樂器同時表現體面與崩裂。</li>
       </ul>
-
-      <!-- 👽TODO： 要放第三名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003C]👽 -->
-      <div class="note">
-        🌀 <a href="https://suno.com/s/qzjXIdfnQkVmPWjf" target="_blank">Suno發佈同款歌曲，第三名：
-          💥待修正💥</a>
-      </div>
-      
     </section>
 
-    <!-- 📌📌 Suno / AI Elements 📌📌 -->
-    <section id="suno">
-      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
-
-      <h3>💰模型與風格（Model & Style）💰</h3>
-      <!-- 👽TODO：是指Style那裡的設計，包括 Tempo / Key / 指定旋律 / 混搭風格 。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
+    <section class="song-section" id="suno">
+      <h2>🤖 Suno Elements・AI / Suno 設定</h2>
+      <h3>Model &amp; Style・模型與風格</h3>
       <ul>
-        <li>Style設計：💥待修正💥。</li>
-        <li>Prompt 關鍵字：💥待修正💥<br>
-          <em>💥待修正💥</em>
-        </li>
-        <li>Tempo / Key：💥待修正💥。</li>
+        <li><strong>Style：</strong>cello-driven cinematic art pop / dark chamber pop / tango-infused cinematic ballad</li>
+        <li><strong>Prompt：</strong><em>expressive solo cello, restrained male vocal, mature sorrow, slow classical storytelling, tango-infused acceleration, sophisticated urban melancholy, emotionally suppressed</em></li>
+        <li><strong>Tempo / Key：</strong>由慢速 rubato 轉入急迫節奏脈動，以小調與未完全解決的和聲維持禁忌感與不確定性。</li>
       </ul>
 
-      <h3>💰實作小記（Implementation Notes）💰</h3>
-      <!-- 👽TODO： 這首歌有沒有多次生成再剪接？有沒有把不同版本的段落拼在一起？。哪些部分是 AI 直接產出，哪些是你自己後製 / 加錄？
-      用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-      </ul>
+      <h3>Implementation Notes・實作小記</h3>
+      <p>這首歌最難的不是把情緒做大，而是把它壓住。生成式音樂常會把悲傷導向高音、吶喊與明顯宣洩，但這個角色沒有那樣的資格；他越痛，表面越必須維持秩序。因此提示詞反覆強調 <em>restrained</em>、<em>not theatrical</em> 與 <em>emotionally suppressed</em>，讓人聲只站在崩潰邊緣，真正失控的部分則交給大提琴。</p>
+      <p>前段使用長弓與留白，使依賴像日常一樣悄悄形成；中段加入低頻脈動，再以探戈式節奏將心理壓力收緊。快板不是炫技，而是把「不敢問、不敢留、不敢碰」化為急促運弓。最後撤去節奏，回到大提琴與鋼琴，因為現實並未因他的醒悟而改變。這種沒有真正爆發的崩潰，正是作品最重要的情緒邏輯。</p>
+      <p class="en">The central production challenge was restraint. Rather than letting the vocal break into theatrical release, the arrangement transfers the emotional collapse to the cello. Long bows and open space shape the first half; low pulses and tango-like urgency tighten the second. The final return to cello and piano offers aftermath, not resolution.</p>
 
-      <!-- 👽TODO：這是放FB同步發佈。聖經系列是Emma Chang／一般歌曲是傻有理的新新約。 改連結。👽 -->
-      <div class="note">
-        🌀 <a href="https://www.facebook.com/reel/842978572033148" target="_blank">其它說明請見：Face Book 同步發佈。</a>
-      </div>
-      
+      <div class="note">🌀 <a href="https://www.facebook.com/reel/1292899449392168" target="_blank" rel="noopener noreferrer">其它說明請見：Facebook 同步發佈</a></div>
     </section>
 
-    <div class="back-link">
-      <!-- 👽 TODO：這裡的連結指向本系列的 index.html 👽-->
-      ← 回到 <a href="index.html">Poor Workers 系列總覽</a>
-    </div>
-
+    <div class="back-link">← 回到 <a href="index.html">Poor Workers 系列總覽</a></div>
   </main>
 
-  <!-- 👽TODO：如果新年度有修改，要更改期間 👽 -->
-  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+  <footer>© 2026 Kozono Sayuri. All rights reserved.</footer>
 </body>
 </html>
