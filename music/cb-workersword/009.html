@@ -1,313 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 👽TODO：改成這一首的標題👽【範本】Poor Workers 001 - 老闆，你是不是愛上了我 | Kozono Sayuri -->
-  <title>Poor Workers 001 - 💥待修正💥 | Kozono Sayuri</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      color: #1e3a8a;
-      /* 職場館背景：淡藍＋暖白 */
-      background: radial-gradient(circle at top, #e6f4ff 0%, #fefdf9 45%, #fafafa 100%);
-    }
-
-    /* HEADER：深藍→琥珀橘 漸層 + 星星光 */
-    header {
-      padding: 26px 16px 18px;
-      text-align: center;
-      background:
-        linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #fbbf24 95%);
-      color: #fdf7e3;
-      box-shadow: 0 6px 28px rgba(15,23,42,0.55);
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255, 225, 150, 0.55);
-    }
-
-    .topline {
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      opacity: 0.9;
-      color: #fef3c7;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin: 6px 0 2px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 12px rgba(255,255,255,0.75);
-    }
-
-    .subtitle {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 4px;
-      color: #fde68a;
-    }
-
-    .sub {
-      font-size: 11px;
-      opacity: 0.95;
-      color: #fff7cf;
-    }
-
-    header .topline,
-    header h1,
-    header .subtitle,
-    header .sub,
-    header nav {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* 星星：改成琥珀閃光 */
-    .star {
-      position: absolute;
-      font-size: 20px;
-      color: rgba(255, 248, 210, 0.9);
-      text-shadow: 0 0 8px rgba(255,255,255,0.9);
-      animation: sparkle 4.5s infinite ease-in-out;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
-    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
-    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
-    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
-    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
-    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
-    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
-
-    @keyframes sparkle {
-      0%,100% { transform: scale(1); opacity: 0.45; }
-      50%     { transform: scale(1.4); opacity: 1; }
-    }
-
-    /* NAV：深藍＋淡藍邊＋琥珀 hover */
-    .nav {
-      margin-top: 12px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      font-size: 11px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(30,58,138,0.15);
-      color: #fefce8;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    .nav a:hover {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 12px rgba(251,191,36,0.85);
-      transform: translateY(-1px);
-    }
-
-    .nav a.active {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 14px rgba(251,191,36,1);
-    }
-
-    main {
-      max-width: 840px;
-      width: 100%;
-      margin: 24px auto 32px;
-      padding: 0 16px;
-      flex: 1;
-    }
-
-    /* 頁內小導航：白＋淡藍 */
-    .inner-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 0 18px;
-      font-size: 11px;
-    }
-
-    .inner-nav a {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.85);
-      color: #1e40af;
-      text-decoration: none;
-      transition: all 0.15s;
-      border: 1px solid rgba(30, 58, 138, 0.2);
-    }
-
-    .inner-nav a:hover {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 10px rgba(251,191,36,0.35);
-      transform: translateY(-1px);
-    }
-
-    /* BADGE：淡藍＋深藍字 */
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 4px 0 14px;
-      font-size: 10px;
-      color: #1e3a8a;
-    }
-
-    .badge {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #e6f4ff;
-      border: 1px solid rgba(30,58,138,0.25);
-    }
-
-    /* SECTION：白卡＋淡藍光暈 */
-    section {
-      background:
-        radial-gradient(circle at top left,
-        rgba(30,58,138,0.08), transparent 60%),
-        #ffffff;
-      border-radius: 18px;
-      padding: 14px 14px 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 14px 26px rgba(15,23,42,0.12);
-      border: 1px solid rgba(255,255,255,0.6);
-      position: relative;
-      font-size: 13px;
-      line-height: 1.9;
-      color: #1e40af;
-    }
-
-    section::before {
-      content: "";
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(circle,
-        rgba(251,191,36,0.22), transparent);
-      top: -14px;
-      right: -14px;
-    }
-
-    h2 {
-      font-size: 15px;
-      margin-bottom: 4px;
-      color: #1e3a8a;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    h3 {
-      font-size: 13px;
-      margin: 8px 0 2px;
-      color: #1e40af;
-    }
-
-    ul {
-      margin: 2px 0 4px 18px;
-      padding: 0;
-    }
-
-    .note {
-      font-size: 10px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-
-    /* 返回連結 */
-    .back-link {
-      font-size: 11px;
-      margin-top: 6px;
-      text-align: right;
-    }
-
-    .back-link a {
-      color: #1e40af;
-      text-decoration: none;
-    }
-
-    .back-link a:hover {
-      text-decoration: underline;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      font-size: 10px;
-      color: #64748b;
-      padding: 10px 0 16px;
-    }
-
-    /* MV 區塊：深藍＋淡橘光 */
-    .mv-block {
-      margin: 0 0 20px;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(15,23,42,0.15);
-      border: 1px solid rgba(255,255,255,0.6);
-      background:
-        radial-gradient(circle at top left,
-        rgba(251,191,36,0.18), transparent 60%),
-        #0f172a;
-    }
-
-    .mv-block iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 0;
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 19px; }
-      .subtitle { font-size: 12px; }
-      section { padding: 12px 10px 9px; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poor Workers 009 - 我算哪根蔥？ | Kozono Sayuri</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <header>
-    <!-- 👽TODO：這行可以依系列改👽【範本】WORKPLACE SERIES -->
     <div class="topline">MUSIC UNIVERSE ✦ WORKPLACE SERIES</div>
-    <!-- 👽TODO：改成實際系列＋中文或英文曲名👽【範本】 001 ｜ 老闆，你是不是愛上了我-->
-    <h1>Poor Workers 💥待修正💥 </h1>
-    <!-- 👽TODO：歌名翻譯👽【範本】Track 001 · Boss, have you fallen in love with me? -->
-    <div class="subtitle">Track 💥待修正💥</div>
-    
-    <!-- 👽TODO：簡短一句這首歌在整個系列中的意義👽 -->
-    <div class="sub">
-      💥待修正💥
-    </div>
+    <h1>Poor Workers 009・我算哪根蔥？</h1>
+    <div class="subtitle">Track 009・Who Am I, Anyway?</div>
+    <div class="sub">加班時我是核心人才，分獎金時卻算哪根蔥；既然如此，這盤菜我不炒了。</div>
 
-    <!-- 琥珀星空 -->
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="主要導覽">
       <a href="../../index.html">Home</a>
-      <a href="../index.html" class="active">Music</a>
+      <a href="../index.html" class="active" aria-current="page">Music</a>
       <a href="../../worklife/index.html">Work Life</a>
       <a href="../../fitness/index.html">Fitness</a>
       <a href="../../invest/index.html">Invest</a>
@@ -315,142 +28,97 @@
   </header>
 
   <main>
-    <!-- 📌📌 頁內目錄 📌📌 -->
-    <div class="inner-nav">
-      <a href="#overview">Overview 概念速記</a>
-      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
-      <a href="#production">Production 製作過程</a>
-      <a href="#suno">Suno Elements AI 音樂元素</a>
-    </div>
+    <nav class="inner-nav" aria-label="本頁內容導覽">
+      <a href="#overview">Overview・歌曲概述</a>
+      <a href="#lyrics">Lyrics &amp; Meaning・歌詞與意義</a>
+      <a href="#production">Production・製作筆記</a>
+      <a href="#suno">Suno Elements・AI 創作元素</a>
+    </nav>
 
     <div class="badge-row">
-      <!-- 👽TODO：說明歌曲完成日 👽 -->
-      <div class="badge">歌曲完成日：💥待修正💥</div>
-      
-      <!-- 👽TODO：說明Youtube發佈日 👽 -->
-      <div class="badge">發佈日：💥待修正💥</div>
-
-      <!-- 👽TODO：「主畫面」的相像關鍵字 👽 -->
-      <div class="badge">主畫面：💥待修正💥</div>
-
-      <!-- 👽TODO：是指在「Music主頁」的大類 👽 -->
-      <div class="badge">Blog Style 創作筆記</div>
+      <div class="badge">歌曲完成：2026/7/20</div>
+      <div class="badge">MV 完成：2026/7/21</div>
+      <div class="badge">Mandarin Latin Noir Pop</div>
+      <div class="badge">Cinematic Tango Pop</div>
     </div>
 
-    <!-- 📌📌 Overview 📌📌 -->
-    <section id="overview">
-      <h2>📘 Overview｜這首歌想說什麼？</h2>
-      <!-- 👽TODO：第一段是取材說明 👽 -->
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
+    <section class="song-section" id="overview">
+      <h2>💡 Overview・歌曲概述</h2>
+      <p>《我算哪根蔥？》原是《紅裙不回頭》的另一條聲音命運。兩首沿用相同旋律與近似演唱設定；A 版留給愛情裡的轉身，捨不得放棄的 B 版則以 Cover 改詞，走進會議室、報表與加班燈下。每句字數、停頓與重拍都必須服從原旋律，於是紅裙的五字步伐，恰好換成一句台灣職場最熟悉的自嘲：「我算哪根蔥？」意外的是，這首原本為保留旋律而生的作品，反而先一步完成了 MV。</p>
+      <p class="en">“Who Am I, Anyway?” began as an alternate vocal life for “Red Dress, No Looking Back.” Both tracks share the same melody and nearly identical performance direction: Version A remained with the romantic farewell, while the equally compelling Version B entered conference rooms, spreadsheets and overtime lights through rewritten cover lyrics. Every syllable, pause and accent had to obey the original tune, allowing the five-character stride of the red dress to become a familiar Taiwanese workplace joke: “Who am I, anyway?” Unexpectedly, the song created simply to preserve a melody reached the MV stage first.</p>
+      <p>它寫的不只是一位愛畫大餅的老闆，而是一種被反覆扭曲的價值：出事時，員工不可或缺；談加薪、獎金與尊重時，他又忽然無足輕重。前半段的「我算哪根蔥」是吞下不公平的苦笑，直到辭呈放上桌面，最後副歌只換一個代名詞——「我」成了「你」——整場權力之舞便倒轉。她沒有摔門，也沒有等待誰主持公道，只是跳完最後一支探戈，把不屬於自己的重擔還回去。被需要，從來不等於應當被消耗。</p>
+      <p class="en">The song is not merely about one boss who sells empty dreams, but a recurring distortion of value: the employee is indispensable in a crisis and suddenly insignificant when raises, bonuses or respect are distributed. Early on, “Who am I, anyway?” is a bitter joke used to swallow injustice. Once the resignation reaches the desk, a single pronoun changes—I becomes you—and the entire dance of power reverses. She does not slam the door or wait for justice. She finishes the last tango, returns the burden, and remembers that being needed never means consenting to be consumed.</p>
     </section>
 
-    <!-- 👽TODO：MV 播放區👽 只改embed/ 之後，另外titla=要修改。 -->
-    <!-- 📌📌 MV 播放區 📌📌 -->
     <div class="mv-block">
       <iframe
-        src="https://www.youtube.com/embed/dJdHREcgfXg"
-        title="Poor Workers 💥編號💥 MV"
+        src="https://www.youtube.com/embed/7XFIjPaApTw"
+        title="Poor Workers 009 - 我算哪根蔥？ MV"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
 
-    <!-- 📌📌 Lyrics & Meaning 📌📌 -->
-    <section id="lyrics">
-      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
-      
-      <!-- 👽TODO：列出 3～5 個畫面。或說明單曲封面、主色調。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <h3>💰關鍵畫面（Key Scenes）💰</h3>
+    <section class="song-section" id="lyrics">
+      <h2>📝 Lyrics &amp; Meaning・歌詞與意義</h2>
+      <h3>Key Scenes・關鍵畫面</h3>
       <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
+        <li><strong>簡報閃著光：</strong>投影幕像一扇通往未來的窗；老闆在光裡談成長，員工卻在陰影中計算工時。那不是希望，只是被投影得很漂亮的幻象。<br><span class="en">The glowing presentation: the boss speaks of growth in the light while employees count their hours in shadow. It is not hope, only a polished projection.</span></li>
+        <li><strong>懸在半空的大餅：</strong>金色承諾美得近乎神蹟，卻永遠落不到任何人的盤中；它是被反覆延後、重新命名，最後集體遺忘的獎賞。<br><span class="en">The pie in the sky: a golden promise looks miraculous but never reaches a plate—postponed, renamed and finally forgotten.</span></li>
+        <li><strong>最後一盞燈：</strong>舞廳忽然退去，整層辦公室只剩她與未完的工作。這盞燈沒有照亮前途，只照見替別人的夢熬夜的人。<br><span class="en">The last office light: the ballroom disappears, leaving her alone with unfinished work done for someone else’s dream.</span></li>
+        <li><strong>辭呈落在桌上：</strong>沒有撕文件，也沒有喧鬧爭吵；越安靜的動作，越顯得決心已不必辯解。這一張紙，是全曲最重的一拍。<br><span class="en">The resignation on the desk: no shouting, no torn papers. Its quietness makes it the heaviest beat in the song.</span></li>
+        <li><strong>無人辦公室的探戈：</strong>二十五至二十八歲的女主角穿黑紅舞裙，在明亮辦公室與熱帶綠意之間獨舞；企業灰階終於被生命的顏色劃開。<br><span class="en">Tango in an empty office: a young woman dances through daylight and tropical green, breaking open the corporate gray.</span></li>
       </ul>
 
-      <h3>💰核心訊息（Core Message）💰</h3>
-      
-      <!-- 👽TODO：這首歌想講的情緒主題，用列舉的方式。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
+      <h3>Core Message・核心訊息</h3>
+      <p>這是一首從自嘲走向清醒的歌。主角曾用「我算哪根蔥」替不公平找台階，也替自己繼續忍耐；後來她明白，價值不必由老闆、職稱或獎金核定。最後的轉身不是報復，而是停止參與。她沒有贏過誰，只是不再輸掉自己。</p>
+      <p class="en">This is a song about moving from self-mockery to clarity. The heroine once used “Who am I, anyway?” to soften injustice and justify endurance. Her departure is not revenge but refusal: she defeats no one; she simply stops losing herself.</p>
 
-      <!-- 👽TODO： 要放第二名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003F]👽 -->
-      <div class="note">
-        🌀 <a href="https://suno.com/s/adiEG7l7yPygQEWt" target="_blank">Suno發佈同款歌曲，第二名：
-          💥待修正💥</a>
-      </div>
-      
+      <div class="note">🥈 <a href="https://suno.com/song/2b0503ef-8c8e-4eec-b6e0-cda3dc22ac02" target="_blank" rel="noopener noreferrer">Suno 第二名作品：我算哪根蔥？ [ZF0002F]</a></div>
     </section>
 
-    <!-- 📌📌 Production 📌📌 -->
-    <section id="production">
-      <h2>🎧 Production Notes｜編曲與製作過程</h2>
-
-      <h3>💰情緒設計（Emotion Flow）💰</h3>
-      <!-- 👽TODO： 是每段結構的拆解，針對歌詞的拆解 👽 -->
+    <section class="song-section" id="production">
+      <h2>🎛 Production Notes・編曲與製作過程</h2>
+      <h3>Emotion Flow・情緒設計</h3>
       <ul>
-        <li><strong>Intro</strong>：💥待修正💥。</li>
-        <li><strong>Verse</strong>：💥待修正💥。</li>
-        <li><strong>Pre-Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Verse 2</strong>：💥待修正💥
-        <li><strong>Bridge</strong>：💥待修正💥。</li>
+        <li><strong>Intro：</strong>遠方拍手與尼龍弦吉他搭起舞台：既是探戈節奏，也是會議開始前禮貌而空洞的掌聲；柔和手風琴把辦公室悄悄變成舞廳。<br><span class="en">Distant claps and nylon guitar create both a tango stage and the hollow applause of a meeting; the accordion turns the office into a ballroom.</span></li>
+        <li><strong>Verse：</strong>低聲、近距離且近乎談話的唱法，讓「說得很漂亮」「誰比他會玩」自然落地。編曲刻意留白，不必提高音量，荒唐便自己顯形。<br><span class="en">The intimate conversational verses leave room for dry observations to land; absurdity reveals itself without raised volume.</span></li>
+        <li><strong>Pre-Chorus：</strong>弦樂隨「一步一步」逐層上行。第一次是看穿，第二次是熬過；相同輪廓變得更重，表示旁觀已經成為身心消耗。<br><span class="en">Strings climb with “step by step.” Recognition becomes endurance, and the repeated shape gains emotional weight.</span></li>
+        <li><strong>Chorus：</strong>節奏與低頻打開，主唱仍拒絕吼唱。「我算哪根蔥」越像帶笑的承認，反諷越尖；簡短旋律也讓它成為上班族能接唱的暗號。<br><span class="en">The rhythm widens without belting. The lighter the central joke sounds, the sharper it cuts—and the easier it becomes to sing together.</span></li>
+        <li><strong>Instrumental / Dance Break：</strong>吉他快速奔走、手風琴接連回應，像訊息、報表與新指令互相追趕；跺腳、拍手與行進低音把混亂轉成解放舞步。<br><span class="en">Guitar and accordion chase like tasks and messages, while stomps, claps and walking bass turn workplace chaos into release.</span></li>
+        <li><strong>Bridge / Build：</strong>速度感忽然減半，只留煙霧鋼琴、低音與稀薄打擊，讓深夜疲憊現形；辭呈落桌後，弦樂與拍手才重新加速。<br><span class="en">Half-time exposes late-night exhaustion; after the resignation lands, rising strings and accelerating claps restore motion.</span></li>
+        <li><strong>Final Chorus / Outro：</strong>和聲與弦樂全面展開，「我」終於變成「你」。音樂放大，人聲仍克制；最後的 Da la da la da 像她走到門邊，懶得再解釋。<br><span class="en">The arrangement blooms as “I” becomes “you,” yet the voice remains composed. The final refrain walks out without another explanation.</span></li>
       </ul>
 
-      <h3>💰聲響顏色（Sound & Color）💰</h3>
-      <!-- 👽TODO： 主要是針對聲音或樂器選擇的考量，特別設計通常指混搭及音效 👽 -->
+      <h3>Sound &amp; Color・聲響顏色</h3>
       <ul>
-        <li><strong>樂器設定</strong>：💥待修正💥。</li>
-        <li><strong>人聲設定</strong>：💥待修正💥。</li>
-        <li><strong>特別設計</strong>：💥待修正💥。</li>
+        <li><strong>樂器設定：</strong>尼龍弦吉他負責探戈切分與快速跑句，班多鈕式手風琴像看不見的舞伴互相拉扯；低音提琴穩步前行，拉丁打擊、跺腳、拍手與戲劇弦樂則把日常辦公室舞台化。</li>
+        <li><strong>人聲設定：</strong>溫暖、空氣感的近距離女聲，主要落在 A3–C5、最高不超過 D5；低音保留柔和胸腔厚度，高音只短暫掠過輕盈頭聲。排除強混 Belt、誇張顫音與偶像式鼻音，讓冷嘲像耳邊談話。</li>
+        <li><strong>特別設計：</strong>拍手既是舞步，也是公司裡不知為何而拍的掌聲；「Da la da la da」用漫不經心包住最累的現實。最終只改一個代名詞，不換旋律，卻把全曲權力關係重新寫過。</li>
       </ul>
-
-      <!-- 👽TODO： 要放第三名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003C]👽 -->
-      <div class="note">
-        🌀 <a href="https://suno.com/s/qzjXIdfnQkVmPWjf" target="_blank">Suno發佈同款歌曲，第三名：
-          💥待修正💥</a>
-      </div>
-      
     </section>
 
-    <!-- 📌📌 Suno / AI Elements 📌📌 -->
-    <section id="suno">
-      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
-
-      <h3>💰模型與風格（Model & Style）💰</h3>
-      <!-- 👽TODO：是指Style那裡的設計，包括 Tempo / Key / 指定旋律 / 混搭風格 。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
+    <section class="song-section" id="suno">
+      <h2>🤖 Suno Elements・AI / Suno 設定</h2>
+      <h3>Model &amp; Style・模型與風格</h3>
       <ul>
-        <li>Style設計：💥待修正💥。</li>
-        <li>Prompt 關鍵字：💥待修正💥<br>
-          <em>💥待修正💥</em>
-        </li>
-        <li>Tempo / Key：💥待修正💥。</li>
+        <li><strong>Style：</strong>Mandarin Latin noir pop / cinematic tango pop / satirical workplace pop</li>
+        <li><strong>Prompt：</strong><em>sultry elegant female vocal, native Taiwan Mandarin, nylon guitar, bandoneon-like accordion, upright bass, dramatic strings, Latin percussion, sharp hand claps, smoky piano, black-red ballroom, warm vocal intimacy, catchy rhythmic chorus</em></li>
+        <li><strong>Tempo / Key：</strong>108 BPM、小調。速度足以保留探戈步伐與中文短句的俐落落點，又不至於變成純喜劇；小調讓幽默底下始終留著疲憊的陰影。</li>
       </ul>
 
-      <h3>💰實作小記（Implementation Notes）💰</h3>
-      <!-- 👽TODO： 這首歌有沒有多次生成再剪接？有沒有把不同版本的段落拼在一起？。哪些部分是 AI 直接產出，哪些是你自己後製 / 加錄？
-      用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-      </ul>
+      <h3>Implementation Notes・實作小記</h3>
+      <p>這首歌不是先有職場題材，而是先有一個捨不得刪掉的 B 版聲音。《紅裙不回頭》的 A、B 兩版各有呼吸與色澤，若只因必須做選擇便捨棄其中一首，未免可惜。於是保留旋律和演唱方式，利用 Cover 改詞替 B 版另寫人生。真正困難的不只是對齊字數：原曲的五字短句、Pre-Chorus、Bridge 與 Build 都有固定呼吸，還必須兼顧母音開口、重音、尾韻與中文是否自然貼拍。</p>
+      <p>核心句最初是「你算哪根蔥」，但單向叫罵太直，也少了一層餘味。改成「我算哪根蔥」後，職場人熟悉的荒謬立刻出現：加薪時不算什麼，出事時卻一定被找到。為免作品落成輕薄的搞笑歌，Style 保留 Latin noir、小調、電影探戈與器樂競奏；人聲則刻意壓低戲劇性，不用巨大高音或吼唱，像一個早已看懂的人，平靜描述這場鬧劇。</p>
+      <p>最後副歌只將「我」換成「你」，旋律完全不動，角色卻從自嘲裡站了起來。這也是 Cover 最有趣的地方：限制沒有壓縮故事，反而逼出更精準的語意。原本為保存 B 版而生的備案，最後比原曲更早完成 MV；一次音樂抽卡的兩難，沒有淘汰任何旋律，而是讓同一支探戈分岔成愛情與職場兩條路。</p>
+      <p class="en">This cover began as a way to preserve an alternate vocal take. Matching the original melody required more than equal syllable counts: vowels, stresses, rhymes and breathing all had to sit naturally. Changing the hook from “Who the hell are you?” to the self-mocking “Who am I, anyway?” gave the song its workplace truth. One final pronoun reversal then transformed restraint into freedom—without changing a note.</p>
 
-      <!-- 👽TODO：這是放FB同步發佈。聖經系列是Emma Chang／一般歌曲是傻有理的新新約。 改連結。👽 -->
-      <div class="note">
-        🌀 <a href="https://www.facebook.com/reel/842978572033148" target="_blank">其它說明請見：Face Book 同步發佈。</a>
-      </div>
-      
+      <div class="note">🌀 <a href="https://www.facebook.com/reel/1624691789072486" target="_blank" rel="noopener noreferrer">其它說明請見：Facebook 同步發佈</a></div>
     </section>
 
-    <div class="back-link">
-      <!-- 👽 TODO：這裡的連結指向本系列的 index.html 👽-->
-      ← 回到 <a href="index.html">Poor Workers 系列總覽</a>
-    </div>
-
+    <div class="back-link">← 回到 <a href="index.html">Poor Workers 系列總覽</a></div>
   </main>
 
-  <!-- 👽TODO：如果新年度有修改，要更改期間 👽 -->
-  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+  <footer>© 2026 Kozono Sayuri. All rights reserved.</footer>
 </body>
 </html>
