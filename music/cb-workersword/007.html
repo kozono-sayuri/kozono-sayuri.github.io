@@ -1,313 +1,29 @@
-<!DOCTYPE html>
+Exit code: 0
+Wall time: 1 seconds
+Output:
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 👽TODO：改成這一首的標題👽【範本】Poor Workers 001 - 老闆，你是不是愛上了我 | Kozono Sayuri -->
-  <title>Poor Workers 001 - 💥待修正💥 | Kozono Sayuri</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      color: #1e3a8a;
-      /* 職場館背景：淡藍＋暖白 */
-      background: radial-gradient(circle at top, #e6f4ff 0%, #fefdf9 45%, #fafafa 100%);
-    }
-
-    /* HEADER：深藍→琥珀橘 漸層 + 星星光 */
-    header {
-      padding: 26px 16px 18px;
-      text-align: center;
-      background:
-        linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #fbbf24 95%);
-      color: #fdf7e3;
-      box-shadow: 0 6px 28px rgba(15,23,42,0.55);
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255, 225, 150, 0.55);
-    }
-
-    .topline {
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      opacity: 0.9;
-      color: #fef3c7;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin: 6px 0 2px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 12px rgba(255,255,255,0.75);
-    }
-
-    .subtitle {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 4px;
-      color: #fde68a;
-    }
-
-    .sub {
-      font-size: 11px;
-      opacity: 0.95;
-      color: #fff7cf;
-    }
-
-    header .topline,
-    header h1,
-    header .subtitle,
-    header .sub,
-    header nav {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* 星星：改成琥珀閃光 */
-    .star {
-      position: absolute;
-      font-size: 20px;
-      color: rgba(255, 248, 210, 0.9);
-      text-shadow: 0 0 8px rgba(255,255,255,0.9);
-      animation: sparkle 4.5s infinite ease-in-out;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
-    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
-    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
-    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
-    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
-    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
-    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
-
-    @keyframes sparkle {
-      0%,100% { transform: scale(1); opacity: 0.45; }
-      50%     { transform: scale(1.4); opacity: 1; }
-    }
-
-    /* NAV：深藍＋淡藍邊＋琥珀 hover */
-    .nav {
-      margin-top: 12px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      font-size: 11px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(30,58,138,0.15);
-      color: #fefce8;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    .nav a:hover {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 12px rgba(251,191,36,0.85);
-      transform: translateY(-1px);
-    }
-
-    .nav a.active {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 14px rgba(251,191,36,1);
-    }
-
-    main {
-      max-width: 840px;
-      width: 100%;
-      margin: 24px auto 32px;
-      padding: 0 16px;
-      flex: 1;
-    }
-
-    /* 頁內小導航：白＋淡藍 */
-    .inner-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 0 18px;
-      font-size: 11px;
-    }
-
-    .inner-nav a {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.85);
-      color: #1e40af;
-      text-decoration: none;
-      transition: all 0.15s;
-      border: 1px solid rgba(30, 58, 138, 0.2);
-    }
-
-    .inner-nav a:hover {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 10px rgba(251,191,36,0.35);
-      transform: translateY(-1px);
-    }
-
-    /* BADGE：淡藍＋深藍字 */
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 4px 0 14px;
-      font-size: 10px;
-      color: #1e3a8a;
-    }
-
-    .badge {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #e6f4ff;
-      border: 1px solid rgba(30,58,138,0.25);
-    }
-
-    /* SECTION：白卡＋淡藍光暈 */
-    section {
-      background:
-        radial-gradient(circle at top left,
-        rgba(30,58,138,0.08), transparent 60%),
-        #ffffff;
-      border-radius: 18px;
-      padding: 14px 14px 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 14px 26px rgba(15,23,42,0.12);
-      border: 1px solid rgba(255,255,255,0.6);
-      position: relative;
-      font-size: 13px;
-      line-height: 1.9;
-      color: #1e40af;
-    }
-
-    section::before {
-      content: "";
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(circle,
-        rgba(251,191,36,0.22), transparent);
-      top: -14px;
-      right: -14px;
-    }
-
-    h2 {
-      font-size: 15px;
-      margin-bottom: 4px;
-      color: #1e3a8a;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    h3 {
-      font-size: 13px;
-      margin: 8px 0 2px;
-      color: #1e40af;
-    }
-
-    ul {
-      margin: 2px 0 4px 18px;
-      padding: 0;
-    }
-
-    .note {
-      font-size: 10px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-
-    /* 返回連結 */
-    .back-link {
-      font-size: 11px;
-      margin-top: 6px;
-      text-align: right;
-    }
-
-    .back-link a {
-      color: #1e40af;
-      text-decoration: none;
-    }
-
-    .back-link a:hover {
-      text-decoration: underline;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      font-size: 10px;
-      color: #64748b;
-      padding: 10px 0 16px;
-    }
-
-    /* MV 區塊：深藍＋淡橘光 */
-    .mv-block {
-      margin: 0 0 20px;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(15,23,42,0.15);
-      border: 1px solid rgba(255,255,255,0.6);
-      background:
-        radial-gradient(circle at top left,
-        rgba(251,191,36,0.18), transparent 60%),
-        #0f172a;
-    }
-
-    .mv-block iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 0;
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 19px; }
-      .subtitle { font-size: 12px; }
-      section { padding: 12px 10px 9px; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poor Workers 007 - 早上七點鬧鐘像仇人 | Kozono Sayuri</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <header>
-    <!-- 👽TODO：這行可以依系列改👽【範本】WORKPLACE SERIES -->
     <div class="topline">MUSIC UNIVERSE ✦ WORKPLACE SERIES</div>
-    <!-- 👽TODO：改成實際系列＋中文或英文曲名👽【範本】 001 ｜ 老闆，你是不是愛上了我-->
-    <h1>Poor Workers 💥待修正💥 </h1>
-    <!-- 👽TODO：歌名翻譯👽【範本】Track 001 · Boss, have you fallen in love with me? -->
-    <div class="subtitle">Track 💥待修正💥</div>
-    
-    <!-- 👽TODO：簡短一句這首歌在整個系列中的意義👽 -->
-    <div class="sub">
-      💥待修正💥
-    </div>
+    <h1>Poor Workers 007・早上七點鬧鐘像仇人</h1>
+    <div class="subtitle">Track 007・7 A.M. and the Alarm Hates Me</div>
+    <div class="sub">人生沒有使用說明書；今天還願意起床，就算完成一項進度。</div>
 
-    <!-- 琥珀星空 -->
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="主要導覽">
       <a href="../../index.html">Home</a>
-      <a href="../index.html" class="active">Music</a>
+      <a href="../index.html" class="active" aria-current="page">Music</a>
       <a href="../../worklife/index.html">Work Life</a>
       <a href="../../fitness/index.html">Fitness</a>
       <a href="../../invest/index.html">Invest</a>
@@ -315,142 +31,98 @@
   </header>
 
   <main>
-    <!-- 📌📌 頁內目錄 📌📌 -->
-    <div class="inner-nav">
-      <a href="#overview">Overview 概念速記</a>
-      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
-      <a href="#production">Production 製作過程</a>
-      <a href="#suno">Suno Elements AI 音樂元素</a>
-    </div>
+    <nav class="inner-nav" aria-label="本頁內容導覽">
+      <a href="#overview">Overview・歌曲概述</a>
+      <a href="#lyrics">Lyrics &amp; Meaning・歌詞與意義</a>
+      <a href="#production">Production・製作筆記</a>
+      <a href="#suno">Suno Elements・AI 創作元素</a>
+    </nav>
 
     <div class="badge-row">
-      <!-- 👽TODO：說明歌曲完成日 👽 -->
-      <div class="badge">歌曲完成日：💥待修正💥</div>
-      
-      <!-- 👽TODO：說明Youtube發佈日 👽 -->
-      <div class="badge">發佈日：💥待修正💥</div>
-
-      <!-- 👽TODO：「主畫面」的相像關鍵字 👽 -->
-      <div class="badge">主畫面：💥待修正💥</div>
-
-      <!-- 👽TODO：是指在「Music主頁」的大類 👽 -->
-      <div class="badge">Blog Style 創作筆記</div>
+      <div class="badge">歌曲完成：2026/1/8</div>
+      <div class="badge">MV 完成：2026/4/2</div>
+      <div class="badge">Cinematic Surf Music</div>
+      <div class="badge">Modern Surf Rock</div>
     </div>
 
-    <!-- 📌📌 Overview 📌📌 -->
-    <section id="overview">
-      <h2>📘 Overview｜這首歌想說什麼？</h2>
-      <!-- 👽TODO：第一段是取材說明 👽 -->
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
+    <section class="song-section" id="overview">
+      <h2>💡 Overview・歌曲概述</h2>
+      <p>《早上七點鬧鐘像仇人》是「了解音樂風格」企劃中的 Surf Music／Surf Rock 實驗，也是替未來混搭創作打底的一次聲音練習。歌曲把衝浪搖滾原本屬於海浪、速度與青春的躁動，搬進現代都市的早晨：鬧鐘、咖啡、帳單、主管、客戶，以及一個還沒完全學會當大人的普通上班族。</p>
+      <p class="en">“7 A.M. and the Alarm Hates Me” is a Surf Music / Surf Rock experiment within the “Understanding Music Styles” project. It relocates the genre’s waves, speed and youthful momentum into an urban morning filled with alarms, coffee, bills, bosses, clients, and an ordinary worker still learning how to be an adult.</p>
+      <p>歌詞不把生活美化，也不急著端出答案。工作不順、減肥失敗、鏡子太誠實，連貓都像在旁觀這場手忙腳亂；然而歌曲用幽默與高速節奏，把疲憊轉成仍能向前的動能。它不是宣告「我已經變好了」，而是承認「世界很亂，我很普通，但今天還沒有投降」。</p>
+      <p class="en">The lyrics neither romanticize daily life nor rush toward an answer. Work goes badly, diets fail, mirrors tell the truth, and even the cat seems to watch the chaos. Yet humor and speed turn exhaustion into motion. The song does not claim, “I am fixed.” It simply says, “The world is messy, I am ordinary, and today I still did not give up.”</p>
     </section>
 
-    <!-- 👽TODO：MV 播放區👽 只改embed/ 之後，另外titla=要修改。 -->
-    <!-- 📌📌 MV 播放區 📌📌 -->
     <div class="mv-block">
       <iframe
-        src="https://www.youtube.com/embed/dJdHREcgfXg"
-        title="Poor Workers 💥編號💥 MV"
+        src="https://www.youtube.com/embed/DDAJ_iYvhRQ"
+        title="Poor Workers 007 - 早上七點鬧鐘像仇人 MV"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
 
-    <!-- 📌📌 Lyrics & Meaning 📌📌 -->
-    <section id="lyrics">
-      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
-      
-      <!-- 👽TODO：列出 3～5 個畫面。或說明單曲封面、主色調。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <h3>💰關鍵畫面（Key Scenes）💰</h3>
+    <section class="song-section" id="lyrics">
+      <h2>📝 Lyrics &amp; Meaning・歌詞與意義</h2>
+      <h3>Key Scenes・關鍵畫面</h3>
       <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
+        <li><strong>七點強制開機：</strong>鬧鐘不是晨光的邀請，而是現實直接按下人生的啟動鍵。<br><span class="en">Forced online at seven: the alarm is not an invitation from dawn, but reality hitting the power switch.</span></li>
+        <li><strong>夢想與價錢：</strong>主管談願景、客戶只看報價，主角在一次次點頭中感覺靈魂逐漸離線。<br><span class="en">Dreams versus price tags: the boss sells vision, the client checks the cost, and every nod sends his soul further offline.</span></li>
+        <li><strong>鏡子與貓：</strong>減肥三週依然穿緊褲子，鏡子過度誠實，貓則用最慵懶的表情旁觀大人的困惑。<br><span class="en">The mirror and the cat: tight jeans tell one truth, while a relaxed cat silently judges the confusion of adulthood.</span></li>
+        <li><strong>明天門外的期待：</strong>未完成的事沒有消失，只是暫時堆在門外，允許今天的自己喘一口氣。<br><span class="en">Expectations outside tomorrow’s door: unfinished things remain, but today is finally allowed to breathe.</span></li>
+        <li><strong>還在路上：</strong>沒有成為想像中的大人，也沒有戲劇性的逆襲；繼續走，本身就是答案。<br><span class="en">Still on the road: there is no grand comeback, only the quiet answer of continuing forward.</span></li>
       </ul>
 
-      <h3>💰核心訊息（Core Message）💰</h3>
-      
-      <!-- 👽TODO：這首歌想講的情緒主題，用列舉的方式。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
+      <h3>Core Message・核心訊息</h3>
+      <p>「今天活著就算進度」不是消極，也不是廉價勵志，而是替被生活追趕的人重新定義成功：不必每一天都得獎，不必所有錯誤都有重來鍵；跌跌撞撞地走到今天，仍願意再試一次，就值得被承認。</p>
+      <p class="en">“Being alive today counts as progress” is neither surrender nor easy inspiration. It redefines success for people chased by daily life: not every effort wins a prize, and not every mistake has a restart button. Reaching today and still choosing to try again is already worth acknowledging.</p>
 
-      <!-- 👽TODO： 要放第二名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003F]👽 -->
-      <div class="note">
-        🌀 <a href="https://suno.com/s/adiEG7l7yPygQEWt" target="_blank">Suno發佈同款歌曲，第二名：
-          💥待修正💥</a>
-      </div>
-      
+      <div class="note">🥈 <a href="https://suno.com/song/1bd7d522-fcae-4a62-9041-21958a1a15ee" target="_blank" rel="noopener noreferrer">Suno 第二名作品：早上七點鬧鐘像仇人 [AC001D]</a></div>
     </section>
 
-    <!-- 📌📌 Production 📌📌 -->
-    <section id="production">
-      <h2>🎧 Production Notes｜編曲與製作過程</h2>
-
-      <h3>💰情緒設計（Emotion Flow）💰</h3>
-      <!-- 👽TODO： 是每段結構的拆解，針對歌詞的拆解 👽 -->
+    <section class="song-section" id="production">
+      <h2>🎛 Production Notes・編曲與製作過程</h2>
+      <h3>Emotion Flow・情緒設計</h3>
       <ul>
-        <li><strong>Intro</strong>：💥待修正💥。</li>
-        <li><strong>Verse</strong>：💥待修正💥。</li>
-        <li><strong>Pre-Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Verse 2</strong>：💥待修正💥
-        <li><strong>Bridge</strong>：💥待修正💥。</li>
+        <li><strong>Instrumental Intro：</strong>高速顫音撥弦、切分鼓點與突然斷拍，模擬一早被鬧鐘強迫開機的混亂大腦。<br><span class="en">Rapid tremolo picking, syncopated drums and abrupt breaks imitate a brain being forced online.</span></li>
+        <li><strong>Verse 1：</strong>半說半唱的人聲像對自己吐槽，讓帳單、主管與客戶保持日常感，而不是唱成苦情控訴。<br><span class="en">Spoken-sung vocals turn bills, bosses and clients into dry self-commentary rather than melodrama.</span></li>
+        <li><strong>Pre-Chorus：</strong>樂器短暫讓出空間，「沒人教我怎麼不崩潰」成為歡快外殼裡第一次露出的真心。<br><span class="en">The arrangement opens briefly so the first honest crack can be heard beneath the bright surface.</span></li>
+        <li><strong>Chorus：</strong>旋律與音域突然開亮，並非問題獲得解決，而是身體先跟著節奏活過今天。<br><span class="en">The melody opens brightly—not because life is solved, but because the body chooses to move through today.</span></li>
+        <li><strong>Instrumental Break：</strong>口琴、拍擊貝斯與鼓組互相叫陣，提供一段不用講道理、只負責釋放的喘息。<br><span class="en">Harmonica, slap bass and drums trade playful challenges in a release that needs no explanation.</span></li>
+        <li><strong>Bridge：</strong>速度放緩，顫音吉他、顫音琴與弦樂把躁動轉成溫柔，承認自己沒有長成想像中的大人。<br><span class="en">Slower tremolo guitar, vibraphone and strings turn agitation into gentle acceptance.</span></li>
+        <li><strong>Final Chorus / Outro：</strong>雙倍速度把「繼續撐下來」變成身體動作，全團齊奏後驟停，像電影切黑，也像明天仍待續。<br><span class="en">Double time turns endurance into motion; a full-band hit stops like a cinematic cut, while tomorrow remains unfinished.</span></li>
       </ul>
 
-      <h3>💰聲響顏色（Sound & Color）💰</h3>
-      <!-- 👽TODO： 主要是針對聲音或樂器選擇的考量，特別設計通常指混搭及音效 👽 -->
+      <h3>Sound &amp; Color・聲響顏色</h3>
       <ul>
-        <li><strong>樂器設定</strong>：💥待修正💥。</li>
-        <li><strong>人聲設定</strong>：💥待修正💥。</li>
-        <li><strong>特別設計</strong>：💥待修正💥。</li>
+        <li><strong>樂器設定：</strong>彈簧殘響電吉他與快速 tremolo picking 是核心，雙低音配置兼具電貝斯重量與直立貝斯彈性；口琴、弱音銅管、顫音琴、牛鈴、沙鈴與響棒增添復古電影色彩。</li>
+        <li><strong>人聲設定：</strong>男聲明亮但疲憊，以節奏清楚的半說半唱主歌搭配開闊副歌；笑意帶著自嘲，不把角色唱成英雄。</li>
+        <li><strong>特別設計：</strong>極端動態、速度調節與三段器樂展示，依序表現混亂、玩樂與反思；Surf Rock 的快樂外殼，故意包住成年人真實的疲憊。</li>
       </ul>
-
-      <!-- 👽TODO： 要放第三名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003C]👽 -->
-      <div class="note">
-        🌀 <a href="https://suno.com/s/qzjXIdfnQkVmPWjf" target="_blank">Suno發佈同款歌曲，第三名：
-          💥待修正💥</a>
-      </div>
-      
     </section>
 
-    <!-- 📌📌 Suno / AI Elements 📌📌 -->
-    <section id="suno">
-      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
-
-      <h3>💰模型與風格（Model & Style）💰</h3>
-      <!-- 👽TODO：是指Style那裡的設計，包括 Tempo / Key / 指定旋律 / 混搭風格 。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
+    <section class="song-section" id="suno">
+      <h2>🤖 Suno Elements・AI / Suno 設定</h2>
+      <h3>Model &amp; Style・模型與風格</h3>
       <ul>
-        <li>Style設計：💥待修正💥。</li>
-        <li>Prompt 關鍵字：💥待修正💥<br>
-          <em>💥待修正💥</em>
-        </li>
-        <li>Tempo / Key：💥待修正💥。</li>
+        <li><strong>Style：</strong>cinematic surf music / modern surf rock / film theme song</li>
+        <li><strong>Prompt：</strong><em>bright but tired male vocal, playful sarcasm, spring reverb guitar, tremolo surf picking, dual bass, live surf drums, Latin fills, harmonica lead, vibraphone accents, extreme dynamic contrast, tempo modulation, virtuosic instrumental showcases</em></li>
+        <li><strong>Tempo / Key：</strong>以快速 Surf Rock 為主體，中段降速反思、末段 double-time 再推進；明亮調性感保留苦中作樂，和聲轉折則藏入疲憊與不確定。</li>
       </ul>
 
-      <h3>💰實作小記（Implementation Notes）💰</h3>
-      <!-- 👽TODO： 這首歌有沒有多次生成再剪接？有沒有把不同版本的段落拼在一起？。哪些部分是 AI 直接產出，哪些是你自己後製 / 加錄？
-      用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-      </ul>
+      <h3>Implementation Notes・實作小記</h3>
+      <p>這首歌最初從「人生沒有使用說明書」這個母題出發，再把抽象的人生感悟收進「早上七點鬧鐘像仇人」這個具體瞬間。標題一換，作品也從哲理宣言回到肉身生活：鬧鐘一響，人還沒準備好，世界已經開始催進度。這正好對應 Surf Music 的本質——不是先想通，而是先讓身體動起來。</p>
+      <p>實作時刻意避免把 Surf Rock 做成單純陽光沙灘，也避免把上班疲勞唱成沉重悲歌。提示詞同時保留 <em>bright but tired</em>、<em>playful sarcasm</em> 與 <em>youthful grit</em>，要求人聲聽起來會笑、會累，也還有一點不認輸。三段器樂各有任務：第一段用高速吉他製造晨間混亂，第二段讓口琴與節奏組盡情玩耍，第三段則降速回望人生。最後的雙倍速度不是勝利遊行，而是帶著節拍繼續撐下去。</p>
+      <p class="en">The experiment avoids both postcard-bright surf clichés and heavy workplace lament. Its prompts balance fatigue, sarcasm and youthful grit, while three instrumental passages move from morning chaos to playful release and gentle reflection. The double-time ending is not a victory lap; it is endurance with rhythm.</p>
 
-      <!-- 👽TODO：這是放FB同步發佈。聖經系列是Emma Chang／一般歌曲是傻有理的新新約。 改連結。👽 -->
-      <div class="note">
-        🌀 <a href="https://www.facebook.com/reel/842978572033148" target="_blank">其它說明請見：Face Book 同步發佈。</a>
-      </div>
-      
+      <div class="note">🌀 <a href="https://www.facebook.com/reel/1292899449392168" target="_blank" rel="noopener noreferrer">其它說明請見：Facebook 同步發佈</a></div>
     </section>
 
-    <div class="back-link">
-      <!-- 👽 TODO：這裡的連結指向本系列的 index.html 👽-->
-      ← 回到 <a href="index.html">Poor Workers 系列總覽</a>
-    </div>
-
+    <div class="back-link">← 回到 <a href="index.html">Poor Workers 系列總覽</a></div>
   </main>
 
-  <!-- 👽TODO：如果新年度有修改，要更改期間 👽 -->
-  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+  <footer>© 2026 Kozono Sayuri. All rights reserved.</footer>
 </body>
 </html>
+
+
