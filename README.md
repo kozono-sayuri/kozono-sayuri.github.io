@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 1 seconds
-Output:
 # 音樂網站更新規則
 
 ## 任務目的
@@ -93,5 +90,4 @@ Output:
 - 是否存在缺漏資料或失效連結
 - 是否已確認既有歌曲頁與目錄卡片均未遭覆蓋
 - 是否已 commit、push 或部署
-
 

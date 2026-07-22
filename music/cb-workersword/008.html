@@ -1,313 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 👽TODO：改成這一首的標題👽【範本】Poor Workers 001 - 老闆，你是不是愛上了我 | Kozono Sayuri -->
-  <title>Poor Workers 001 - 💥待修正💥 | Kozono Sayuri</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      color: #1e3a8a;
-      /* 職場館背景：淡藍＋暖白 */
-      background: radial-gradient(circle at top, #e6f4ff 0%, #fefdf9 45%, #fafafa 100%);
-    }
-
-    /* HEADER：深藍→琥珀橘 漸層 + 星星光 */
-    header {
-      padding: 26px 16px 18px;
-      text-align: center;
-      background:
-        linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #fbbf24 95%);
-      color: #fdf7e3;
-      box-shadow: 0 6px 28px rgba(15,23,42,0.55);
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255, 225, 150, 0.55);
-    }
-
-    .topline {
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      opacity: 0.9;
-      color: #fef3c7;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin: 6px 0 2px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-shadow: 0 0 12px rgba(255,255,255,0.75);
-    }
-
-    .subtitle {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 4px;
-      color: #fde68a;
-    }
-
-    .sub {
-      font-size: 11px;
-      opacity: 0.95;
-      color: #fff7cf;
-    }
-
-    header .topline,
-    header h1,
-    header .subtitle,
-    header .sub,
-    header nav {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* 星星：改成琥珀閃光 */
-    .star {
-      position: absolute;
-      font-size: 20px;
-      color: rgba(255, 248, 210, 0.9);
-      text-shadow: 0 0 8px rgba(255,255,255,0.9);
-      animation: sparkle 4.5s infinite ease-in-out;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
-    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
-    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
-    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
-    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
-    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
-    .star:nth-of-type(7){ top: 62px; left: 52%;animation-delay: 3.2s; }
-
-    @keyframes sparkle {
-      0%,100% { transform: scale(1); opacity: 0.45; }
-      50%     { transform: scale(1.4); opacity: 1; }
-    }
-
-    /* NAV：深藍＋淡藍邊＋琥珀 hover */
-    .nav {
-      margin-top: 12px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      font-size: 11px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(30,58,138,0.15);
-      color: #fefce8;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    .nav a:hover {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 12px rgba(251,191,36,0.85);
-      transform: translateY(-1px);
-    }
-
-    .nav a.active {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 14px rgba(251,191,36,1);
-    }
-
-    main {
-      max-width: 840px;
-      width: 100%;
-      margin: 24px auto 32px;
-      padding: 0 16px;
-      flex: 1;
-    }
-
-    /* 頁內小導航：白＋淡藍 */
-    .inner-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 0 18px;
-      font-size: 11px;
-    }
-
-    .inner-nav a {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.85);
-      color: #1e40af;
-      text-decoration: none;
-      transition: all 0.15s;
-      border: 1px solid rgba(30, 58, 138, 0.2);
-    }
-
-    .inner-nav a:hover {
-      background: #fbbf24;
-      color: #0f172a;
-      box-shadow: 0 4px 10px rgba(251,191,36,0.35);
-      transform: translateY(-1px);
-    }
-
-    /* BADGE：淡藍＋深藍字 */
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 4px 0 14px;
-      font-size: 10px;
-      color: #1e3a8a;
-    }
-
-    .badge {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #e6f4ff;
-      border: 1px solid rgba(30,58,138,0.25);
-    }
-
-    /* SECTION：白卡＋淡藍光暈 */
-    section {
-      background:
-        radial-gradient(circle at top left,
-        rgba(30,58,138,0.08), transparent 60%),
-        #ffffff;
-      border-radius: 18px;
-      padding: 14px 14px 10px;
-      margin-bottom: 10px;
-      box-shadow: 0 14px 26px rgba(15,23,42,0.12);
-      border: 1px solid rgba(255,255,255,0.6);
-      position: relative;
-      font-size: 13px;
-      line-height: 1.9;
-      color: #1e40af;
-    }
-
-    section::before {
-      content: "";
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(circle,
-        rgba(251,191,36,0.22), transparent);
-      top: -14px;
-      right: -14px;
-    }
-
-    h2 {
-      font-size: 15px;
-      margin-bottom: 4px;
-      color: #1e3a8a;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    h3 {
-      font-size: 13px;
-      margin: 8px 0 2px;
-      color: #1e40af;
-    }
-
-    ul {
-      margin: 2px 0 4px 18px;
-      padding: 0;
-    }
-
-    .note {
-      font-size: 10px;
-      color: #64748b;
-      margin-top: 4px;
-    }
-
-    /* 返回連結 */
-    .back-link {
-      font-size: 11px;
-      margin-top: 6px;
-      text-align: right;
-    }
-
-    .back-link a {
-      color: #1e40af;
-      text-decoration: none;
-    }
-
-    .back-link a:hover {
-      text-decoration: underline;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      font-size: 10px;
-      color: #64748b;
-      padding: 10px 0 16px;
-    }
-
-    /* MV 區塊：深藍＋淡橘光 */
-    .mv-block {
-      margin: 0 0 20px;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(15,23,42,0.15);
-      border: 1px solid rgba(255,255,255,0.6);
-      background:
-        radial-gradient(circle at top left,
-        rgba(251,191,36,0.18), transparent 60%),
-        #0f172a;
-    }
-
-    .mv-block iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 0;
-      display: block;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 19px; }
-      .subtitle { font-size: 12px; }
-      section { padding: 12px 10px 9px; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poor Workers 008 - 眼睛不要用可以捐出來 | Kozono Sayuri</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <header>
-    <!-- 👽TODO：這行可以依系列改👽【範本】WORKPLACE SERIES -->
     <div class="topline">MUSIC UNIVERSE ✦ WORKPLACE SERIES</div>
-    <!-- 👽TODO：改成實際系列＋中文或英文曲名👽【範本】 001 ｜ 老闆，你是不是愛上了我-->
-    <h1>Poor Workers 💥待修正💥 </h1>
-    <!-- 👽TODO：歌名翻譯👽【範本】Track 001 · Boss, have you fallen in love with me? -->
-    <div class="subtitle">Track 💥待修正💥</div>
-    
-    <!-- 👽TODO：簡短一句這首歌在整個系列中的意義👽 -->
-    <div class="sub">
-      💥待修正💥
-    </div>
+    <h1>Poor Workers 008・眼睛不要用可以捐出來</h1>
+    <div class="subtitle">Track 008・If You Don’t Need Your Eyes, Donate Them!</div>
+    <div class="sub">白紙黑字都在眼前；真正荒謬的不是看不見，而是看見了還要裝作沒看見。</div>
 
-    <!-- 琥珀星空 -->
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
-    <span class="star">✧</span>
-    <span class="star">✦</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span><span class="star" aria-hidden="true">✧</span>
+    <span class="star" aria-hidden="true">✦</span>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="主要導覽">
       <a href="../../index.html">Home</a>
-      <a href="../index.html" class="active">Music</a>
+      <a href="../index.html" class="active" aria-current="page">Music</a>
       <a href="../../worklife/index.html">Work Life</a>
       <a href="../../fitness/index.html">Fitness</a>
       <a href="../../invest/index.html">Invest</a>
@@ -315,142 +28,98 @@
   </header>
 
   <main>
-    <!-- 📌📌 頁內目錄 📌📌 -->
-    <div class="inner-nav">
-      <a href="#overview">Overview 概念速記</a>
-      <a href="#lyrics">Lyrics & Meaning 歌詞與意涵</a>
-      <a href="#production">Production 製作過程</a>
-      <a href="#suno">Suno Elements AI 音樂元素</a>
-    </div>
+    <nav class="inner-nav" aria-label="本頁內容導覽">
+      <a href="#overview">Overview・歌曲概述</a>
+      <a href="#lyrics">Lyrics &amp; Meaning・歌詞與意義</a>
+      <a href="#production">Production・製作筆記</a>
+      <a href="#suno">Suno Elements・AI 創作元素</a>
+    </nav>
 
     <div class="badge-row">
-      <!-- 👽TODO：說明歌曲完成日 👽 -->
-      <div class="badge">歌曲完成日：💥待修正💥</div>
-      
-      <!-- 👽TODO：說明Youtube發佈日 👽 -->
-      <div class="badge">發佈日：💥待修正💥</div>
-
-      <!-- 👽TODO：「主畫面」的相像關鍵字 👽 -->
-      <div class="badge">主畫面：💥待修正💥</div>
-
-      <!-- 👽TODO：是指在「Music主頁」的大類 👽 -->
-      <div class="badge">Blog Style 創作筆記</div>
+      <div class="badge">歌曲完成：2026/4/9</div>
+      <div class="badge">MV 完成：2026/4/10</div>
+      <div class="badge">Theatrical Industrial Metal</div>
+      <div class="badge">Dark Cabaret</div>
     </div>
 
-    <!-- 📌📌 Overview 📌📌 -->
-    <section id="overview">
-      <h2>📘 Overview｜這首歌想說什麼？</h2>
-      <!-- 👽TODO：第一段是取材說明 👽 -->
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
+    <section class="song-section" id="overview">
+      <h2>💡 Overview・歌曲概述</h2>
+      <p>《眼睛不要用可以捐出來》取材自一場荒謬得近乎舞台劇的職場對話：截圖、催帳通知與前後單據已把金額落差攤在桌上，對方卻以一句句「嗯哼」維持懂得一切的姿態，最後仍說自己沒有動過數字。這些看似零碎的錯誤，又牽出未按日期順序輸入單據、庫存長期失真，以及年底以難以查證的調整填補缺口等問題。</p>
+      <p class="en">“If You Don’t Need Your Eyes, Donate Them!” grows out of a workplace exchange so absurd it already feels theatrical. Screenshots, reminders, and mismatched documents lay the discrepancy on the table, yet a stream of confident “mm-hmms” ends with the claim that nothing was changed. What looks like one mistake opens onto deeper disorder: entries made out of sequence, inventory distorted over time, and unverifiable adjustments used to patch year-end gaps.</p>
+      <p>這首歌沒有把怒氣寫成單純叫罵，而是把辦公室變成暗黑卡巴萊的審判舞台。低語先陳列證據，節奏逐層升高，副歌才讓那句近乎慈善口號的黑色幽默炸開。它所追問的不只是哪一個人做錯了，而是人在證據面前，為何仍能選擇不看、裝懂、推責，甚至用情緒離場。當日常荒謬足以殺死腦細胞，AI 創作便成了一種快速自救：幾分鐘，把不能砸出去的椅子改寫成一首歌。</p>
+      <p class="en">Rather than reducing rage to shouting, the song turns the office into a dark-cabaret tribunal. Whispers present the evidence, the pulse tightens, and only then does the black-comic refrain explode like a twisted charity slogan. Its question reaches beyond one person’s mistake: why do people choose not to see, pretend to understand, shift blame, or exit through emotion when the evidence is clear? When workplace absurdity starts killing brain cells, AI-assisted songwriting becomes quick self-rescue—turning the chair you cannot throw into a song within minutes.</p>
     </section>
 
-    <!-- 👽TODO：MV 播放區👽 只改embed/ 之後，另外titla=要修改。 -->
-    <!-- 📌📌 MV 播放區 📌📌 -->
     <div class="mv-block">
       <iframe
-        src="https://www.youtube.com/embed/dJdHREcgfXg"
-        title="Poor Workers 💥編號💥 MV"
+        src="https://www.youtube.com/embed/-RrqqOPz84g"
+        title="Poor Workers 008 - 眼睛不要用可以捐出來 MV"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
     </div>
 
-    <!-- 📌📌 Lyrics & Meaning 📌📌 -->
-    <section id="lyrics">
-      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
-      
-      <!-- 👽TODO：列出 3～5 個畫面。或說明單曲封面、主色調。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <h3>💰關鍵畫面（Key Scenes）💰</h3>
+    <section class="song-section" id="lyrics">
+      <h2>📝 Lyrics &amp; Meaning・歌詞與意義</h2>
+      <h3>Key Scenes・關鍵畫面</h3>
       <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
+        <li><strong>冷白燈下的「嗯哼」：</strong>印表機與滑鼠聲像辦公室脈搏；看似認真的點頭，逐漸成為迴避理解的表演。<br><span class="en">“Mm-hmm” under fluorescent light: office sounds become a pulse while attentive nodding turns into a performance of avoidance.</span></li>
+        <li><strong>截圖與數字對質：</strong>前單、後單與催帳紀錄排列成證據牆，真相已經清楚，承認卻始終缺席。<br><span class="en">Screenshots versus numbers: documents form a wall of evidence; the truth is present, but acknowledgment is missing.</span></li>
+        <li><strong>紅筆成為判決：</strong>副歌炸開，紅色修正記號像刀鋒劃過文件，「捐出來啊」從吐槽變成舞台宣判。<br><span class="en">The red pen becomes a verdict: correction marks cut through the papers as “donate them” turns from a joke into judgment.</span></li>
+        <li><strong>兩年爛帳的黑洞：</strong>文件與錯亂庫存堆成吞噬秩序的怪物，讓一次疏忽顯露為長期累積的結構性後果。<br><span class="en">A black hole of bad records: papers and broken inventory become a monster built from years of accumulated disorder.</span></li>
+        <li><strong>最後的冷問句：</strong>所有重鼓與尖叫退去，只剩「金額不一樣，你真的都沒看到嗎」，比怒吼更冷。<br><span class="en">The final cold question: after the screams disappear, “The numbers do not match—did you really never see it?” lands harder than rage.</span></li>
       </ul>
 
-      <h3>💰核心訊息（Core Message）💰</h3>
-      
-      <!-- 👽TODO：這首歌想講的情緒主題，用列舉的方式。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
+      <h3>Core Message・核心訊息</h3>
+      <p>這是一首關於「看見卻否認」的歌。真正磨損人的，不只是錯誤，而是白紙黑字仍被裝作不存在；證據越清楚，推諉越荒唐。黑色幽默並沒有抹去責任，而是替長期被迫維持理性的人，留下一個不傷人也不傷自己的出口。</p>
+      <p class="en">This is a song about seeing and still denying. The deepest exhaustion comes not only from mistakes, but from watching clear evidence be treated as nonexistent. Black comedy does not erase responsibility; it gives people forced to remain reasonable a way to release the pressure without harming themselves or others.</p>
 
-      <!-- 👽TODO： 要放第二名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003F]👽 -->
-      <div class="note">
-        🌀 <a href="https://suno.com/s/adiEG7l7yPygQEWt" target="_blank">Suno發佈同款歌曲，第二名：
-          💥待修正💥</a>
-      </div>
-      
+      <div class="note">🥈 <a href="https://suno.com/song/c5aed1eb-438e-466f-99de-3f12fab292d5" target="_blank" rel="noopener noreferrer">Suno 第二名作品：眼睛不要用可以捐出來 [D00070D]</a></div>
     </section>
 
-    <!-- 📌📌 Production 📌📌 -->
-    <section id="production">
-      <h2>🎧 Production Notes｜編曲與製作過程</h2>
-
-      <h3>💰情緒設計（Emotion Flow）💰</h3>
-      <!-- 👽TODO： 是每段結構的拆解，針對歌詞的拆解 👽 -->
+    <section class="song-section" id="production">
+      <h2>🎛 Production Notes・編曲與製作過程</h2>
+      <h3>Emotion Flow・情緒設計</h3>
       <ul>
-        <li><strong>Intro</strong>：💥待修正💥。</li>
-        <li><strong>Verse</strong>：💥待修正💥。</li>
-        <li><strong>Pre-Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Verse 2</strong>：💥待修正💥
-        <li><strong>Bridge</strong>：💥待修正💥。</li>
+        <li><strong>Intro：</strong>84 BPM 的詭異鋼琴、低弦與辦公室環境音先建立熟悉又錯位的日常；女聲低語像暴風雨前的冷笑。<br><span class="en">At 84 BPM, eerie piano, low strings and office ambience create familiar unease; the whisper is a smirk before the storm.</span></li>
+        <li><strong>Verse 1：</strong>氣音女聲克制陳述截圖與單據，先完成「舉證」，讓後面的爆發不是無理發怒，而是有案情支撐的控訴。<br><span class="en">Breathy vocals present the case first, grounding the later explosion in evidence rather than empty anger.</span></li>
+        <li><strong>Pre-Chorus：</strong>節奏朝 96 BPM 推進，弦樂上行、鼓組加入；歌詞由敘事轉成質問，像審判的燈光逐一亮起。<br><span class="en">The pulse rises toward 96 BPM as strings climb and drums enter; narration becomes interrogation.</span></li>
+        <li><strong>Chorus / Post-Chorus：</strong>118 BPM 的重鼓、失真吉他與攻擊性弦樂全面炸開；群聲重複 Hook，使個人怒火化成荒謬的審判儀式。<br><span class="en">At 118 BPM, heavy drums, distorted guitars and aggressive strings explode; gang echoes turn rage into ritual.</span></li>
+        <li><strong>Verse 2：</strong>以 88 BPM half-time 壓低速度與聲線，不急著更吵，而是冷冷攤開兩年爛帳、庫存與調整單的重量。<br><span class="en">An 88 BPM half-time feel lowers the voice and pace, giving long-term disorder weight rather than mere noise.</span></li>
+        <li><strong>Bridge：</strong>走走停停的節奏、故障打擊、刮擦弦樂與口白讓理性斷裂；低語逐步升成短促咆哮，像一場辦公室驅魔。<br><span class="en">Stop-start rhythm, glitches, scraping strings and spoken sarcasm fracture reason, rising from whisper into an office exorcism.</span></li>
+        <li><strong>Final Chorus / Outro：</strong>最終副歌推至 122 BPM，以合唱、工業重擊與交響層次完成宣判，再驟然塌回 84 BPM 的鋼琴與乾冷口白。<br><span class="en">The final chorus reaches 122 BPM with choir and industrial-symphonic force, then collapses back to cold piano and speech.</span></li>
       </ul>
 
-      <h3>💰聲響顏色（Sound & Color）💰</h3>
-      <!-- 👽TODO： 主要是針對聲音或樂器選擇的考量，特別設計通常指混搭及音效 👽 -->
+      <h3>Sound &amp; Color・聲響顏色</h3>
       <ul>
-        <li><strong>樂器設定</strong>：💥待修正💥。</li>
-        <li><strong>人聲設定</strong>：💥待修正💥。</li>
-        <li><strong>特別設計</strong>：💥待修正💥。</li>
+        <li><strong>樂器設定：</strong>詭異鋼琴與低音弦樂支撐暗黑卡巴萊底色，工業打擊、失真吉他、攻擊性弦樂與分層合唱負責將審判逐步放大。</li>
+        <li><strong>人聲設定：</strong>女聲由氣息主導，胸聲至頭聲平滑過渡；主歌近乎鬼魅低語，副歌以輕盈高音托起情緒，關鍵字再用短促尖叫或咆哮撕開表面理性。</li>
+        <li><strong>特別設計：</strong>印表機、滑鼠點擊、低頻嗡鳴與 glitch 節奏讓辦公室本身成為樂器；多段 BPM 與突然斷拍則模擬情緒逐層失序。</li>
       </ul>
-
-      <!-- 👽TODO： 要放第三名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003C]👽 -->
-      <div class="note">
-        🌀 <a href="https://suno.com/s/qzjXIdfnQkVmPWjf" target="_blank">Suno發佈同款歌曲，第三名：
-          💥待修正💥</a>
-      </div>
-      
     </section>
 
-    <!-- 📌📌 Suno / AI Elements 📌📌 -->
-    <section id="suno">
-      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
-
-      <h3>💰模型與風格（Model & Style）💰</h3>
-      <!-- 👽TODO：是指Style那裡的設計，包括 Tempo / Key / 指定旋律 / 混搭風格 。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
+    <section class="song-section" id="suno">
+      <h2>🤖 Suno Elements・AI / Suno 設定</h2>
+      <h3>Model &amp; Style・模型與風格</h3>
       <ul>
-        <li>Style設計：💥待修正💥。</li>
-        <li>Prompt 關鍵字：💥待修正💥<br>
-          <em>💥待修正💥</em>
-        </li>
-        <li>Tempo / Key：💥待修正💥。</li>
+        <li><strong>Style：</strong>theatrical industrial metal / dark cabaret / symphonic alt-metal / black comedy office rage anthem</li>
+        <li><strong>Prompt：</strong><em>suppressed office rage, elegant madness, creepy piano, low strings, industrial pulse, glitch percussion, distorted guitars, aggressive strings, layered choir, hysterical momentum, dynamic contrast</em></li>
+        <li><strong>Tempo / Key：</strong>84 → 96 → 118 → half-time 88 → 122 → 84 BPM feel；以暗色小調與不穩定和聲維持怪誕感，速度變化則對應冷笑、質問、爆發、毒性回望與最後宣判。</li>
       </ul>
 
-      <h3>💰實作小記（Implementation Notes）💰</h3>
-      <!-- 👽TODO： 這首歌有沒有多次生成再剪接？有沒有把不同版本的段落拼在一起？。哪些部分是 AI 直接產出，哪些是你自己後製 / 加錄？
-      用<strong>加黑強調重點，用<em>表現斜體 👽 -->
-      <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-      </ul>
+      <h3>Implementation Notes・實作小記</h3>
+      <p>這首歌的實作重點，是如何把一個幾分鐘前還令人腦細胞大量死亡的職場現場，迅速轉譯成有結構的聲音。Style 欄集中描述編曲、節奏、動態與樂器，並控制在字數限制內；人聲細節則獨立放進 Lyrics 的第一個元標籤，讓氣音、頭聲、假音與關鍵字尖叫得到更精確的指示。這個分工不只節省 Style 空間，也讓 Suno 更容易理解「音樂如何發瘋」與「人聲如何發瘋」是兩條彼此配合、卻不完全相同的曲線。</p>
+      <p>編曲沒有讓女聲一路咆哮，因為持續爆吼會消耗反差。前段先用近距離低語和諷刺式咬字維持理性外殼，96 BPM 的預副歌才逐步收緊；118 BPM 副歌以金屬聲牆釋放第一波怒氣，Verse 2 再故意沉回 half-time，讓兩年爛帳的重量變得更陰、更毒。Bridge 把節奏切碎，以口白、故障聲與刮弦逼近失控；最終副歌才用 122 BPM、合唱與短咆哮完成最大爆發。</p>
+      <p>AI 在這裡不是替代情緒，而是縮短情緒從事件到作品的距離。原本可能要悶上很久的怒氣，在描述清楚人物語氣、證據順序與速度曲線後，幾分鐘便能成為一場完整的職場黑色歌劇。不能真的砸出去的椅子，於是被改造成節拍、重鼓與一句極有禮貌的邀請：如果眼睛真的不用，不妨捐出來。</p>
+      <p class="en">The production separates arrangement instructions from vocal direction: Style carries instrumentation, tempo and dynamics, while the first Lyrics meta-tag defines breath, register and scream placement. Restraint makes the brief outbursts matter. AI does not replace the emotion; it shortens the distance between an absurd event and a structured dark office opera.</p>
 
-      <!-- 👽TODO：這是放FB同步發佈。聖經系列是Emma Chang／一般歌曲是傻有理的新新約。 改連結。👽 -->
-      <div class="note">
-        🌀 <a href="https://www.facebook.com/reel/842978572033148" target="_blank">其它說明請見：Face Book 同步發佈。</a>
-      </div>
-      
+      <div class="note">🌀 <a href="https://www.facebook.com/reel/1292899449392168" target="_blank" rel="noopener noreferrer">其它說明請見：Facebook 同步發佈</a></div>
     </section>
 
-    <div class="back-link">
-      <!-- 👽 TODO：這裡的連結指向本系列的 index.html 👽-->
-      ← 回到 <a href="index.html">Poor Workers 系列總覽</a>
-    </div>
-
+    <div class="back-link">← 回到 <a href="index.html">Poor Workers 系列總覽</a></div>
   </main>
 
-  <!-- 👽TODO：如果新年度有修改，要更改期間 👽 -->
-  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+  <footer>© 2026 Kozono Sayuri. All rights reserved.</footer>
 </body>
 </html>
+
