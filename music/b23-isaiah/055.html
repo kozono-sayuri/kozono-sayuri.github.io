@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="《荊棘必長松樹，蒺藜化榆楊》音樂創作說明，取材自以賽亞書 55:12–13。" />
+  <title>Isaiah Series 055｜荊棘必長松樹，蒺藜化榆楊</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100vh; display: flex; flex-direction: column; color: #0f172a; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; background: radial-gradient(circle at top, #e0f2fe 0%, #eef2ff 40%, #f9fafb 100%); }
+    header { position: relative; overflow: hidden; padding: 26px 16px 18px; text-align: center; color: #e5f2ff; background: linear-gradient(135deg, #020617, #1d4ed8, #7c3aed); box-shadow: 0 4px 18px rgba(15,23,42,.7); }
+    header > * { position: relative; z-index: 1; }
+    .topline { font-size: 10px; letter-spacing: .16em; opacity: .9; }
+    h1 { margin: 6px 0 2px; font-size: 22px; font-weight: 700; letter-spacing: .04em; text-shadow: 0 0 14px rgba(191,219,254,.95); }
+    .subtitle { margin-bottom: 4px; color: #bfdbfe; font-size: 13px; font-weight: 500; }
+    .sub { font-size: 11px; opacity: .96; }
+    .star { position: absolute; z-index: 0; color: rgba(219,234,254,.95); font-size: 20px; text-shadow: 0 0 6px rgba(255,255,255,.95); pointer-events: none; animation: sparkle 4.5s infinite ease-in-out; }
+    .star:nth-of-type(1){ top:14px; left:6%; animation-delay:0s; }.star:nth-of-type(2){ top:30px; left:14%; animation-delay:.5s; }.star:nth-of-type(3){ top:18px; right:18%; animation-delay:1s; }.star:nth-of-type(4){ top:8px; right:6%; animation-delay:1.6s; }.star:nth-of-type(5){ top:54px; left:10%; animation-delay:2.1s; }.star:nth-of-type(6){ top:60px; right:26%; animation-delay:2.7s; }.star:nth-of-type(7){ top:62px; left:52%; animation-delay:3.2s; }
+    @keyframes sparkle { 0%,100% { transform:scale(1); opacity:.5; } 50% { transform:scale(1.4); opacity:1; } }
+    .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 12px; }
+    .nav a, .inner-nav a, .button { border: 1px solid rgba(191,219,254,.7); border-radius: 999px; padding: 6px 13px; color: #e0f2fe; background: rgba(37,99,235,.26); font-size: 11px; text-decoration: none; transition: .15s ease; }
+    .nav a:hover, .nav a.active, .button:hover { color: #020617; background: #38bdf8; transform: translateY(-1px); }
+    main { width: 100%; max-width: 840px; margin: 24px auto 32px; padding: 0 16px; flex: 1; }
+    .inner-nav, .badge-row, .link-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .inner-nav { margin-bottom: 18px; font-size: 11px; }
+    .inner-nav a { padding: 4px 10px; color: #1d4ed8; background: rgba(239,246,255,.98); border-color: rgba(129,140,248,.3); }
+    .inner-nav a:hover { color: #e0f2fe; background: #1d4ed8; box-shadow: 0 4px 10px rgba(37,99,235,.35); }
+    .badge-row { gap: 6px; margin-top: 4px; }
+    .badge { padding: 3px 8px; border-radius: 999px; color: #1e3a8a; background: #e0f2fe; font-size: 10px; }
+    section { position: relative; overflow: hidden; margin-bottom: 10px; padding: 14px 14px 10px; border: 1px solid rgba(219,234,254,.98); border-radius: 18px; background: #fff; box-shadow: 0 8px 22px rgba(15,23,42,.06); color: #0f172a; font-size: 13px; line-height: 1.9; }
+    section::before { content: ""; position: absolute; top: -14px; right: -14px; width: 60px; height: 60px; background: radial-gradient(circle, rgba(37,99,235,.12), transparent); }
+    h2 { position: relative; display: flex; align-items: center; gap: 4px; margin-bottom: 4px; color: #1d4ed8; font-size: 15px; }
+    h3 { margin: 8px 0 2px; color: #1e3a8a; font-size: 13px; }
+    p { margin-bottom: 4px; }
+    ul { margin: 2px 0 4px 18px; padding: 0; }
+    li { margin-bottom: 5px; }
+    .english { color: #475569; }
+    .quote { margin: 12px 0; padding: 12px 14px; border-left: 4px solid #60a5fa; border-radius: 0 12px 12px 0; background: #eff6ff; color: #1e3a8a; }
+    .mv-block { margin: 0 0 20px; overflow: hidden; border: 1px solid rgba(252,231,243,.98); border-radius: 18px; background: #000; box-shadow: 0 12px 28px rgba(15,23,42,.16); }
+    .mv-block iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+    .button { display: inline-block; color: #1d4ed8; background: #eff6ff; border-color: #bfdbfe; }
+    code { padding: 2px 5px; border-radius: 5px; background: #eff6ff; color: #1e40af; }
+    .back-link { margin: 18px 3px 0; text-align: right; font-size: 12px; }
+    .back-link a { color: #2563eb; text-decoration: none; }
+    footer { padding: 10px 0 16px; color: #9ca3af; text-align: center; font-size: 10px; }
+    @media (max-width: 600px) { section { padding: 12px 10px 9px; } h1 { font-size: 19px; } .subtitle { font-size: 12px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE · BIBLE / ISAIAH SERIES</div>
+    <h1>055 ｜ 荊棘必長松樹，蒺藜化榆楊《Isaiah 55:12–13》</h1>
+    <div class="subtitle">Track 055 · In Place of the Thorn the Cypress Will Grow</div>
+    <div class="sub">以指定和弦長出的 Bossa Nova 敬拜小品，讓恢復不以雷聲降臨，而像春天在風裡慢慢發生。</div>
+    <span class="star">✦</span><span class="star">✧</span><span class="star">✦</span><span class="star">✧</span><span class="star">✦</span><span class="star">✧</span><span class="star">✦</span>
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="inner-nav">
+      <a href="#overview">Overview 概念速記</a>
+      <a href="#lyrics">Lyrics &amp; Meaning 歌詞與意涵</a>
+      <a href="#production">Production 製作過程</a>
+      <a href="#suno">Suno Elements AI 音樂元素</a>
+    </div>
+
+    <div class="badge-row">
+      <span class="badge">歌曲完成日：2025/9/4</span>
+      <span class="badge">MV 完成日：2026/8/7</span>
+      <span class="badge">主畫面：金色山野、河流、新生松樹</span>
+      <span class="badge">Blog Style 創作筆記</span>
+    </div>
+
+    <div class="mv-block">
+      <iframe src="https://www.youtube.com/embed/v1RA4xSFU90" title="荊棘必長松樹，蒺藜化榆楊 MV" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <section id="overview">
+      <h2>📖 Overview｜這首歌想說什麼？</h2>
+      <p>取材自 <strong>《以賽亞書》55:12–13</strong>。經文裡，人歡歡喜喜而出，在平安中蒙引導；山嶺歌唱，田野的樹木拍掌，荊棘與蒺藜所占據的荒地，終於讓位給松樹與榆楊。歌詞保留這些最動人的自然意象，再以「耶和華永約，如江河流長」與「喜樂如清風，平安如海浪」補入適合歌唱的韻律；旋律則從指定的八小節和弦出發，讓經文像風穿過樹梢，而非石碑上的宣告。</p>
+      <p>放到今日，這首歌想說的不是一句輕易的「苦難終會過去」，而是：荊棘確實刺傷過人，荒涼也真實存在，卻不必成為生命最後的名字。Bossa Nova 的輕盈把宏大的恢復異象放進午後微風與日常呼吸裡；神的恢復也許慢得像樹木生長、像河流轉彎，但慢並不表示沒有發生。</p>
+    </section>
+
+    <section id="lyrics">
+      <h2>📜 Lyrics &amp; Meaning｜歌詞與意涵</h2>
+      <div class="quote">「荊棘必長松樹，蒺藜化榆楊；榮耀歸主名，為記號永放光。」</div>
+      <h3>🍇關鍵畫面（Key Scenes）🍇</h3>
+      <ul>
+        <li><strong>歡樂而出的旅人</strong>：艾瑪霍洛威背著吉他沿山坡前行，不奔跑，也不回望；歷經困頓之後，喜樂成為終於可以安心向前的步伐。</li>
+        <li><strong>樹木在風中拍掌</strong>：整片樹冠層層翻動，葉面接住日光，如掌聲沿山谷傳遞；奇蹟不靠魔法特效，而從自然本有的節奏顯現。</li>
+        <li><strong>荊棘之間長出新綠</strong>：乾硬尖刺仍留在畫面裡，嫩芽卻從縫隙探出；恢復不是抹去舊傷，而是讓荒涼不再成為唯一可能。</li>
+        <li><strong>河流重新映出天空</strong>：原本黯淡的河道逐漸接住天光，象徵神的應許也能在最低、最安靜的地方長久流動。</li>
+        <li><strong>單曲主視覺</strong>：暖金、奶油白、鼠尾草綠與橄欖綠暈染山野；人物只是支點，正在恢復的大地才是真正主角。</li>
+      </ul>
+      <h3>🍇核心訊息（Core Message）🍇</h3>
+      <p>這首歌唱的是一種<strong>不急著證明自己的盼望</strong>。它知道土地曾經荒涼，也承認荊棘確實會刺痛人，卻仍相信如今所見並非永恆。</p>
+      <p>神的恢復有時慢得像樹木生長、像河流轉彎；然而，慢並不等於沒有發生。願人在尚未看見松樹以前，仍能聽見風裡微弱的歌聲。</p>
+      <div class="note">🌀 <a href="https://suno.com/song/f05abd64-3327-4bdf-83af-e1b92199a84d" target="_blank" rel="noopener">Suno 發佈同款歌曲，第二名：荊棘必長松樹，蒺藜化榆楊 [D00001FBB]</a></div>
+    </section>
+
+    <section id="production">
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+      <h3>🍇情緒設計（Emotion Flow）🍇</h3>
+      <ul>
+        <li><strong>Intro</strong>：<code>Cmaj7 | Fmaj7 | G13 | Cmaj7</code> 讓尼龍弦吉他先說話，低音提琴、刷子鼓與鋼琴稍後進入，像風景一層層顯影。</li>
+        <li><strong>Verse</strong>：<code>C | C | G | F | Am | Am | F | G</code> 保留最初指定的八小節和弦；級進旋律與親近人聲，讓經文像旅人邊走邊述說。</li>
+        <li><strong>Pre-Chorus</strong>：本曲刻意不設獨立前副歌，由 G 直接走進 Fmaj7，使「荊棘必長松樹」像視野忽然開闊，而不經典型流行歌式堆高。</li>
+        <li><strong>Chorus</strong>：延伸和弦、較活躍的刷子鼓與句尾長笛提高亮度而非重量；第一次只添淡和聲，像荒地出現第一道新綠。</li>
+        <li><strong>Bridge</strong>：人聲放輕，女聲在遠處回應，吉他改用分解和弦；末端 G7 暫不解決，保留「盼望仍在途中」的懸念。</li>
+        <li><strong>Chorus 2 / Outro</strong>：第二次副歌以男女分部與層疊合唱擴張空間；尾奏回到吉他、鋼琴與 C6，讓 Hallelujah 像風一樣留在遠方。</li>
+      </ul>
+      <h3>🍇聲響顏色（Sound &amp; Color）🍇</h3>
+      <ul>
+        <li><strong>樂器設定</strong>：尼龍弦吉他提供圓潤、近身的核心音色；低音提琴以克制線條穩住步伐，刷子鼓維持呼吸，鋼琴以 maj7、7、13 延伸和弦添光，長笛只在空隙間如風回應。</li>
+        <li><strong>人聲設定</strong>：艾瑪霍洛威以溫暖、親密而不高亢的聲線演唱，從主歌的敘事逐步走到分部合唱，不以 belting 證明情緒。</li>
+        <li><strong>特別設計</strong>：全曲以「增加空間」取代「增加重量」，也不安排升 Key；高潮由更多生命加入完成，使恢復像春天自然發生。</li>
+      </ul>
+      <div class="note">🌀 <a href="https://suno.com/song/49921e03-10a8-48db-aa82-0d9be00f93a4" target="_blank" rel="noopener">Suno 發佈同款歌曲：2025 年 v4.5 原始版本</a></div>
+    </section>
+
+    <section id="suno">
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+      <h3>🍇模型與風格（Model &amp; Style）🍇</h3>
+      <ul>
+        <li><strong>Style 設計</strong>：以 <em>Bossa Nova × Brazilian Jazz × Intimate Worship</em> 為核心，讓敬拜保有咖啡館般的從容與可反覆聆聽的輕柔。</li>
+        <li><strong>Prompt 關鍵字</strong>：<br><em>Bossa Nova, Brazilian jazz, nylon guitar, upright bass, brushed drums, soft piano, warm vocal, gentle harmony, relaxed lounge, intimate worship mood</em></li>
+        <li><strong>Tempo / Key</strong>：以 C 大調為核心，使 Cmaj7、Fmaj7 與 G13 透明溫暖；最終輸出的精確 BPM 未留存，整體採舒緩中慢速，保留切分彈性與中文語句的呼吸。</li>
+      </ul>
+      <h3>🍇實作小記（Implementation Notes）🍇</h3>
+      <ul>
+        <li>創作起點是一次<strong>「指定和弦」實驗</strong>：早期民謠常由相同的基本和弦與進行長出許多歌，因此想測試固定骨架能否生成彼此有些相像、卻仍各具性格的作品。Verse 保留原始八小節，爵士色彩則配置於其他段落。</li>
+        <li>原始版本於 2025 年以 Suno v4.5 製作，當時中文發音仍不夠自然；2026 年整理作品時，再以 v5.5 Cover 改善咬字、人聲質感與完成度。這不是否定舊版，而像替同一棵樹修整枝葉，年輪仍被保留下來。</li>
+      </ul>
+      <div class="note">🌀 <a href="https://www.facebook.com/reel/1310209661191915" target="_blank" rel="noopener">其它說明請見：Face Book 同步發佈。</a></div>
+    </section>
+
+    <div class="back-link">← 回到 <a href="index.html">Isaiah Series 目錄</a></div>
+  </main>
+  <footer>© 2025-2026 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
