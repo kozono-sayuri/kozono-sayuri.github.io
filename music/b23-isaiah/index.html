@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kozono Sayuri - Isaiah Series</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #0f172a;
+      /* Bible 系列：深藍紫＋柔光 */
+      background: radial-gradient(circle at top, #e0f2fe 0%, #eef2ff 40%, #f9fafb 100%);
+    }
+
+    /* header：夜空＋藍紫聖光感 */
+    header {
+      padding: 26px 16px 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #020617, #1d4ed8, #7c3aed);
+      color: #e5f2ff;
+      box-shadow: 0 4px 18px rgba(15,23,42,0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 6px 0 2px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 14px rgba(191,219,254,0.95);
+    }
+
+    .sub {
+      font-size: 11px;
+      opacity: 0.96;
+    }
+
+    header .topline,
+    header h1,
+    header .sub,
+    header nav {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 背景小星星：改成冷色系星光 */
+    .star {
+      position: absolute;
+      font-size: 20px;
+      color: rgba(219,234,254,0.95);
+      text-shadow: 0 0 6px rgba(255,255,255,0.95);
+      animation: sparkle 4.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star:nth-of-type(1){ top: 14px; left: 6%;  animation-delay: 0s; }
+    .star:nth-of-type(2){ top: 30px; left: 14%; animation-delay: .5s; }
+    .star:nth-of-type(3){ top: 18px; right: 18%;animation-delay: 1s; }
+    .star:nth-of-type(4){ top: 8px;  right: 6%; animation-delay: 1.6s; }
+    .star:nth-of-type(5){ top: 54px; left: 10%;animation-delay: 2.1s; }
+    .star:nth-of-type(6){ top: 60px; right: 26%;animation-delay: 2.7s; }
+    .star:nth-of-type(7){ top: 62px; left: 30%;animation-delay: 3.2s; }
+
+    @keyframes sparkle {
+      0%,100% { transform: scale(1);   opacity: 0.5; }
+      50%     { transform: scale(1.4); opacity: 1;   }
+    }
+
+    /* 導覽列：與其他頁一致，Music 為 active */
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.26);
+      color: #e0f2fe;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(191,219,254,0.7);
+    }
+
+    .nav a:hover {
+      background: #38bdf8;
+      color: #020617;
+      box-shadow: 0 4px 12px rgba(56,189,248,0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav a.active {
+      background: #38bdf8;
+      color: #020617;
+      box-shadow: 0 4px 14px rgba(56,189,248,1);
+    }
+
+    main {
+      max-width: 980px;
+      width: 100%;
+      margin: 26px auto 34px;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    /* 上方大卡：故事概念，改成 Bible 風的藍紫光 */
+    .intro-card {
+      background: rgba(255,255,255,0.98);
+      border-radius: 24px;
+      padding: 22px 22px 16px;
+      margin-bottom: 22px;
+      box-shadow: 0 16px 46px rgba(59,130,246,0.18);
+      border: 1px solid rgba(219,234,254,0.98);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #0f172a;
+    }
+
+    .intro-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(37,99,235,0.2), transparent);
+      top: -40px;
+      right: -40px;
+    }
+
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      background: radial-gradient(circle, rgba(129,140,248,0.35), transparent);
+      bottom: -34px;
+      left: -24px;
+    }
+
+    .intro-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #1d4ed8;
+    }
+
+    .intro-sub {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .series-text p {
+      margin: 8px 0;
+      line-height: 1.9;
+    }
+
+    /* Tracks 區塊標題 */
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 6px 2px 4px;
+      color: #1d4ed8;
+    }
+
+    .section-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin: 0 2px 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 10px 11px 9px;
+      font-size: 12px;
+      line-height: 1.8;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      border: 1px solid rgba(219,234,254,0.98);
+      position: relative;
+      overflow: hidden;
+      color: #0f172a;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, rgba(59,130,246,0.16), transparent);
+      top: -18px;
+      right: -16px;
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #1d4ed8;
+      margin-bottom: 2px;
+    }
+
+    .title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .text {
+      color: #1e293b;
+    }
+
+    .link {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #2563eb;
+    }
+
+    .link a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+
+    /* 整張卡可點擊 */
+    .card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .card-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(37,99,235,0.2);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 10px;
+      color: #9ca3af;
+      padding: 10px 0 16px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 20px; }
+      .intro-card { padding: 16px 12px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ BIBLE / ISAIAH SERIES</div>
+    <h1>Book of Isaiah · 以賽亞書：審判與盼望</h1>
+    <div class="sub">在審判的雷聲與安慰的微光之間，等候那位將要來的君王。</div>
+
+    <!-- 星空：七顆冷色星 -->
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+
+    <nav class="nav">
+      <a href="../../index.html">Home</a>
+      <a href="../index.html" class="active">Music</a>
+      <a href="../../worklife/index.html">Work Life</a>
+      <a href="../../fitness/index.html">Fitness</a>
+      <a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-card">
+      <div class="intro-title">📖 Story Concept · Isaiah Series</div>
+      <div class="intro-sub">
+        六十六章先知之聲，從罪與傾覆寫到安慰、歸回，以及新天新地的應許。
+      </div>
+
+      <div class="series-text">
+        <p>
+          以賽亞書像一座由雷聲與晨光共同築成的長廊：<br>
+          前半卷直面悖逆、驕傲、戰亂與審判，後半卷則讓安慰、救贖與盼望逐漸升起。
+        </p>
+
+        <p>
+          歌曲將在 Prophetic Orchestral、Cinematic Choir、Ancient Middle Eastern 與 Ambient Worship 之間游走，
+          讓先知的警告保有重量，也讓「不要害怕」與「受苦僕人」的應許留下呼吸。
+        </p>
+
+        <p>
+          每一首歌可以對應一章、一個異象或一段經文：聖殿中的呼召、以馬內利、
+          曠野開道路、受苦的僕人，以及新天新地。
+        </p>
+
+        <p>
+          這裡依全書六十六章預留 66 首格子，之後可逐步放入正式歌曲、Demo、配樂或製作筆記。
+        </p>
+      </div>
+    </section>
+
+    <div class="section-title">🎵 Tracks & Notes（Isaiah Series · 預留 66 首）</div>
+    <div class="section-note">
+      目前 001–066 依章次預留；之後可依歌曲完成順序更換歌名、簡介與連結，也可標記為 Demo、配樂或製作筆記。
+    </div>
+
+    <section class="grid">
+      <!-- Track 001 · Isaiah 1 -->
+      <a href="001.html" class="card card-link">
+        <div class="label">Isaiah Series 001</div>
+        <div class="title">待命名歌曲《Isaiah 1》</div>
+        <div class="text">
+          以賽亞書第 1 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 001</div>
+      </a>
+
+      <!-- Track 002 · Isaiah 2 -->
+      <a href="002.html" class="card card-link">
+        <div class="label">Isaiah Series 002</div>
+        <div class="title">待命名歌曲《Isaiah 2》</div>
+        <div class="text">
+          以賽亞書第 2 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 002</div>
+      </a>
+
+      <!-- Track 003 · Isaiah 3 -->
+      <a href="003.html" class="card card-link">
+        <div class="label">Isaiah Series 003</div>
+        <div class="title">待命名歌曲《Isaiah 3》</div>
+        <div class="text">
+          以賽亞書第 3 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 003</div>
+      </a>
+
+      <!-- Track 004 · Isaiah 4 -->
+      <a href="004.html" class="card card-link">
+        <div class="label">Isaiah Series 004</div>
+        <div class="title">待命名歌曲《Isaiah 4》</div>
+        <div class="text">
+          以賽亞書第 4 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 004</div>
+      </a>
+
+      <!-- Track 005 · Isaiah 5 -->
+      <a href="005.html" class="card card-link">
+        <div class="label">Isaiah Series 005</div>
+        <div class="title">待命名歌曲《Isaiah 5》</div>
+        <div class="text">
+          以賽亞書第 5 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 005</div>
+      </a>
+
+      <!-- Track 006 · Isaiah 6 -->
+      <a href="006.html" class="card card-link">
+        <div class="label">Isaiah Series 006</div>
+        <div class="title">待命名歌曲《Isaiah 6》</div>
+        <div class="text">
+          以賽亞書第 6 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 006</div>
+      </a>
+
+      <!-- Track 007 · Isaiah 7 -->
+      <a href="007.html" class="card card-link">
+        <div class="label">Isaiah Series 007</div>
+        <div class="title">待命名歌曲《Isaiah 7》</div>
+        <div class="text">
+          以賽亞書第 7 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 007</div>
+      </a>
+
+      <!-- Track 008 · Isaiah 8 -->
+      <a href="008.html" class="card card-link">
+        <div class="label">Isaiah Series 008</div>
+        <div class="title">待命名歌曲《Isaiah 8》</div>
+        <div class="text">
+          以賽亞書第 8 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 008</div>
+      </a>
+
+      <!-- Track 009 · Isaiah 9 -->
+      <a href="009.html" class="card card-link">
+        <div class="label">Isaiah Series 009</div>
+        <div class="title">待命名歌曲《Isaiah 9》</div>
+        <div class="text">
+          以賽亞書第 9 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 009</div>
+      </a>
+
+      <!-- Track 010 · Isaiah 10 -->
+      <a href="010.html" class="card card-link">
+        <div class="label">Isaiah Series 010</div>
+        <div class="title">待命名歌曲《Isaiah 10》</div>
+        <div class="text">
+          以賽亞書第 10 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 010</div>
+      </a>
+
+      <!-- Track 011 · Isaiah 11 -->
+      <a href="011.html" class="card card-link">
+        <div class="label">Isaiah Series 011</div>
+        <div class="title">待命名歌曲《Isaiah 11》</div>
+        <div class="text">
+          以賽亞書第 11 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 011</div>
+      </a>
+
+      <!-- Track 012 · Isaiah 12 -->
+      <a href="012.html" class="card card-link">
+        <div class="label">Isaiah Series 012</div>
+        <div class="title">待命名歌曲《Isaiah 12》</div>
+        <div class="text">
+          以賽亞書第 12 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 012</div>
+      </a>
+
+      <!-- Track 013 · Isaiah 13 -->
+      <a href="013.html" class="card card-link">
+        <div class="label">Isaiah Series 013</div>
+        <div class="title">待命名歌曲《Isaiah 13》</div>
+        <div class="text">
+          以賽亞書第 13 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 013</div>
+      </a>
+
+      <!-- Track 014 · Isaiah 14 -->
+      <a href="014.html" class="card card-link">
+        <div class="label">Isaiah Series 014</div>
+        <div class="title">待命名歌曲《Isaiah 14》</div>
+        <div class="text">
+          以賽亞書第 14 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 014</div>
+      </a>
+
+      <!-- Track 015 · Isaiah 15 -->
+      <a href="015.html" class="card card-link">
+        <div class="label">Isaiah Series 015</div>
+        <div class="title">待命名歌曲《Isaiah 15》</div>
+        <div class="text">
+          以賽亞書第 15 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 015</div>
+      </a>
+
+      <!-- Track 016 · Isaiah 16 -->
+      <a href="016.html" class="card card-link">
+        <div class="label">Isaiah Series 016</div>
+        <div class="title">待命名歌曲《Isaiah 16》</div>
+        <div class="text">
+          以賽亞書第 16 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 016</div>
+      </a>
+
+      <!-- Track 017 · Isaiah 17 -->
+      <a href="017.html" class="card card-link">
+        <div class="label">Isaiah Series 017</div>
+        <div class="title">待命名歌曲《Isaiah 17》</div>
+        <div class="text">
+          以賽亞書第 17 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 017</div>
+      </a>
+
+      <!-- Track 018 · Isaiah 18 -->
+      <a href="018.html" class="card card-link">
+        <div class="label">Isaiah Series 018</div>
+        <div class="title">待命名歌曲《Isaiah 18》</div>
+        <div class="text">
+          以賽亞書第 18 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 018</div>
+      </a>
+
+      <!-- Track 019 · Isaiah 19 -->
+      <a href="019.html" class="card card-link">
+        <div class="label">Isaiah Series 019</div>
+        <div class="title">待命名歌曲《Isaiah 19》</div>
+        <div class="text">
+          以賽亞書第 19 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 019</div>
+      </a>
+
+      <!-- Track 020 · Isaiah 20 -->
+      <a href="020.html" class="card card-link">
+        <div class="label">Isaiah Series 020</div>
+        <div class="title">待命名歌曲《Isaiah 20》</div>
+        <div class="text">
+          以賽亞書第 20 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 020</div>
+      </a>
+
+      <!-- Track 021 · Isaiah 21 -->
+      <a href="021.html" class="card card-link">
+        <div class="label">Isaiah Series 021</div>
+        <div class="title">待命名歌曲《Isaiah 21》</div>
+        <div class="text">
+          以賽亞書第 21 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 021</div>
+      </a>
+
+      <!-- Track 022 · Isaiah 22 -->
+      <a href="022.html" class="card card-link">
+        <div class="label">Isaiah Series 022</div>
+        <div class="title">待命名歌曲《Isaiah 22》</div>
+        <div class="text">
+          以賽亞書第 22 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 022</div>
+      </a>
+
+      <!-- Track 023 · Isaiah 23 -->
+      <a href="023.html" class="card card-link">
+        <div class="label">Isaiah Series 023</div>
+        <div class="title">待命名歌曲《Isaiah 23》</div>
+        <div class="text">
+          以賽亞書第 23 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 023</div>
+      </a>
+
+      <!-- Track 024 · Isaiah 24 -->
+      <a href="024.html" class="card card-link">
+        <div class="label">Isaiah Series 024</div>
+        <div class="title">待命名歌曲《Isaiah 24》</div>
+        <div class="text">
+          以賽亞書第 24 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 024</div>
+      </a>
+
+      <!-- Track 025 · Isaiah 25 -->
+      <a href="025.html" class="card card-link">
+        <div class="label">Isaiah Series 025</div>
+        <div class="title">待命名歌曲《Isaiah 25》</div>
+        <div class="text">
+          以賽亞書第 25 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 025</div>
+      </a>
+
+      <!-- Track 026 · Isaiah 26 -->
+      <a href="026.html" class="card card-link">
+        <div class="label">Isaiah Series 026</div>
+        <div class="title">待命名歌曲《Isaiah 26》</div>
+        <div class="text">
+          以賽亞書第 26 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 026</div>
+      </a>
+
+      <!-- Track 027 · Isaiah 27 -->
+      <a href="027.html" class="card card-link">
+        <div class="label">Isaiah Series 027</div>
+        <div class="title">待命名歌曲《Isaiah 27》</div>
+        <div class="text">
+          以賽亞書第 27 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 027</div>
+      </a>
+
+      <!-- Track 028 · Isaiah 28 -->
+      <a href="028.html" class="card card-link">
+        <div class="label">Isaiah Series 028</div>
+        <div class="title">待命名歌曲《Isaiah 28》</div>
+        <div class="text">
+          以賽亞書第 28 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 028</div>
+      </a>
+
+      <!-- Track 029 · Isaiah 29 -->
+      <a href="029.html" class="card card-link">
+        <div class="label">Isaiah Series 029</div>
+        <div class="title">待命名歌曲《Isaiah 29》</div>
+        <div class="text">
+          以賽亞書第 29 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 029</div>
+      </a>
+
+      <!-- Track 030 · Isaiah 30 -->
+      <a href="030.html" class="card card-link">
+        <div class="label">Isaiah Series 030</div>
+        <div class="title">待命名歌曲《Isaiah 30》</div>
+        <div class="text">
+          以賽亞書第 30 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 030</div>
+      </a>
+
+      <!-- Track 031 · Isaiah 31 -->
+      <a href="031.html" class="card card-link">
+        <div class="label">Isaiah Series 031</div>
+        <div class="title">待命名歌曲《Isaiah 31》</div>
+        <div class="text">
+          以賽亞書第 31 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 031</div>
+      </a>
+
+      <!-- Track 032 · Isaiah 32 -->
+      <a href="032.html" class="card card-link">
+        <div class="label">Isaiah Series 032</div>
+        <div class="title">待命名歌曲《Isaiah 32》</div>
+        <div class="text">
+          以賽亞書第 32 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 032</div>
+      </a>
+
+      <!-- Track 033 · Isaiah 33 -->
+      <a href="033.html" class="card card-link">
+        <div class="label">Isaiah Series 033</div>
+        <div class="title">待命名歌曲《Isaiah 33》</div>
+        <div class="text">
+          以賽亞書第 33 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 033</div>
+      </a>
+
+      <!-- Track 034 · Isaiah 34 -->
+      <a href="034.html" class="card card-link">
+        <div class="label">Isaiah Series 034</div>
+        <div class="title">待命名歌曲《Isaiah 34》</div>
+        <div class="text">
+          以賽亞書第 34 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 034</div>
+      </a>
+
+      <!-- Track 035 · Isaiah 35 -->
+      <a href="035.html" class="card card-link">
+        <div class="label">Isaiah Series 035</div>
+        <div class="title">待命名歌曲《Isaiah 35》</div>
+        <div class="text">
+          以賽亞書第 35 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 035</div>
+      </a>
+
+      <!-- Track 036 · Isaiah 36 -->
+      <a href="036.html" class="card card-link">
+        <div class="label">Isaiah Series 036</div>
+        <div class="title">待命名歌曲《Isaiah 36》</div>
+        <div class="text">
+          以賽亞書第 36 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 036</div>
+      </a>
+
+      <!-- Track 037 · Isaiah 37 -->
+      <a href="037.html" class="card card-link">
+        <div class="label">Isaiah Series 037</div>
+        <div class="title">待命名歌曲《Isaiah 37》</div>
+        <div class="text">
+          以賽亞書第 37 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 037</div>
+      </a>
+
+      <!-- Track 038 · Isaiah 38 -->
+      <a href="038.html" class="card card-link">
+        <div class="label">Isaiah Series 038</div>
+        <div class="title">待命名歌曲《Isaiah 38》</div>
+        <div class="text">
+          以賽亞書第 38 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 038</div>
+      </a>
+
+      <!-- Track 039 · Isaiah 39 -->
+      <a href="039.html" class="card card-link">
+        <div class="label">Isaiah Series 039</div>
+        <div class="title">待命名歌曲《Isaiah 39》</div>
+        <div class="text">
+          以賽亞書第 39 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 039</div>
+      </a>
+
+      <!-- Track 040 · Isaiah 40 -->
+      <a href="040.html" class="card card-link">
+        <div class="label">Isaiah Series 040</div>
+        <div class="title">待命名歌曲《Isaiah 40》</div>
+        <div class="text">
+          以賽亞書第 40 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 040</div>
+      </a>
+
+      <!-- Track 041 · Isaiah 41 -->
+      <a href="041.html" class="card card-link">
+        <div class="label">Isaiah Series 041</div>
+        <div class="title">待命名歌曲《Isaiah 41》</div>
+        <div class="text">
+          以賽亞書第 41 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 041</div>
+      </a>
+
+      <!-- Track 042 · Isaiah 42 -->
+      <a href="042.html" class="card card-link">
+        <div class="label">Isaiah Series 042</div>
+        <div class="title">待命名歌曲《Isaiah 42》</div>
+        <div class="text">
+          以賽亞書第 42 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 042</div>
+      </a>
+
+      <!-- Track 043 · Isaiah 43 -->
+      <a href="043.html" class="card card-link">
+        <div class="label">Isaiah Series 043</div>
+        <div class="title">待命名歌曲《Isaiah 43》</div>
+        <div class="text">
+          以賽亞書第 43 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 043</div>
+      </a>
+
+      <!-- Track 044 · Isaiah 44 -->
+      <a href="044.html" class="card card-link">
+        <div class="label">Isaiah Series 044</div>
+        <div class="title">待命名歌曲《Isaiah 44》</div>
+        <div class="text">
+          以賽亞書第 44 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 044</div>
+      </a>
+
+      <!-- Track 045 · Isaiah 45 -->
+      <a href="045.html" class="card card-link">
+        <div class="label">Isaiah Series 045</div>
+        <div class="title">待命名歌曲《Isaiah 45》</div>
+        <div class="text">
+          以賽亞書第 45 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 045</div>
+      </a>
+
+      <!-- Track 046 · Isaiah 46 -->
+      <a href="046.html" class="card card-link">
+        <div class="label">Isaiah Series 046</div>
+        <div class="title">待命名歌曲《Isaiah 46》</div>
+        <div class="text">
+          以賽亞書第 46 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 046</div>
+      </a>
+
+      <!-- Track 047 · Isaiah 47 -->
+      <a href="047.html" class="card card-link">
+        <div class="label">Isaiah Series 047</div>
+        <div class="title">待命名歌曲《Isaiah 47》</div>
+        <div class="text">
+          以賽亞書第 47 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 047</div>
+      </a>
+
+      <!-- Track 048 · Isaiah 48 -->
+      <a href="048.html" class="card card-link">
+        <div class="label">Isaiah Series 048</div>
+        <div class="title">待命名歌曲《Isaiah 48》</div>
+        <div class="text">
+          以賽亞書第 48 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 048</div>
+      </a>
+
+      <!-- Track 049 · Isaiah 49 -->
+      <a href="049.html" class="card card-link">
+        <div class="label">Isaiah Series 049</div>
+        <div class="title">待命名歌曲《Isaiah 49》</div>
+        <div class="text">
+          以賽亞書第 49 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 049</div>
+      </a>
+
+      <!-- Track 050 · Isaiah 50 -->
+      <a href="050.html" class="card card-link">
+        <div class="label">Isaiah Series 050</div>
+        <div class="title">待命名歌曲《Isaiah 50》</div>
+        <div class="text">
+          以賽亞書第 50 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 050</div>
+      </a>
+
+      <!-- Track 051 · Isaiah 51 -->
+      <a href="051.html" class="card card-link">
+        <div class="label">Isaiah Series 051</div>
+        <div class="title">待命名歌曲《Isaiah 51》</div>
+        <div class="text">
+          以賽亞書第 51 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 051</div>
+      </a>
+
+      <!-- Track 052 · Isaiah 52 -->
+      <a href="052.html" class="card card-link">
+        <div class="label">Isaiah Series 052</div>
+        <div class="title">待命名歌曲《Isaiah 52》</div>
+        <div class="text">
+          以賽亞書第 52 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 052</div>
+      </a>
+
+      <!-- Track 053 · Isaiah 53 -->
+      <a href="053.html" class="card card-link">
+        <div class="label">Isaiah Series 053</div>
+        <div class="title">待命名歌曲《Isaiah 53》</div>
+        <div class="text">
+          以賽亞書第 53 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 053</div>
+      </a>
+
+      <!-- Track 054 · Isaiah 54 -->
+      <a href="054.html" class="card card-link">
+        <div class="label">Isaiah Series 054</div>
+        <div class="title">待命名歌曲《Isaiah 54》</div>
+        <div class="text">
+          以賽亞書第 54 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 054</div>
+      </a>
+
+      <!-- Track 055 · Isaiah 55 -->
+      <a href="055.html" class="card card-link">
+        <div class="label">Isaiah Series 055</div>
+        <div class="title">待命名歌曲《Isaiah 55》</div>
+        <div class="text">
+          以賽亞書第 55 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 055</div>
+      </a>
+
+      <!-- Track 056 · Isaiah 56 -->
+      <a href="056.html" class="card card-link">
+        <div class="label">Isaiah Series 056</div>
+        <div class="title">待命名歌曲《Isaiah 56》</div>
+        <div class="text">
+          以賽亞書第 56 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 056</div>
+      </a>
+
+      <!-- Track 057 · Isaiah 57 -->
+      <a href="057.html" class="card card-link">
+        <div class="label">Isaiah Series 057</div>
+        <div class="title">待命名歌曲《Isaiah 57》</div>
+        <div class="text">
+          以賽亞書第 57 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 057</div>
+      </a>
+
+      <!-- Track 058 · Isaiah 58 -->
+      <a href="058.html" class="card card-link">
+        <div class="label">Isaiah Series 058</div>
+        <div class="title">待命名歌曲《Isaiah 58》</div>
+        <div class="text">
+          以賽亞書第 58 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 058</div>
+      </a>
+
+      <!-- Track 059 · Isaiah 59 -->
+      <a href="059.html" class="card card-link">
+        <div class="label">Isaiah Series 059</div>
+        <div class="title">待命名歌曲《Isaiah 59》</div>
+        <div class="text">
+          以賽亞書第 59 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 059</div>
+      </a>
+
+      <!-- Track 060 · Isaiah 60 -->
+      <a href="060.html" class="card card-link">
+        <div class="label">Isaiah Series 060</div>
+        <div class="title">待命名歌曲《Isaiah 60》</div>
+        <div class="text">
+          以賽亞書第 60 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 060</div>
+      </a>
+
+      <!-- Track 061 · Isaiah 61 -->
+      <a href="061.html" class="card card-link">
+        <div class="label">Isaiah Series 061</div>
+        <div class="title">待命名歌曲《Isaiah 61》</div>
+        <div class="text">
+          以賽亞書第 61 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 061</div>
+      </a>
+
+      <!-- Track 062 · Isaiah 62 -->
+      <a href="062.html" class="card card-link">
+        <div class="label">Isaiah Series 062</div>
+        <div class="title">待命名歌曲《Isaiah 62》</div>
+        <div class="text">
+          以賽亞書第 62 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 062</div>
+      </a>
+
+      <!-- Track 063 · Isaiah 63 -->
+      <a href="063.html" class="card card-link">
+        <div class="label">Isaiah Series 063</div>
+        <div class="title">待命名歌曲《Isaiah 63》</div>
+        <div class="text">
+          以賽亞書第 63 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 063</div>
+      </a>
+
+      <!-- Track 064 · Isaiah 64 -->
+      <a href="064.html" class="card card-link">
+        <div class="label">Isaiah Series 064</div>
+        <div class="title">待命名歌曲《Isaiah 64》</div>
+        <div class="text">
+          以賽亞書第 64 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 064</div>
+      </a>
+
+      <!-- Track 065 · Isaiah 65 -->
+      <a href="065.html" class="card card-link">
+        <div class="label">Isaiah Series 065</div>
+        <div class="title">待命名歌曲《Isaiah 65》</div>
+        <div class="text">
+          以賽亞書第 65 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 065</div>
+      </a>
+
+      <!-- Track 066 · Isaiah 66 -->
+      <a href="066.html" class="card card-link">
+        <div class="label">Isaiah Series 066</div>
+        <div class="title">待命名歌曲《Isaiah 66》</div>
+        <div class="text">
+          以賽亞書第 66 章歌曲預留位置，等待旋律、歌詞與製作筆記。
+        </div>
+        <div class="link">▶ 進入 Isaiah 066</div>
+      </a>
+    </section>
+  </main>
+
+  <footer>© 2025-2026 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
