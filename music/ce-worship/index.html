@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kozono Sayuri 敬拜詩歌系列：從心情、禱告與生命感受出發的原創敬拜歌曲。" />
+  <title>Kozono Sayuri - 敬拜詩歌 Worship Songs</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { min-height: 100vh; display: flex; flex-direction: column; color: #f4eaff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; background: radial-gradient(circle at top, #421536 0%, #1e0d29 38%, #0c0713 100%); }
+    header { position: relative; overflow: hidden; padding: 28px 16px 20px; text-align: center; color: #fff5ff; background: linear-gradient(135deg, #13061d, #481238 44%, #7d1d4f 70%, #25103f); border-bottom: 1px solid rgba(232,188,255,.38); box-shadow: 0 5px 24px rgba(6,0,12,.78), inset 0 -1px 0 rgba(255,170,222,.12); }
+    header::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 18% 20%, rgba(244,114,182,.22), transparent 23%), radial-gradient(circle at 83% 22%, rgba(192,132,252,.22), transparent 27%); }
+    header > * { position: relative; z-index: 2; }
+    .topline { color: #e9c8ff; font-size: 10px; letter-spacing: .2em; opacity: .92; }
+    h1 { margin: 7px 0 3px; color: #fff2ff; font-family: Georgia, "Times New Roman", "Noto Serif TC", serif; font-size: 26px; letter-spacing: .07em; text-shadow: 0 0 10px rgba(244,114,182,.85), 0 0 24px rgba(192,132,252,.5); }
+    .sub { max-width: 720px; margin: 0 auto; color: #ebd8f5; font-size: 11px; line-height: 1.8; }
+    .star { position: absolute; z-index: 0; color: rgba(246,220,255,.88); font-size: 20px; text-shadow: 0 0 8px rgba(244,114,182,.9); animation: sparkle 4.5s infinite ease-in-out; pointer-events: none; }
+    .star:nth-of-type(1){top:14px;left:6%;animation-delay:0s}.star:nth-of-type(2){top:30px;left:14%;animation-delay:.5s}.star:nth-of-type(3){top:18px;right:18%;animation-delay:1s}.star:nth-of-type(4){top:8px;right:6%;animation-delay:1.6s}.star:nth-of-type(5){top:54px;left:10%;animation-delay:2.1s}.star:nth-of-type(6){top:60px;right:26%;animation-delay:2.7s}.star:nth-of-type(7){top:62px;left:30%;animation-delay:3.2s}
+    @keyframes sparkle { 0%,100%{opacity:.45;transform:scale(1)} 50%{opacity:1;transform:scale(1.4)} }
+    .nav { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:13px; }
+    .nav a { padding:6px 14px; border:1px solid rgba(216,180,254,.42); border-radius:999px; color:#f4ddff; background:rgba(76,29,89,.34); font-size:11px; text-decoration:none; transition:.15s; }
+    .nav a:hover,.nav a.active { color:#24091d; background:#f0abfc; box-shadow:0 4px 15px rgba(244,114,182,.65); transform:translateY(-1px); }
+    main { width:100%; max-width:980px; margin:26px auto 34px; padding:0 16px; flex:1; }
+    .intro-card { position:relative; overflow:hidden; margin-bottom:22px; padding:23px 22px 18px; border:1px solid rgba(216,180,254,.3); border-radius:24px; background:linear-gradient(145deg,rgba(39,13,49,.97),rgba(25,10,36,.97)); box-shadow:0 16px 44px rgba(5,0,12,.48), inset 0 0 28px rgba(126,34,104,.12); text-align:center; font-size:13px; line-height:1.9; }
+    .intro-card::before,.intro-card::after { content:""; position:absolute; width:150px; height:150px; background:radial-gradient(circle,rgba(244,114,182,.16),transparent 67%); }.intro-card::before{top:-45px;right:-35px}.intro-card::after{bottom:-55px;left:-35px;background:radial-gradient(circle,rgba(168,85,247,.17),transparent 67%)}
+    .intro-title { margin-bottom:5px; color:#f5d0fe; font-family:Georgia,"Times New Roman","Noto Serif TC",serif; font-size:19px; font-weight:700; text-shadow:0 0 9px rgba(244,114,182,.45); }
+    .intro-sub { margin-bottom:8px; color:#d8b4fe; font-size:11px; letter-spacing:.08em; }
+    .definition { position:relative; max-width:770px; margin:0 auto; color:#eadff0; }
+    .section-title { margin:6px 2px 4px; color:#f5d0fe; font-size:15px; font-weight:700; text-shadow:0 0 7px rgba(244,114,182,.42); }
+    .section-note { margin:0 2px 10px; color:#bda9c5; font-size:11px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px; }
+    .card { position:relative; overflow:hidden; padding:11px 12px 10px; border:1px solid rgba(216,180,254,.28); border-radius:18px; background:linear-gradient(145deg,#23102d,#160a20); box-shadow:0 8px 24px rgba(5,0,12,.48); color:#f3e8ff; font-size:12px; line-height:1.8; }
+    .card::before { content:""; position:absolute; top:-18px; right:-16px; width:76px; height:76px; background:radial-gradient(circle,rgba(244,114,182,.18),transparent 66%); }
+    .card-link { display:block; color:inherit; text-decoration:none; transition:.16s ease; }
+    .card-link:hover { transform:translateY(-3px); border-color:rgba(244,114,182,.7); box-shadow:0 14px 38px rgba(126,34,104,.42),0 0 18px rgba(192,132,252,.15); }
+    .label { display:inline-block; margin-bottom:5px; padding:2px 8px; border:1px solid rgba(244,114,182,.2); border-radius:999px; color:#f5d0fe; background:rgba(157,23,77,.28); font-size:10px; }
+    .title { margin-bottom:3px; color:#fff1fb; font-family:Georgia,"Times New Roman","Noto Serif TC",serif; font-size:14px; font-weight:700; }
+    .text { color:#d8cbdc; }.link { margin-top:5px; color:#f9a8d4; font-weight:600; }
+    .back-link { margin-top:18px; text-align:right; font-size:11px; }.back-link a{color:#e9b7ff;text-decoration:none}footer{padding:10px 0 16px;color:#806f88;text-align:center;font-size:10px}
+    @media(max-width:600px){h1{font-size:21px}.intro-card{padding:18px 14px 14px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ WORSHIP SONGS</div>
+    <h1>敬拜詩歌｜Worship Songs</h1>
+    <div class="sub">不是逐節改寫經文，而是把生命裡說不完的感謝、疑問、疲倦與仰望，慢慢唱成一篇禱告。</div>
+    <span class="star">✦</span><span class="star">✧</span><span class="star">✦</span><span class="star">✧</span><span class="star">✦</span><span class="star">✧</span><span class="star">✦</span>
+    <nav class="nav"><a href="../../index.html">Home</a><a href="../index.html" class="active">Music</a><a href="../../worklife/index.html">Work Life</a><a href="../../fitness/index.html">Fitness</a><a href="../../invest/index.html">Invest</a></nav>
+  </header>
+  <main>
+    <section class="intro-card">
+      <div class="intro-title">⚜️ 心裡的話，也可以成為一首詩歌</div>
+      <div class="intro-sub">Prayer · Reflection · Gratitude · Longing</div>
+      <div class="definition">
+        <p>「聖經歌曲系列」由特定經文章節展開；「敬拜詩歌」則從人的此刻出發。它可能是一場沒有寫在紙上的禱告，也可能是低谷裡的呼求、平凡日子的感謝，或在尚未得到答案以前，仍願意向神唱出的信靠。</p>
+        <p>這裡不要求每一首歌對應單一章節。經文仍可能成為信仰的底色，但創作的第一個聲音，是一個人真實的心情。</p>
+      </div>
+    </section>
+    <div class="section-title">Worship Tracks｜敬拜作品</div>
+    <div class="section-note">每張卡片對應一首歌曲及其創作說明；作品完成後，將依序在這裡點亮。</div>
+    <section class="grid">
+      <a href="001.html" class="card card-link">
+        <div class="label">Worship Songs 001 · Template</div>
+        <div class="title">待命名敬拜詩歌</div>
+        <div class="text">第一首作品的預留位置。可記錄心情起點、禱告內容、歌詞意涵、編曲設計與 AI 音樂製作過程。</div>
+        <div class="link">▶ 進入 Worship Songs 001 創作說明頁</div>
+      </a>
+    </section>
+    <div class="back-link">← 回到 <a href="../index.html">Music Universe 總目錄</a></div>
+  </main>
+  <footer>© 2025-2026 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
