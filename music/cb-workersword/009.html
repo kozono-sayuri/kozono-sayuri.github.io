@@ -5,8 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Poor Workers 009 - 我算哪根蔥？ | Kozono Sayuri</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Keep this track's palette and borderless MV, while matching Job 002's layout. */
+    body.reference-layout header {
+      border-bottom: 0;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, .55);
+    }
+
+    body.reference-layout h1 {
+      letter-spacing: .04em;
+      text-shadow: 0 0 14px rgba(255, 255, 255, .75);
+    }
+
+    body.reference-layout .star {
+      z-index: 0;
+    }
+
+    body.reference-layout .nav a,
+    body.reference-layout .inner-nav a {
+      transition: all .15s;
+    }
+
+    body.reference-layout .inner-nav a:hover {
+      box-shadow: 0 4px 10px rgba(30, 58, 138, .35);
+    }
+
+    body.reference-layout .badge {
+      border: 0;
+    }
+
+    body.reference-layout .song-section {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, .06);
+    }
+
+    body.reference-layout .song-section::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      top: -14px;
+      right: -14px;
+      background: radial-gradient(circle, rgba(30, 58, 138, .12), transparent);
+    }
+
+    body.reference-layout .song-section h2 {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    body.reference-layout .song-section h3 {
+      margin: 8px 0 2px;
+    }
+
+    body.reference-layout .song-section p {
+      margin-bottom: 4px;
+    }
+
+    body.reference-layout .song-section p + p {
+      margin-top: 0;
+    }
+
+    body.reference-layout .song-section ul {
+      margin: 2px 0 4px 18px;
+      padding: 0;
+    }
+
+    body.reference-layout .en {
+      font-style: normal;
+    }
+
+    body.reference-layout .note {
+      margin-top: 4px;
+    }
+
+    body.reference-layout .back-link {
+      margin-top: 6px;
+    }
+  </style>
 </head>
-<body>
+<body class="reference-layout">
   <header>
     <div class="topline">MUSIC UNIVERSE ✦ WORKPLACE SERIES</div>
     <h1>Poor Workers 009・我算哪根蔥？</h1>
@@ -29,10 +110,10 @@
 
   <main>
     <nav class="inner-nav" aria-label="本頁內容導覽">
-      <a href="#overview">Overview・歌曲概述</a>
-      <a href="#lyrics">Lyrics &amp; Meaning・歌詞與意義</a>
-      <a href="#production">Production・製作筆記</a>
-      <a href="#suno">Suno Elements・AI 創作元素</a>
+      <a href="#overview">Overview 概念速記</a>
+      <a href="#lyrics">Lyrics &amp; Meaning 歌詞與意涵</a>
+      <a href="#production">Production 製作過程</a>
+      <a href="#suno">Suno Elements AI 音樂元素</a>
     </nav>
 
     <div class="badge-row">
@@ -43,7 +124,7 @@
     </div>
 
     <section class="song-section" id="overview">
-      <h2>💡 Overview・歌曲概述</h2>
+      <h2>📖 Overview｜這首歌想說什麼？</h2>
       <p>《我算哪根蔥？》原是《紅裙不回頭》的另一條聲音命運。兩首沿用相同旋律與近似演唱設定；A 版留給愛情裡的轉身，捨不得放棄的 B 版則以 Cover 改詞，走進會議室、報表與加班燈下。每句字數、停頓與重拍都必須服從原旋律，於是紅裙的五字步伐，恰好換成一句台灣職場最熟悉的自嘲：「我算哪根蔥？」意外的是，這首原本為保留旋律而生的作品，反而先一步完成了 MV。</p>
       <p class="en">“Who Am I, Anyway?” began as an alternate vocal life for “Red Dress, No Looking Back.” Both tracks share the same melody and nearly identical performance direction: Version A remained with the romantic farewell, while the equally compelling Version B entered conference rooms, spreadsheets and overtime lights through rewritten cover lyrics. Every syllable, pause and accent had to obey the original tune, allowing the five-character stride of the red dress to become a familiar Taiwanese workplace joke: “Who am I, anyway?” Unexpectedly, the song created simply to preserve a melody reached the MV stage first.</p>
       <p>它寫的不只是一位愛畫大餅的老闆，而是一種被反覆扭曲的價值：出事時，員工不可或缺；談加薪、獎金與尊重時，他又忽然無足輕重。前半段的「我算哪根蔥」是吞下不公平的苦笑，直到辭呈放上桌面，最後副歌只換一個代名詞——「我」成了「你」——整場權力之舞便倒轉。她沒有摔門，也沒有等待誰主持公道，只是跳完最後一支探戈，把不屬於自己的重擔還回去。被需要，從來不等於應當被消耗。</p>
@@ -60,8 +141,8 @@
     </div>
 
     <section class="song-section" id="lyrics">
-      <h2>📝 Lyrics &amp; Meaning・歌詞與意義</h2>
-      <h3>Key Scenes・關鍵畫面</h3>
+      <h2>📝 Lyrics &amp; Meaning｜歌詞與意涵</h2>
+      <h3>🍇關鍵畫面（Key Scenes）🍇</h3>
       <ul>
         <li><strong>簡報閃著光：</strong>投影幕像一扇通往未來的窗；老闆在光裡談成長，員工卻在陰影中計算工時。那不是希望，只是被投影得很漂亮的幻象。<br><span class="en">The glowing presentation: the boss speaks of growth in the light while employees count their hours in shadow. It is not hope, only a polished projection.</span></li>
         <li><strong>懸在半空的大餅：</strong>金色承諾美得近乎神蹟，卻永遠落不到任何人的盤中；它是被反覆延後、重新命名，最後集體遺忘的獎賞。<br><span class="en">The pie in the sky: a golden promise looks miraculous but never reaches a plate—postponed, renamed and finally forgotten.</span></li>
@@ -70,7 +151,7 @@
         <li><strong>無人辦公室的探戈：</strong>二十五至二十八歲的女主角穿黑紅舞裙，在明亮辦公室與熱帶綠意之間獨舞；企業灰階終於被生命的顏色劃開。<br><span class="en">Tango in an empty office: a young woman dances through daylight and tropical green, breaking open the corporate gray.</span></li>
       </ul>
 
-      <h3>Core Message・核心訊息</h3>
+      <h3>🍇核心訊息（Core Message）🍇</h3>
       <p>這是一首從自嘲走向清醒的歌。主角曾用「我算哪根蔥」替不公平找台階，也替自己繼續忍耐；後來她明白，價值不必由老闆、職稱或獎金核定。最後的轉身不是報復，而是停止參與。她沒有贏過誰，只是不再輸掉自己。</p>
       <p class="en">This is a song about moving from self-mockery to clarity. The heroine once used “Who am I, anyway?” to soften injustice and justify endurance. Her departure is not revenge but refusal: she defeats no one; she simply stops losing herself.</p>
 
@@ -78,8 +159,8 @@
     </section>
 
     <section class="song-section" id="production">
-      <h2>🎛 Production Notes・編曲與製作過程</h2>
-      <h3>Emotion Flow・情緒設計</h3>
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+      <h3>🍇情緒設計（Emotion Flow）🍇</h3>
       <ul>
         <li><strong>Intro：</strong>遠方拍手與尼龍弦吉他搭起舞台：既是探戈節奏，也是會議開始前禮貌而空洞的掌聲；柔和手風琴把辦公室悄悄變成舞廳。<br><span class="en">Distant claps and nylon guitar create both a tango stage and the hollow applause of a meeting; the accordion turns the office into a ballroom.</span></li>
         <li><strong>Verse：</strong>低聲、近距離且近乎談話的唱法，讓「說得很漂亮」「誰比他會玩」自然落地。編曲刻意留白，不必提高音量，荒唐便自己顯形。<br><span class="en">The intimate conversational verses leave room for dry observations to land; absurdity reveals itself without raised volume.</span></li>
@@ -90,7 +171,7 @@
         <li><strong>Final Chorus / Outro：</strong>和聲與弦樂全面展開，「我」終於變成「你」。音樂放大，人聲仍克制；最後的 Da la da la da 像她走到門邊，懶得再解釋。<br><span class="en">The arrangement blooms as “I” becomes “you,” yet the voice remains composed. The final refrain walks out without another explanation.</span></li>
       </ul>
 
-      <h3>Sound &amp; Color・聲響顏色</h3>
+      <h3>🍇聲響顏色（Sound &amp; Color）🍇</h3>
       <ul>
         <li><strong>樂器設定：</strong>尼龍弦吉他負責探戈切分與快速跑句，班多鈕式手風琴像看不見的舞伴互相拉扯；低音提琴穩步前行，拉丁打擊、跺腳、拍手與戲劇弦樂則把日常辦公室舞台化。</li>
         <li><strong>人聲設定：</strong>溫暖、空氣感的近距離女聲，主要落在 A3–C5、最高不超過 D5；低音保留柔和胸腔厚度，高音只短暫掠過輕盈頭聲。排除強混 Belt、誇張顫音與偶像式鼻音，讓冷嘲像耳邊談話。</li>
@@ -99,15 +180,15 @@
     </section>
 
     <section class="song-section" id="suno">
-      <h2>🤖 Suno Elements・AI / Suno 設定</h2>
-      <h3>Model &amp; Style・模型與風格</h3>
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+      <h3>🍇模型與風格（Model &amp; Style）🍇</h3>
       <ul>
         <li><strong>Style：</strong>Mandarin Latin noir pop / cinematic tango pop / satirical workplace pop</li>
         <li><strong>Prompt：</strong><em>sultry elegant female vocal, native Taiwan Mandarin, nylon guitar, bandoneon-like accordion, upright bass, dramatic strings, Latin percussion, sharp hand claps, smoky piano, black-red ballroom, warm vocal intimacy, catchy rhythmic chorus</em></li>
         <li><strong>Tempo / Key：</strong>108 BPM、小調。速度足以保留探戈步伐與中文短句的俐落落點，又不至於變成純喜劇；小調讓幽默底下始終留著疲憊的陰影。</li>
       </ul>
 
-      <h3>Implementation Notes・實作小記</h3>
+      <h3>🍇實作小記（Implementation Notes）🍇</h3>
       <p>這首歌不是先有職場題材，而是先有一個捨不得刪掉的 B 版聲音。《紅裙不回頭》的 A、B 兩版各有呼吸與色澤，若只因必須做選擇便捨棄其中一首，未免可惜。於是保留旋律和演唱方式，利用 Cover 改詞替 B 版另寫人生。真正困難的不只是對齊字數：原曲的五字短句、Pre-Chorus、Bridge 與 Build 都有固定呼吸，還必須兼顧母音開口、重音、尾韻與中文是否自然貼拍。</p>
       <p>核心句最初是「你算哪根蔥」，但單向叫罵太直，也少了一層餘味。改成「我算哪根蔥」後，職場人熟悉的荒謬立刻出現：加薪時不算什麼，出事時卻一定被找到。為免作品落成輕薄的搞笑歌，Style 保留 Latin noir、小調、電影探戈與器樂競奏；人聲則刻意壓低戲劇性，不用巨大高音或吼唱，像一個早已看懂的人，平靜描述這場鬧劇。</p>
       <p>最後副歌只將「我」換成「你」，旋律完全不動，角色卻從自嘲裡站了起來。這也是 Cover 最有趣的地方：限制沒有壓縮故事，反而逼出更精準的語意。原本為保存 B 版而生的備案，最後比原曲更早完成 MV；一次音樂抽卡的兩難，沒有淘汰任何旋律，而是讓同一支探戈分岔成愛情與職場兩條路。</p>
