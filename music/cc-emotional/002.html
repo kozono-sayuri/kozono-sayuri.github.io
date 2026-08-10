@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 👽TODO：改成這一首的標題👽【範本】Emotions 001 - 待定歌名 | Kozono Sayuri -->
   <title>Emotions 002 - 一杯又一杯 | Kozono Sayuri</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,10 +27,9 @@
       text-align: center;
       background: linear-gradient(135deg, #c084fc, #f9a8d4, #6ee7b7);
       color: #fdfcff;
-      box-shadow: 0 4px 20px rgba(192, 132, 252, 0.45);
+      box-shadow: 0 4px 18px rgba(192, 132, 252, 0.45);
       position: relative;
       overflow: hidden;
-      border-bottom: 1px solid rgba(249, 168, 212, 0.45);
     }
 
     .topline {
@@ -76,7 +74,7 @@
       position: absolute;
       font-size: 20px;
       color: rgba(255,255,255,0.8);
-      text-shadow: 0 0 8px rgba(255,255,255,1);
+      text-shadow: 0 0 6px rgba(255,255,255,1);
       animation: sparkle 4.5s infinite ease-in-out;
       pointer-events: none;
       z-index: 0;
@@ -136,27 +134,7 @@
       flex: 1;
     }
 
-    /* MV 區塊：深底＋淡紫光暈 */
-    .mv-block {
-      margin: 0 0 20px;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(148, 132, 202, 0.25);
-      border: 1px solid rgba(240,230,255,0.95);
-      background:
-        radial-gradient(circle at top left,
-          rgba(216,180,254,0.25), transparent 60%),
-        #111827;
-    }
-
-    .mv-block iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 0;
-      display: block;
-    }
-
-    /* 頁內小導覽 (像 blog 目錄) */
+    /* 頁內小導覽（像章節目錄） */
     .inner-nav {
       display: flex;
       flex-wrap: wrap;
@@ -182,7 +160,7 @@
       transform: translateY(-1px);
     }
 
-    /* 標籤列 */
+    /* 上方小 badge 列 */
     .badge-row {
       display: flex;
       flex-wrap: wrap;
@@ -196,10 +174,9 @@
       padding: 3px 8px;
       border-radius: 999px;
       background: #f4e8ff;
-      border: 1px solid rgba(216,180,254,0.6);
     }
 
-    /* 內容區塊：白卡＋淡紫光 */
+    /* 內容區塊共用風格 */
     section {
       background: #ffffff;
       border-radius: 18px;
@@ -243,6 +220,14 @@
       margin-bottom: 4px;
     }
 
+    .translation {
+      color: #765b86;
+    }
+
+    .keywords {
+      color: #7e22ce;
+    }
+
     ul {
       margin: 2px 0 4px 18px;
       padding: 0;
@@ -281,23 +266,33 @@
       .subtitle { font-size: 12px; }
       section { padding: 12px 10px 9px; }
     }
+
+    /* MV 區塊 */
+    .mv-block {
+      margin: 0 0 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(148,132,202,0.25);
+      border: 1px solid rgba(240,230,255,0.95);
+      background: #111827;
+    }
+
+    .mv-block iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <!-- 👽TODO：這行可以依系列改👽【範本】EMOTIONS SERIES -->
     <div class="topline">MUSIC UNIVERSE ✦ EMOTIONS SERIES</div>
-    
-    <!-- 👽TODO：改成實際系列＋中文或英文曲名👽【範本】 001 ｜ 老闆，你是不是愛上了我-->
-    <h1>Emotions 💥待修正💥</h1>
-    
-    <!-- 👽TODO：歌名翻譯👽【範本】Track 001 · Boss, have you fallen in love with me? -->
-    <div class="subtitle">Track 002 · Cup after Cup</div>
-    
-    <!-- 👽TODO：簡短一句這首歌在整個系列中的意義👽 -->
+    <h1>Emotions 002 ｜ 一杯又一杯</h1>
+    <div class="subtitle">Track 002 · One Glass After Another</div>
     <div class="sub">
-      💥待修正💥
+      有些人不是不會脆弱，只是一直沒有任性的本錢。
     </div>
 
     <!-- 星星 -->
@@ -328,32 +323,24 @@
     </div>
 
     <div class="badge-row">
-      <!-- 👽TODO：說明歌曲完成日 👽 -->
       <div class="badge">歌曲完成日：2025/9/21</div>
-
-      <!-- 👽TODO：說明Youtube發佈日 👽 -->
-      <div class="badge">發佈日：2025/10/19</div>
-
-      <!-- 👽TODO：「主畫面」的相像關鍵字 👽 -->
-      <div class="badge">主視覺：💥待修正💥</div>
-      <div class="badge">Blog Style 創作筆記</div>
+      <div class="badge">MV 完成日：2025/9/25</div>
+      <div class="badge">主視覺：深夜酒吧・霓虹卸甲</div>
+      <div class="badge">Emotion Series・強者的脆弱</div>
     </div>
 
     <!-- 📌📌 Overview 📌📌 -->
     <section id="overview">
-      <h2>💜 Overview｜這首歌想說什麼？</h2>
-      <!-- 👽TODO：第一段是取材說明，第二段是想說的 👽 -->
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
-      <p>💥待修正💥</p>
+      <h2>📖 Overview｜這首歌想說什麼？</h2>
+      <p>《一杯又一杯》從一個很具體的聲音畫面出發：厚實、微啞的女聲坐在深夜酒吧，幾杯酒後，終於不再維持白日裡無懈可擊的語氣。主歌以節奏敘事和簡單鼓點托住「高樓霓虹」與「掌聲背後的空洞」，古箏像她心裡一直繃緊的弦；副歌則讓失真電吉他、完整鼓組與如泣的二胡同時張開。音樂愈強，她說出的秘密反而愈柔軟：「我只是脆弱身軀，偽裝鋒銳。」這首歌後來也不再只屬於失戀或職場。工作、家庭、責任、價值觀與愛，都可能使人作出旁人無法理解的選擇；別人只看見結果，只有自己知道交換出去的是什麼。到了「若能換個世界，是否少傷悲」，她問的已不是某個人會不會回來，而是：如果活在另一種人生裡，我是否會成為另一個人？即使重來，那個世界又真的適合我嗎？歌曲沒有回答，只讓最後的「如果能重來……」懸在夜裡，像一朵尚未摘完花瓣的花。</p>
+      <p class="translation"><em>One Glass After Another</em> begins with a precise vocal image: a woman with a thick, slightly rough voice sits in a late-night bar and, after a few drinks, finally lets go of the flawless tone she wears by day. Rhythmic storytelling and a restrained drum groove carry the neon skyline and the emptiness behind applause; guzheng becomes the taut string inside her, while distorted guitar, full drums, and a weeping erhu open wide in the chorus. The stronger the music grows, the softer her confession becomes: “I am only a fragile body disguised as a blade.” The song ultimately moves beyond heartbreak or the workplace. Work, family, responsibility, values, and love may force choices others cannot understand; people see the result, while only we know what was traded away. By the time she asks, “If I could live in another world, would there be less sorrow?”, she is no longer asking whether someone might return. She is asking whether a different life would have made her someone else—and whether that life would truly suit her. The song leaves the question unanswered, suspended like the final petal of a flower.</p>
     </section>
 
-    <!-- 👽TODO：MV 播放區👽 只改embed/ 之後，另外titla=要修改。 -->
     <!-- 📌📌 MV 播放區 📌📌 -->
     <div class="mv-block">
       <iframe
         src="https://www.youtube.com/embed/BOFrA18u4xg"
-        title="Emotions 002 MV"
+        title="一杯又一杯 MV"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen>
       </iframe>
@@ -361,25 +348,23 @@
     
     <!-- 📌📌 Lyrics & Meaning 📌📌 -->
     <section id="lyrics">
-      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
+      <h2>📝 Lyrics & Meaning｜歌詞與意涵</h2>
 
-      <!-- 👽TODO：列出 3～5 個畫面。或說明單曲封面、主色調。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
       <h3>🌷關鍵畫面（Key Scenes）🌷</h3>
       <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
+        <li><strong>高樓霓虹，照映我臉｜Neon across a tired face</strong>：霓虹象徵人前的繁華與成就，落在臉上卻只剩一層冷光。「掌聲」與「空洞」並置，提醒我們：被看見的成功，不等於被理解的人生。<br><span class="translation">Neon represents the success and glamour visible to others, yet on her face it becomes a cold reflection. The contrast between applause and emptiness suggests that being admired is not the same as being understood.</span></li>
+        <li><strong>酒杯停在唇邊，眼淚沒有落下｜A glass at her lips, tears held back</strong>：「淚水暗咽」比嚎啕更符合她的性格；連傷心都習慣自己處理。酒杯既是逃避，也是短暫的許可——今晚，她可以不用那麼懂事。<br><span class="translation">“Swallowing back tears” suits her better than collapsing; even grief has become something she manages alone. The glass is both escape and permission: tonight, she does not have to hold everything together.</span></li>
+        <li><strong>冰冷笑容與最暖星痕｜A cold smile and the warmest star-scar</strong>：外表愈冷，內心的渴望反而愈暖。她不是不要親密，而是獨自走得太久，已不知道如何讓人靠近；「星痕」既是光，也是傷留下的印記。<br><span class="translation">The colder her expression becomes, the warmer her hidden longing feels. She does not reject intimacy; after walking alone for too long, she may have forgotten how to let someone come close. The star-scar is both light and the mark left by pain.</span></li>
+        <li><strong>一杯又一杯，城市褪成灰｜Glass after glass, the city fading to gray</strong>：酒沒有解決問題，只讓職稱、掌聲與別人的期待逐層退遠。繁華褪色後，她終於只剩一個最簡單也最難回答的問題：如果重新來過呢？<br><span class="translation">The alcohol solves nothing; it only pushes titles, applause, and expectation farther away. Once the city loses its color, one simple and impossible question remains: what if she could begin again?</span></li>
+        <li><strong>最後一片尚未落下的花瓣｜The final petal that has not fallen</strong>：這朵花沒有直接出現在歌詞裡，卻是全曲最深的隱喻。值得或不值得、重來或不重來，人生像一場不公布花瓣總數的占卜，我們永遠不知道答案還剩幾片。<br><span class="translation">The flower never literally appears in the lyrics, yet it is the deepest metaphor. Worth it or not, begin again or remain—life resembles a fortune-telling flower whose number of petals is never revealed.</span></li>
       </ul>
 
-      <!-- 👽TODO：這首歌想講的情緒主題，用列舉的方式。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
       <h3>🌷核心訊息（Core Message）🌷</h3>
-        <p>💥待修正💥</p>
-        <p>💥待修正💥</p>
+      <p>《一杯又一杯》寫的不是醉，而是<strong>沒有任性的本錢</strong>。我們常在責任、處境與價值觀之間，作出旁人無法完全理解的選擇。強悍未必是天性，沉默也未必是不痛；別人看見你成為了誰，只有你知道一路失去了什麼。至於值不值得，也許人生本來就不會立刻回答。</p>
+      <p class="translation"><em>One Glass After Another</em> is not really about getting drunk. It is about <strong>not having the luxury to fall apart</strong>. We make choices shaped by responsibility, circumstance, and values that others cannot fully understand. Strength may not be natural, and silence does not mean the absence of pain. Others see who we became; only we know what it cost. Whether it was worth it may simply be one of life’s unanswered questions.</p>
 
-      <!-- 👽TODO： 要放第二名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003F]👽 -->
       <div class="note">
-        🪻 <a href="https://suno.com/s/adiEG7l7yPygQEWt" target="_blank">Suno發佈同款歌曲，第二名：
-          💥待修正💥</a>
+        🪻 <a href="https://suno.com/s/TTqCoWQttYq6he44" target="_blank" rel="noopener noreferrer">Suno 同曲第二名：一杯又一杯 [U0002I]</a>
       </div>
       
     </section>
@@ -388,30 +373,25 @@
     <section id="production">
       <h2>🎧 Production Notes｜編曲與製作過程</h2>
 
-      <!-- 👽TODO： 是每段結構的拆解，針對歌詞的拆解 👽 -->
       <h3>🌷情緒設計（Emotion Flow）🌷</h3>
       <ul>
-        <li><strong>Intro</strong>：💥待修正💥。</li>
-        <li><strong>Verse</strong>：💥待修正💥。</li>
-        <li><strong>Pre-Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Chorus</strong>：💥待修正💥。</li>
-        <li><strong>Verse 2</strong>：💥待修正💥
-        <li><strong>Bridge</strong>：💥待修正💥。</li>
+        <li><strong>前奏 Intro</strong>：八小節古箏不急著煽情，只留下清冷而繃緊的弦線，再由簡單鼓點把畫面拉回現代酒吧。她才剛坐下，第一杯尚未喝完，情緒仍受控制。<br><span class="translation">The eight-bar guzheng opening leaves a cool, taut line before a simple drum groove pulls the scene into a modern bar. She has only just sat down; the first drink is unfinished, and her emotions remain contained.</span></li>
+        <li><strong>第一段主歌 Verse 1</strong>：主歌採節奏敘事而非大旋律，厚沙女聲停在中低音域，像喝了一杯後慢慢說真話。霓虹與掌聲先交代她看似成功，再用「空洞」把表象翻過來。<br><span class="translation">The verse favors rhythmic narration over sweeping melody. The husky voice stays low and close, as if truth is slowly emerging after one drink. Neon and applause establish visible success before “emptiness” turns the image over.</span></li>
+        <li><strong>第一段預副歌 Pre-Chorus 1</strong>：Bass、鼓與 synth 層層升起，失真吉他開始回應古箏。「笑得像女神」不是自誇，而是一聲苦笑：別人看見完美，她知道那只是一副盔甲。<br><span class="translation">Bass, drums, and synth layers rise while distorted guitar answers the guzheng. “Smiling like a goddess” is bitter irony: others see perfection; she knows it is armor.</span></li>
+        <li><strong>第一、第二段副歌 Choruses 1–2</strong>：音樂全面爆發，唱的卻是最脆弱的承認：「我只是脆弱身軀。」第二次再唱時加入更多和聲，讓強悍、疲憊、孤單與渴望被愛的自己同時站進副歌。<br><span class="translation">The arrangement erupts while carrying its most vulnerable confession: “I am only fragile.” More harmonies in the second chorus bring her strength, exhaustion, loneliness, and longing into the same space.</span></li>
+        <li><strong>第二段主歌／預副歌 Verse 2 / Pre-Chorus 2</strong>：像再喝深了一杯，咬字略鬆、沙啞感增加。歌詞由「現在怎麼了」走向「為何變成這樣」，而更重的低頻反襯「月光仍照不清」的孤獨。<br><span class="translation">As if another drink has loosened her diction, the vocal grows rougher. The story shifts from what she feels now to how she became this way, while heavier low end contrasts with a loneliness even moonlight cannot illuminate.</span></li>
+        <li><strong>橋段 Bridge</strong>：全曲直到這裡才唱出「一杯又一杯」。編曲忽然收空，只剩輕柔古箏、二胡與近乎耳語的人聲，讓喝酒成為所有壓抑的結果，而不是表面的噱頭。<br><span class="translation">Only here does the title phrase appear. The arrangement falls away to soft guzheng, erhu, and near-whispered vocals, making the drinking a consequence of everything suppressed rather than a surface gimmick.</span></li>
+        <li><strong>古箏與二胡獨奏 Guzheng & Erhu Solo</strong>：兩件樂器由疏落長音逐步加速，真正接手敘事。古箏像她的倔強，二胡像她的傷；語言暫時失效，器樂把沒能說完的部分推向最終副歌。<br><span class="translation">The two instruments accelerate from sparse tones into a genuine narrative passage. Guzheng becomes her stubborn resolve; erhu becomes her wound. When words fail, they carry the unfinished feeling toward the finale.</span></li>
+        <li><strong>最終副歌 Chorus 3</strong>：前兩次已承認脆弱，最後不再原句重唱，而問「若能換個世界」。全樂團與合唱都到了，問題卻無人能答；規模愈大，人物的孤單反而愈清楚。<br><span class="translation">After vulnerability has been admitted twice, the final chorus moves forward and asks, “If I could live in another world.” The whole band and choir arrive, yet no one can answer; the larger the sound, the clearer her solitude becomes.</span></li>
+        <li><strong>尾奏 Outro</strong>：Rock band 與合唱退去，只留下最初的古箏、二胡與女聲耳語。「如果能重來」故意不寫完答案；夜晚結束了，人生沒有，最後一音像尚未摘下的花瓣懸在空中。<br><span class="translation">The rock band and choir disappear, leaving the original guzheng, erhu, and whisper. “If I could begin again” remains deliberately unfinished; the night ends, life does not, and the last note hangs like an unplucked petal.</span></li>
       </ul>
 
-      <!-- 👽TODO： 主要是針對聲音或樂器選擇的考量，特別設計通常指混搭及音效 👽 -->
       <h3>🌷聲響顏色（Sound & Color）🌷</h3>
       <ul>
-        <li><strong>樂器設定</strong>：💥待修正💥。</li>
-        <li><strong>人聲設定</strong>：💥待修正💥。</li>
-        <li><strong>特別設計</strong>：💥待修正💥。</li>
+        <li><strong>樂器設定｜Instruments</strong>：核心是中國弦樂器的細緻與 Rock band 重量的對照。古箏像人物始終繃緊的一條弦，二胡以長音與滑音承接哭意；電吉他和完整鼓組則在副歌喚回白日裡能夠戰鬥的她。<br><span class="translation">The central contrast is between the delicacy of Chinese strings and the weight of a rock band. Guzheng is the taut string inside her, erhu carries grief through slides and sustained tones, and guitar with full drums restores the fighter she is by day.</span></li>
+        <li><strong>人聲設定｜Vocals</strong>：沙啞不是粗糙特效，而是人物的生命感。主歌厚、低、近，像酒後不再努力維持體面；副歌必須高而厚、寬而不尖，保留胸聲重量與深色共鳴，才能讓人相信她原本真的很強。<br><span class="translation">The rasp is not an effect but a sign of lived experience. Verses are low, thick, and intimate; choruses must rise with full-bodied, non-piercing highs and dark chest resonance, so her strength remains believable.</span></li>
+        <li><strong>特別設計｜Special Design</strong>：全曲反覆運用反差：主歌很低，人物仍有控制；副歌最大，唱的卻是脆弱；Bridge 最安靜，提出的問題反而最深；Final Chorus 聲場最巨大，她仍然得不到答案。<br><span class="translation">The song is built on contrast: low verses retain control; the loudest chorus confesses fragility; the quietest bridge holds the deepest question; and the largest final sound still cannot provide an answer.</span></li>
       </ul>
-
-      <!-- 👽TODO： 要放第三名歌曲，先改連結。再改歌名＋編號，範例：第二擊[S0003C]👽 -->
-      <div class="note">
-        🪻 <a href="https://suno.com/s/qzjXIdfnQkVmPWjf" target="_blank">Suno發佈同款歌曲，第三名：
-          💥待修正💥</a>
-      </div>
       
     </section>
 
@@ -419,39 +399,37 @@
     <section id="suno">
       <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
 
-      <!-- 👽TODO：是指Style那裡的設計，包括 Tempo / Key / 指定旋律 / 混搭風格 。用<strong>加黑強調重點，用<em>表現斜體 👽 -->
       <h3>🌷模型與風格（Model & Style）🌷</h3>
       <ul>
-        <li>Style設計：💥待修正💥。</li>
-        <li>Prompt 關鍵字：💥待修正💥<br>
-          <em>💥待修正💥</em>
+        <li><strong>Style 設計</strong>：目標是一種「都市酒吧式的東方 Cinematic Rock Ballad」。古箏與二胡保存人物內在的細膩與舊傷，Rock band 承擔她白日裡的力量；整體同時保有 dramatic、bittersweet、powerful 與 vulnerable。<br><span class="translation">The target is an Eastern cinematic rock ballad set in a late-night bar. Guzheng and erhu preserve the character’s inner delicacy and old wounds, while the rock band carries her daytime strength. The result must remain dramatic, bittersweet, powerful, and vulnerable at once.</span></li>
+        <li><strong>Prompt 關鍵字</strong>：<br>
+          <em>thick and hoarse female vocal, husky voice, rich low register, dark warm chest resonance, full-bodied high notes, powerful but not piercing, restrained verses, explosive emotional chorus, guzheng, erhu, electric guitar, rock band, cinematic, dramatic, bittersweet, Chinese lyrics, bar atmosphere, intimate drunken confession</em>
         </li>
-        <li>Tempo / Key：💥待修正💥。</li>
+        <li><strong>Tempo / Key</strong>：完成版本的實際 BPM 與調性沒有留存在製作筆記，因此網站不把推測值寫成既定資料。從結構判斷，適合中慢板、偏小調的框架：速度需容納主歌的節奏敘事，又不能快到失去酒吧夜談的重量。<br><span class="translation">The final track’s exact BPM and key were not preserved, so the site does not present an estimate as fact. Structurally, it favors a slow-to-mid tempo and minor-centered frame: enough pulse for rhythmic storytelling, but never so fast that the late-night bar confession loses weight.</span></li>
       </ul>
 
-      <!-- 👽TODO： 這首歌有沒有多次生成再剪接？有沒有把不同版本的段落拼在一起？。哪些部分是 AI 直接產出，哪些是你自己後製 / 加錄？
-      用<strong>加黑強調重點，用<em>表現斜體 👽 -->
       <h3>🌷實作小記（Implementation Notes）🌷</h3>
-      <ul>
-        <li>💥待修正💥。</li>
-        <li>💥待修正💥。</li>
-      </ul>
+      <p>《一杯又一杯》的製作過程，也很像歌曲本身：最後留下來的未必是最複雜的方法，而是最清楚自己真正想做什麼的方法。這段時間試過幾種簡易 MV 工作流程，也重新打開 Filmora，看到升級通知時一度以為終於能迅速把素材組完；結果系統依舊卡住，影片遲遲無法產出，只好作罷。另一方面，看了不少分軌、後製、母帶與串流發行的說明，愈看愈知道前方還有整座山要學。但也因此更確認：<strong>現在最重要的仍然是歌曲本身。</strong></p>
+      <p class="translation">The production process resembled the song itself: the method that survived was not necessarily the most elaborate, but the one clearest about what mattered. Several lightweight MV workflows were tested, and Filmora was reopened after an upgrade notice suggested an easier path—only for the software to stall again. Reading about stems, post-production, mastering, and streaming releases made the scale of the learning ahead even clearer. It also confirmed one priority: <strong>the song itself still matters most.</strong></p>
+      <p>AI 讓創作者能同時碰觸作曲、編曲、人聲、影像、剪輯與發行，但「什麼都能做」不代表「什麼都必須現在做」。若為了複雜的 MV 耗掉繼續寫歌的力氣，就本末倒置。因此最後用較簡單、可穩定完成的方式交付影像，把真正反覆琢磨的時間留給人聲厚度、段落轉折，以及古箏和二胡如何替人物說話。歌曲也從「女強人失戀買醉」逐漸抽離，最後確認真正要寫的是「身不由己」：酒吧只是卸甲的空間，酒只是防線鬆開的道具，最重要的是她終於敢問——這樣活著，值得嗎？如果重來，我真的會選另一條路嗎？</p>
+      <p class="translation">AI lets one creator touch composition, arrangement, vocals, imagery, editing, and distribution, but being able to do everything does not mean everything must be done now. A complex MV is not worth draining the energy needed for the next song. The simpler, dependable visual workflow therefore remained, while the real attention went to vocal weight, structural turns, and how guzheng and erhu could speak for the character. The song also moved beyond “a powerful woman drinking after heartbreak” toward its real subject: having no easy choice. The bar is where she removes her armor; the drink merely loosens the defenses. What matters is that she finally asks whether this life was worth its cost—and whether she would truly choose another one.</p>
 
-      <!-- 👽TODO：這是放FB同步發佈。聖經系列是Emma Chang／一般歌曲是傻有理的新新約。 改連結。👽 -->
+      <h3>🌷適合關鍵字（Keywords）🌷</h3>
+      <p class="keywords">一杯又一杯、身不由己、人生選擇、女性情感、女強人、卸下堅強、都市孤獨、深夜酒吧、人生代價、無人理解、如果能重來、情緒釋放、厚沙女聲、沙啞女聲、厚實高音、古箏搖滾、二胡融合、華語搖滾抒情、東方融合、電影感搖滾、夢想與犧牲、AI 音樂、Suno、虛擬歌手</p>
+      <p class="keywords translation">One Glass After Another, bittersweet life choices, urban loneliness, strong woman, hidden vulnerability, emotional release, late-night bar, husky female vocal, thick female voice, full-bodied high notes, guzheng rock, erhu fusion, Mandopop rock ballad, Chinese fusion rock, cinematic rock, life sacrifice, starting over, emotional storytelling, AI music, Suno music, virtual singer, dreams and sacrifice</p>
+
       <div class="note">
-        🪻 <a href="https://www.facebook.com/reel/842978572033148" target="_blank">其它說明請見：Face Book 同步發佈。</a>
+        🪻 <a href="https://www.facebook.com/reel/1890526551532477" target="_blank" rel="noopener noreferrer">其它說明請見：Facebook 同步發佈。</a>
       </div>
       
     </section>
 
-    <!-- 👽 TODO：這裡的連結指向本系列的 index.html 👽-->
     <div class="back-link">
       ← 回到 <a href="index.html">Emotions 系列總覽</a>
     </div>
     
   </main>
 
-  <!-- 👽TODO：如果新年度有修改，要更改期間 👽 -->
-  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+  <footer>© 2025-2026 Kozono Sayuri. All rights reserved.</footer>
 </body>
 </html>
