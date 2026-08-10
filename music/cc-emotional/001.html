@@ -27,10 +27,9 @@
       text-align: center;
       background: linear-gradient(135deg, #c084fc, #f9a8d4, #6ee7b7);
       color: #fdfcff;
-      box-shadow: 0 4px 20px rgba(192, 132, 252, 0.45);
+      box-shadow: 0 4px 18px rgba(192, 132, 252, 0.45);
       position: relative;
       overflow: hidden;
-      border-bottom: 1px solid rgba(249, 168, 212, 0.45);
     }
 
     .topline {
@@ -75,7 +74,7 @@
       position: absolute;
       font-size: 20px;
       color: rgba(255,255,255,0.8);
-      text-shadow: 0 0 8px rgba(255,255,255,1);
+      text-shadow: 0 0 6px rgba(255,255,255,1);
       animation: sparkle 4.5s infinite ease-in-out;
       pointer-events: none;
       z-index: 0;
@@ -135,27 +134,7 @@
       flex: 1;
     }
 
-    /* MV 區塊：深底＋淡紫光暈 */
-    .mv-block {
-      margin: 0 0 20px;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(148, 132, 202, 0.25);
-      border: 1px solid rgba(240,230,255,0.95);
-      background:
-        radial-gradient(circle at top left,
-          rgba(216,180,254,0.25), transparent 60%),
-        #111827;
-    }
-
-    .mv-block iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 0;
-      display: block;
-    }
-
-    /* 頁內小導覽 (像 blog 目錄) */
+    /* 頁內小導覽（像章節目錄） */
     .inner-nav {
       display: flex;
       flex-wrap: wrap;
@@ -181,7 +160,7 @@
       transform: translateY(-1px);
     }
 
-    /* 標籤列 */
+    /* 上方小 badge 列 */
     .badge-row {
       display: flex;
       flex-wrap: wrap;
@@ -195,10 +174,9 @@
       padding: 3px 8px;
       border-radius: 999px;
       background: #f4e8ff;
-      border: 1px solid rgba(216,180,254,0.6);
     }
 
-    /* 內容區塊：白卡＋淡紫光 */
+    /* 內容區塊共用風格 */
     section {
       background: #ffffff;
       border-radius: 18px;
@@ -243,15 +221,11 @@
     }
 
     .translation {
-      margin-top: 7px;
-      padding-top: 7px;
-      border-top: 1px dashed rgba(192,132,252,0.42);
       color: #765b86;
     }
 
     .keywords {
       color: #7e22ce;
-      line-height: 2;
     }
 
     ul {
@@ -292,16 +266,33 @@
       .subtitle { font-size: 12px; }
       section { padding: 12px 10px 9px; }
     }
+
+    /* MV 區塊 */
+    .mv-block {
+      margin: 0 0 20px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(148,132,202,0.25);
+      border: 1px solid rgba(240,230,255,0.95);
+      background: #111827;
+    }
+
+    .mv-block iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+
   </style>
 </head>
 
 <body>
   <header>
     <div class="topline">MUSIC UNIVERSE ✦ EMOTIONS SERIES</div>
-    <h1>Emotions 001 ｜ 但願君心似我心</h1>
-    <div class="subtitle">Track 001 · If Only Your Heart Were Like Mine</div>
+    <h1>Emotions 001 ｜ 但願君心似我心 · If Only Your Heart Were Like Mine</h1>
+    <div class="subtitle">Track 001 · Quiet Devotion / Main Motif</div>
     <div class="sub">
-      Some stories do not end together, yet they can still be complete.<br>
       有些故事沒有走到一起，並不代表它沒有走完。
     </div>
 
@@ -341,7 +332,7 @@
 
     <!-- 📌📌 Overview 📌📌 -->
     <section id="overview">
-      <h2>💜 Overview｜這首歌想說什麼？</h2>
+      <h2>📖 Overview｜這首歌想說什麼？</h2>
       <h3>🌷 Series Meaning｜在系列中的意義</h3>
       <p><em>If Only Your Heart Were Like Mine</em> marks an important emotional turn in the series. It keeps the extended structure established in earlier works—guzheng opening the door, a male voice carrying the story, and a female voice returning like memory—but uses it for restraint rather than confrontation. Across four evolving choruses, “fragrant years,” “untarnished,” “watching over you,” and “the scent of flowers” gradually remove possession from love. The song proves that a repeated hook can remain familiar while its character continues to move forward.</p>
       <p class="translation">《但願君心似我心》是 Emotion 系列一次重要的情感轉向。它沿用長篇結構：古箏開門、男聲敘事、女聲如記憶回應，卻不再承載控訴，而是寫克制。四次副歌從「芳辰」、「無塵」、「守君」走到「花香」，一步步洗去愛裡的佔有，也證明 Hook 可以重複，人物卻不能停在原地。</p>
@@ -369,7 +360,7 @@
     
     <!-- 📌📌 Lyrics & Meaning 📌📌 -->
     <section id="lyrics">
-      <h2>📜 Lyrics & Meaning｜歌詞與意涵</h2>
+      <h2>📝 Lyrics & Meaning｜歌詞與意涵</h2>
 
       <h3>🌷關鍵畫面（Key Scenes）🌷</h3>
       <ul>
