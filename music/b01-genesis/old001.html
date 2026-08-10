@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Walk!．曠野中的約瑟 | Kozono Sayuri</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; min-height: 100vh; display: flex; flex-direction: column; color: #0f172a; background: radial-gradient(circle at top, #e0f2fe 0%, #eef2ff 40%, #f9fafb 100%); }
+    header { padding: 26px 16px 18px; text-align: center; background: linear-gradient(135deg, #020617, #1d4ed8, #7c3aed); color: #e5f2ff; box-shadow: 0 4px 18px rgba(15,23,42,0.7); position: relative; overflow: hidden; }
+    .topline { font-size: 10px; letter-spacing: 0.16em; opacity: 0.9; }
+    h1 { font-size: 22px; margin: 6px 0 2px; font-weight: 700; letter-spacing: 0.04em; text-shadow: 0 0 14px rgba(191,219,254,0.95); }
+    .subtitle { font-size: 13px; font-weight: 500; margin-bottom: 4px; color: #bfdbfe; }
+    .sub { font-size: 11px; opacity: 0.96; }
+    header .topline, header h1, header .subtitle, header .sub, header nav { position: relative; z-index: 2; }
+    .star { position: absolute; font-size: 20px; color: rgba(219,234,254,0.95); text-shadow: 0 0 6px rgba(255,255,255,0.95); animation: sparkle 4.5s infinite ease-in-out; pointer-events: none; z-index: 0; }
+    .star:nth-of-type(1){ top:14px; left:6%; } .star:nth-of-type(2){ top:30px; left:14%; animation-delay:.5s; } .star:nth-of-type(3){ top:18px; right:18%; animation-delay:1s; } .star:nth-of-type(4){ top:8px; right:6%; animation-delay:1.6s; } .star:nth-of-type(5){ top:54px; left:10%; animation-delay:2.1s; } .star:nth-of-type(6){ top:60px; right:26%; animation-delay:2.7s; } .star:nth-of-type(7){ top:62px; left:52%; animation-delay:3.2s; }
+    @keyframes sparkle { 0%,100% { transform:scale(1); opacity:.5; } 50% { transform:scale(1.4); opacity:1; } }
+    .nav { margin-top: 12px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+    .nav a { font-size:11px; padding:6px 14px; border-radius:999px; background:rgba(37,99,235,.26); color:#e0f2fe; text-decoration:none; transition:all .15s; border:1px solid rgba(191,219,254,.7); }
+    .nav a:hover, .nav a.active { background:#38bdf8; color:#020617; box-shadow:0 4px 14px rgba(56,189,248,1); transform:translateY(-1px); }
+    main { max-width:840px; width:100%; margin:24px auto 32px; padding:0 16px; flex:1; }
+    .inner-nav { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px; font-size:11px; }
+    .inner-nav a { padding:4px 10px; border-radius:999px; background:rgba(239,246,255,.98); color:#1d4ed8; text-decoration:none; transition:all .15s; border:1px solid rgba(129,140,248,.3); }
+    .inner-nav a:hover { background:#1d4ed8; color:#e0f2fe; box-shadow:0 4px 10px rgba(37,99,235,.35); transform:translateY(-1px); }
+    .badge-row { display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 14px; font-size:10px; color:#1d4ed8; }
+    .badge { padding:3px 8px; border-radius:999px; background:#e0f2fe; }
+    section { background:#fff; border-radius:18px; padding:14px 14px 10px; margin-bottom:10px; box-shadow:0 8px 22px rgba(15,23,42,.06); border:1px solid rgba(219,234,254,.98); position:relative; overflow:hidden; font-size:13px; line-height:1.9; color:#0f172a; }
+    section::before { content:""; position:absolute; width:60px; height:60px; background:radial-gradient(circle,rgba(37,99,235,.12),transparent); top:-14px; right:-14px; }
+    h2 { font-size:15px; margin-bottom:4px; color:#1d4ed8; display:flex; align-items:center; gap:4px; }
+    h3 { font-size:13px; margin:8px 0 2px; color:#1e3a8a; }
+    p { margin-bottom:4px; } ul { margin:2px 0 4px 18px; padding:0; }
+    .translation { margin-top:8px; padding-top:8px; border-top:1px dashed rgba(129,140,248,.28); color:#475569; }
+    .note { font-size:10px; color:#64748b; margin-top:6px; }
+    .note a { color:#2563eb; }
+    .mv-block { margin:0 0 20px; border-radius:18px; overflow:hidden; box-shadow:0 12px 28px rgba(15,23,42,.16); border:1px solid rgba(252,231,243,.98); background:#000; }
+    .mv-block iframe { width:100%; aspect-ratio:16/9; border:0; display:block; }
+    .back-link { font-size:11px; margin-top:6px; text-align:right; } .back-link a { color:#2563eb; text-decoration:none; } .back-link a:hover { text-decoration:underline; }
+    footer { text-align:center; font-size:10px; color:#9ca3af; padding:10px 0 16px; }
+    @media (max-width:600px) { h1{font-size:19px;} .subtitle{font-size:12px;} section{padding:12px 10px 9px;} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topline">MUSIC UNIVERSE ✦ BIBLE / GENESIS SERIES</div>
+    <h1>OLD-001 ｜ I Walk!．曠野中的約瑟</h1>
+    <div class="subtitle">Genesis Series OLD-001 · Genesis 37</div>
+    <div class="sub">He walks not because he understands, but because he does not.<br>他一直走，不是因為已經想通；恰恰是因為想不通，所以只能邊走，邊想。</div>
+    <span class="star">✦</span><span class="star">✧</span><span class="star">✦</span><span class="star">✧</span><span class="star">✦</span><span class="star">✧</span><span class="star">✦</span>
+    <nav class="nav">
+      <a href="../../index.html">Home</a><a href="../index.html" class="active">Music</a><a href="../../worklife/index.html">Work Life</a><a href="../../fitness/index.html">Fitness</a><a href="../../invest/index.html">Invest</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="inner-nav">
+      <a href="#overview">Overview 概念速記</a><a href="#lyrics">Lyrics &amp; Meaning 歌詞與意涵</a><a href="#production">Production 製作過程</a><a href="#suno">Suno Elements AI 音樂元素</a>
+    </div>
+    <div class="badge-row">
+      <div class="badge">Song completed: 2025/8/26 · 歌曲完成</div>
+      <div class="badge">MV completed: 2025/8/26 · MV 完成</div>
+      <div class="badge">Main visual: Broken family memory · 破碎的家庭記憶</div>
+      <div class="badge">OLD release · Facebook only</div>
+    </div>
+
+    <section id="overview">
+      <h2>📖 Overview｜這首歌想說什麼？</h2>
+      <p><strong>I Walk!</strong> is rooted in Genesis 37, stopping at the moment Joseph is envied, betrayed and sold by his brothers. It does not hurry toward Egypt's palace, later reconciliation or a lesson made clear by hindsight. The lyric gathers only the first wound: <em>“Brothers’ eyes burned with envy,” “My dreams became their chains,”</em> and the hands that should have held him close pushing him into dust. Post-rock space, neoclassical strings, cello, piano and a slow walking pulse turn the biblical event into inner time—the long interval in which a young man has no explanation for what his own family has done.</p>
+      <p>The song's emotional center is <em>“Oh, I was not prepared / For love to turn to stone.”</em> Joseph's shock is deeper than fear. He had known family as warmth and shelter; therefore betrayal fractures not only a relationship but his understanding of the past. Were the old embraces real? When did home become unsafe? Scripture records the event but not Joseph's diary, so the song offers an artistic psychological imagining rather than claiming a missing biblical quotation.</p>
+      <p>This makes Joseph a mirror for people who have survived family conflict and now live alone. Childhood celebrations, shared meals and familiar rooms remain vivid, yet cannot be recovered. The repeated <em>I walk</em> is not a victory slogan. It is rumination made physical: “I still do not understand”—one step; “How did we become this?”—another. Walking is not the answer. It is how a person stays alive while the answer has not come.</p>
+      <div class="translation">
+        <p><strong>《I Walk!》</strong>取材自《創世記》第三十七章，故事只停在約瑟遭兄長嫉妒、出賣、被迫離家的時刻。歌曲不急著走向埃及王宮、後來的和解，或事後才明白的答案；它只留下最初的傷口：<em>「兄長眼中燃著嫉妒」、「我的夢成了他們的鎖鏈」</em>，以及那些本該擁抱他的手，最後卻將他推入塵土。Post-Rock 的空間、Neoclassical 弦樂、大提琴、鋼琴與緩慢步伐，把聖經事件轉成一段內在時間：少年無法理解，自己的家人為何會這樣對待他。</p>
+        <p>全曲的情緒核心是：<em>“Oh, I was not prepared / For love to turn to stone.”</em> 約瑟的錯愕比恐懼更深。他曾經把家理解為溫暖與庇護，所以背叛打碎的不只是關係，也打碎了他對過去的理解：以前的擁抱是真的嗎？家是從哪一天開始變得不安全？聖經記下事件，卻沒有留下約瑟的日記；因此這首歌是在經文空白裡所作的藝術性心理想像，而不是宣稱找回一段不存在的經文。</p>
+        <p>約瑟也因此映照了那些經歷家庭爭吵、決裂，最後獨自生活的人。童年的節日、同桌吃飯的時光與熟悉的房間仍然清楚，卻再也無法尋回。反覆出現的 <em>I walk</em> 不是勝利口號，而是把反芻化成腳步：「我還是不懂」——走一步；「我們怎麼會變成這樣？」——再走一步。走路不是答案，而是答案尚未來到時，仍讓自己活下去的方法。</p>
+      </div>
+    </section>
+
+    <div class="mv-block">
+      <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FEmma.Chang.Istasipal%2Fvideos%2F743247081944531%2F&amp;show_text=0&amp;width=560" title="Facebook I Walk OLD-001 Video" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <section id="lyrics">
+      <h2>📝 Lyrics &amp; Meaning｜歌詞與意涵</h2>
+      <h3>🍇Key Scenes｜關鍵畫面🍇</h3>
+      <ul>
+        <li><strong><em>Brothers’ eyes burned with envy</em></strong>: Similar faces are divided by black chains. Before the sale occurs, the family has already begun to fracture inside a gaze.</li>
+        <li><strong><em>My dreams became their chains</em></strong>: Joseph is not chained by the dream; those who envy him are. Another person's light can expose insecurity until affection quietly turns hostile.</li>
+        <li><strong><em>Hands that should have held me close</em></strong>: Familiar hands reach toward the boy, then cast him into dust. The hardest cruelty to understand is the cruelty of those once trusted.</li>
+        <li><strong><em>For love to turn to stone</em></strong>: A family gathers in warm golden light while snow falls outside; then the image shatters like glass. What hurts most is remembering that home was once real.</li>
+        <li><strong><em>I walk…</em></strong>: A lone traveler carries his bag through a cold city and onto an endless road. He has no destination and no explanation—only the next step.</li>
+      </ul>
+      <div class="translation"><ul>
+        <li><strong><em>Brothers’ eyes burned with envy</em></strong>：相似的臉被黑色鎖鏈切開；出賣尚未發生，家已先在眼神裡出現裂縫。</li>
+        <li><strong><em>My dreams became their chains</em></strong>：被夢鎖住的不是約瑟，而是嫉妒他的人；別人的光照見自己的匱乏時，愛有時會悄悄變成敵意。</li>
+        <li><strong><em>Hands that should have held me close</em></strong>：熟悉的手伸向少年，最後卻把他推入塵土；最難理解的惡意，往往來自曾經最信任的人。</li>
+        <li><strong><em>For love to turn to stone</em></strong>：暖黃燈下家人圍坐，窗外落雪，畫面隨即像玻璃碎裂；最痛的，是記憶仍證明家曾經真實。</li>
+        <li><strong><em>I walk…</em></strong>：孤身旅人提著行囊穿過冷城，走上沒有盡頭的路；沒有目的地，也沒有解釋，只剩下一步。</li>
+      </ul></div>
+      <h3>🍇Core Message｜核心訊息🍇</h3>
+      <p><strong>I Walk!</strong> is about the unprepared disbelief that follows betrayal by loved ones. It has not reached forgiveness or reconciliation. Home and love were once real, which is exactly why their loss hurts. When the past cannot be restored and the questions remain unanswered, Joseph walks: thinking while walking, hurting while walking, living while walking.</p>
+      <div class="translation"><p><strong>《I Walk!》</strong>寫的是被最親的人傷害後，那份來不及準備的錯愕；它還沒有走到原諒或和解。家曾經是真的，愛也曾經是真的，所以失去才如此疼。當過去無法復原、問題沒有答案，約瑟只能走：邊走邊想，邊痛邊活。</p></div>
+    </section>
+
+    <section id="production">
+      <h2>🎧 Production Notes｜編曲與製作過程</h2>
+      <h3>🍇Emotion Flow｜情緒設計🍇</h3>
+      <ul>
+        <li><strong>Intro</strong>: Sparse piano, ambient texture and low strings preserve a trace of warmth. Home and safety existed before the rupture; that memory gives betrayal its weight.</li>
+        <li><strong>Verse 1</strong>: A restrained young male voice carries envy and the family's changing air. Cello holds a low unease beneath the words without turning the brothers into theatrical villains.</li>
+        <li><strong>Pre-Chorus</strong>: <em>“Once I had family near me”</em> briefly warms the harmony before it collapses into <em>“Now I am sold.”</em> Memory and present reality become painfully misaligned.</li>
+        <li><strong>Chorus</strong>: <em>“Hands that should have held me close”</em> is stretched melodically so the distance between “should have” and what happened can be heard. Drums add weight, never triumph.</li>
+        <li><strong>Verse 2</strong>: With exile, the soundstage widens and Joseph becomes smaller. Reverb guitar, ambient drone and spacious percussion turn family loneliness into an unfamiliar world.</li>
+        <li><strong>Bridge</strong>: At <em>“For love to turn to stone,”</em> the arrangement thins to voice, cello and piano. A subtle reversed crack lets the warm family image break from within.</li>
+        <li><strong>Final Refrain</strong>: Repeated <em>I walk</em> slowly loses its sentence-like meaning and becomes footsteps—first stunned, then exhausted, finally a calm rhythm of survival.</li>
+        <li><strong>Outro</strong>: The later story remains untold. Cello, delay guitar and a walking pulse fade while the road continues beyond the frame.</li>
+      </ul>
+      <div class="translation"><ul>
+        <li><strong>Intro</strong>：稀疏鋼琴、Ambient texture 與低弦保留一點溫度；家與安全感曾經存在，後來的破裂才有重量。</li>
+        <li><strong>Verse 1</strong>：年輕男聲克制敘述嫉妒與家庭空氣的改變，大提琴在底部維持不安，不把兄長唱成戲劇反派。</li>
+        <li><strong>Pre-Chorus</strong>：唱到 <em>“Once I had family near me”</em> 時和聲短暫回暖，隨即墜入 <em>“Now I am sold”</em>，讓記憶與現實錯位。</li>
+        <li><strong>Chorus</strong>：拉長 <em>“Hands that should have held me close”</em>，讓「本來應該」與真正發生之事的距離被聽見；鼓增加重量，卻不宣告勝利。</li>
+        <li><strong>Verse 2</strong>：進入放逐後，聲場變大，約瑟變小；殘響吉他、Drone 與空曠鼓聲，把家庭內部的孤獨推向陌生世界。</li>
+        <li><strong>Bridge</strong>：唱到 <em>“For love to turn to stone”</em> 時抽薄編曲，只留人聲、大提琴與鋼琴，再以細微反向碎裂聲讓家庭暖光從內部裂開。</li>
+        <li><strong>Final Refrain</strong>：反覆的 <em>I walk</em> 漸漸不再像句子，而成了腳步：先錯愕、再疲憊，最後成為平靜的生存節奏。</li>
+        <li><strong>Outro</strong>：不交代後來的故事；大提琴、Delay Guitar 與步伐脈動淡去，道路仍延伸到畫面之外。</li>
+      </ul></div>
+      <h3>🍇Sound &amp; Color｜聲響顏色🍇</h3>
+      <ul>
+        <li><strong>Instrumentation</strong>: Cello carries loss through low, descending lines; piano belongs to family memory; distant strings hold emotions not yet understood. Atmospheric electric guitar uses delay and reverb to build the road, while bass and drums maintain the walking pulse.</li>
+        <li><strong>Vocals</strong>: A young, vulnerable male narrative voice—not a mature hero. Verses waver with “I still do not know why”; the voice may crack at <em>love to turn to stone</em>. Backing vocals remain memories and echoes, never a victory choir.</li>
+        <li><strong>Special design</strong>: Warm room ambience marks remembered home; a restrained glass-crack texture marks the cognitive break. The ending deliberately avoids a major-key resolution, palace scene or triumphant chorus.</li>
+      </ul>
+      <div class="translation"><ul>
+        <li><strong>樂器設定</strong>：大提琴以低沉下行承擔失去，鋼琴屬於家庭記憶，遠弦保存尚未想通的情緒；氛圍電吉他用 Delay 與 Reverb 建造道路，貝斯與鼓維持步伐脈動。</li>
+        <li><strong>人聲設定</strong>：採用年輕、脆弱的男性敘事聲線，而非成熟英雄；主歌游移著「我仍不知道為什麼」，唱到 <em>love to turn to stone</em> 時容許聲音裂開。合聲只是記憶與回聲，不成為勝利 Choir。</li>
+        <li><strong>特別設計</strong>：暖色 Room Ambience 標記記憶中的家，節制的碎玻璃質地標記認知崩塌；結尾刻意沒有大調解決、王宮畫面或凱旋合唱。</li>
+      </ul></div>
+    </section>
+
+    <section id="suno">
+      <h2>🤖 Suno Elements｜這首歌用到的 AI / Suno 設定</h2>
+      <h3>🍇Model &amp; Style｜模型與風格🍇</h3>
+      <ul>
+        <li><strong>Style design</strong>: An inward biblical post-rock / neoclassical lament. Cinematic scale supplies imagery; ambient space holds loneliness; cello and strings carry loss; slow build lets <em>I walk</em> lengthen into thought.</li>
+        <li><strong>Prompt keywords</strong>: <em>post-rock, neoclassical, ambient, cinematic, atmospheric, emotional young male vocal, cello, strings, piano, reverb guitar, soundscape, minimalism, drone, slow build, melancholic, spiritual, lonely, intimate, reflective, walking pulse, broken family memory</em>.</li>
+        <li><strong>Tempo / Key</strong>: The original BPM and key were not documented. The design favors a slow-to-mid walking tempo and a minor or modal center, with no bright major-key resolution at the end.</li>
+      </ul>
+      <div class="translation"><ul>
+        <li><strong>Style 設計</strong>：一首內省的 Biblical Post-Rock / Neoclassical Lament；Cinematic 提供畫面，Ambient 留住孤獨，大提琴與弦樂承擔失去，Slow Build 讓 <em>I walk</em> 延伸成思緒。</li>
+        <li><strong>Prompt 關鍵字</strong>：<em>post-rock, neoclassical, ambient, cinematic, atmospheric, emotional young male vocal, cello, strings, piano, reverb guitar, soundscape, minimalism, drone, slow build, melancholic, spiritual, lonely, intimate, reflective, walking pulse, broken family memory</em>。</li>
+        <li><strong>Tempo / Key</strong>：原始 BPM 與 Key 未被保存，因此不事後杜撰；設計偏向中慢速步行節奏與 Minor / Modal 中心，結尾不轉入燦爛大調。</li>
+      </ul></div>
+      <h3>🍇Implementation Notes｜實作小記🍇</h3>
+      <p>The earliest concept leaned toward a cinematic biblical ballad, with Middle Eastern color, strings, piano, powerful drums and choir. Yet Joseph's story was too large; telling every later event would have hidden the one line that mattered. When <em>I walk</em> became the center, large-scale spectacle stepped back. Cello moved forward, choir receded, and distance, wind, footsteps, dust and memory became part of the music.</p>
+      <p>The creative decision was also theological. Faith stories often skip too quickly from injury to strength, as if joy must be performed before confusion is allowed to speak. This song preserves the stage before understanding. Joseph has not yet learned what the road means. He has not reached forgiveness, reunion or the later words by which he will interpret his life. He only knows that the people he loved have sold him and that home is behind him.</p>
+      <p>That unfinishedness is the point. <em>I walk</em> does not mean “I win,” or even “I know.” It means: I am shocked; I keep replaying what happened; I cannot stay here; I take another step. The music offers no shortcut to optimism. It gives the listener room to remain confused without being abandoned—and suggests that sometimes faith is not possessing an answer, but continuing to live honestly before God until one comes.</p>
+      <div class="translation">
+        <p>最早的構想較接近 Cinematic Biblical Ballad，帶有 Middle Eastern 色彩、弦樂、鋼琴、強鼓與 Choir。然而約瑟的故事太大，若把後來每一件事都唱完，反而會遮住真正重要的那一句。當 <em>I walk</em> 成為中心，大編制便往後退，大提琴走到前面；合唱淡去，距離、風、腳步、塵土與記憶開始成為音樂。</p>
+        <p>這也是一個與信仰理解有關的選擇。信仰故事常太快從受傷跳到剛強，好像困惑尚未被允許說話，人就必須先表演喜樂。這首歌刻意保留「明白以前」的階段。約瑟尚不知道道路的意義，也還沒走到原諒、重逢，或多年後回望人生的那句解釋；他只知道，自己所愛的人把他賣了，而家已留在身後。</p>
+        <p>這份未完成，正是歌曲的重點。<em>I walk</em> 不是「我贏了」，甚至不是「我知道」；它是：我很錯愕，我不斷重播發生過的事，我已無法留下，所以再走一步。音樂不提供樂觀捷徑，而讓聽者可以困惑，卻不必因此覺得自己被丟棄；有時信心並不是已經握有答案，而是在答案抵達以前，仍誠實地活在神面前。</p>
+      </div>
+      <h3>🍇Keywords｜關鍵字🍇</h3>
+      <p>I Walk, Joseph in the Wilderness, Joseph, Genesis 37, brothers’ envy, sibling conflict, broken family, family estrangement, betrayal by loved ones, sold for silver, abandonment, exile, living alone, childhood memories, home that cannot be recovered, love turned to stone, modern city loneliness, confusion, unanswered questions, survival, walking, post-rock, neoclassical, ambient, cello, cinematic, slow build, AI music, Suno.</p>
+      <div class="translation"><p>I Walk、曠野中的約瑟、約瑟、創世記37章、兄弟嫉妒、手足衝突、家庭決裂、被家人傷害、被出賣、銀幣、離家、放逐、獨居、童年回憶、回不去的家、愛變成石頭、陌生城市、孤獨、不解、沒有答案、活下去、行走、Post-Rock、Neoclassical、Ambient、大提琴、Cinematic、Slow Build、AI 音樂、Suno。</p></div>
+      <div class="note">🌀 <a href="https://www.facebook.com/Emma.Chang.Istasipal/videos/743247081944531" target="_blank" rel="noopener">Watch the OLD-001 release on Facebook｜於 Facebook 觀看 OLD-001</a><br>This pre-subscription OLD release is intentionally published only on Facebook and not YouTube.｜此為付費前的 OLD 版本，僅於 Facebook 發佈，不上架 YouTube。</div>
+    </section>
+
+    <div class="back-link">← 回到 <a href="index.html">本系列總覽</a></div>
+  </main>
+  <footer>© 2025 Kozono Sayuri. All rights reserved.</footer>
+</body>
+</html>
